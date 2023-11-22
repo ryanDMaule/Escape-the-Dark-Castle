@@ -9,8 +9,6 @@ public enum ChapterDieOptions { MIGHT, CUNNING, WISDOM, FAIL }
 
 public abstract class PlayerBase : MonoBehaviour
 {
-
-    //PLAYER CLASS ELEMENTS
     private const int MAX_HEALTH = 18;
     private const int MIN_HEALTH = 0;
     public int currentHealth = 18;
@@ -24,7 +22,6 @@ public abstract class PlayerBase : MonoBehaviour
     private bool shieldActive = false;
     private bool isResting = false;
 
-    //GAME LOGIC CLASS ELEMENTS
     [SerializeField] public Image combatState;
     [SerializeField] public Button restButton;
     [SerializeField] public Button fightButton;
