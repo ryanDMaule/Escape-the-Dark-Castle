@@ -53,19 +53,15 @@ public class ChapterLogic : MonoBehaviour
 
     IEnumerator setEnemyhealthIE()
     {
-        while (Abbot.getChapterDie().gameObject.activeSelf)
+        while (Abbot.getChapterDieButton().gameObject.activeSelf)
         {
             yield return null;
         }
 
-        while (Miller.getChapterDie().gameObject.activeSelf)
+        while (Miller.getChapterDieButton().gameObject.activeSelf)
         {
             yield return null;
         }
-
-        enemy.setEnemyMight(Abbot.getRolledMight() + Miller.getRolledMight());
-        enemy.setEnemyCunning(Abbot.getRolledCunning() + Miller.getRolledCunning());
-        enemy.setEnemyWisdom(Abbot.getRolledWisdom() + Miller.getRolledWisdom());
 
         yield return new WaitForSeconds(2f);
         preperationPhase();
@@ -145,13 +141,6 @@ public class ChapterLogic : MonoBehaviour
             }
         }
 
-        enemy.reduceEnemyMight(Abbot.getMightDamage() + Miller.getMightDamage());
-        enemy.reduceEnemyCunning(Abbot.getCunningDamage() + Miller.getCunningDamage());
-        enemy.reduceEnemyWisdom(Abbot.getWisdomDamage() + Miller.getWisdomDamage());
-
-        Debug.Log("CONTINUE");
-
-
         if (enemy.enemyDead())
         {
             yield return new WaitForSeconds(2f);
@@ -160,15 +149,6 @@ public class ChapterLogic : MonoBehaviour
         }
         else
         {
-            Abbot.mightDamage = 0;
-            Abbot.cunningDamage = 0;
-            Abbot.wisdomDamage = 0;
-
-            Miller.mightDamage = 0;
-            Miller.cunningDamage = 0;
-            Miller.wisdomDamage = 0;
-
-
             yield return new WaitForSeconds(2f);
             setEnemyTurnHUD();
             StartCoroutine(enemyPhase());

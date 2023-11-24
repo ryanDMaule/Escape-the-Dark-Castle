@@ -42,64 +42,12 @@ public class Abbot : PlayerBase
         }
     }
 
-    public int mightDamage = 0;
-    public int cunningDamage = 0;
-    public int wisdomDamage = 0;
-    private void SetAbbotDice(string rollValue)
+    public void rollLogic(Enemy enemy)
     {
-        switch (rollValue)
-        {
-            case "0":
-                mightDamage += 1;
-                break;
-
-            case "1":
-                mightDamage += 1;
-                break;
-
-            case "2":
-
-                wisdomDamage += 1;
-                break;
-
-            case "3":
-                wisdomDamage += 2;
-                setShieldActiveState(true);
-                break;
-
-            case "4":
-                wisdomDamage += 1;
-                break;
-
-            case "5":
-                mightDamage += 2;
-                setShieldActiveState(true);
-                break;
-
-            default:
-                break;
-        }
+        StartCoroutine(rollDelay(enemy));
     }
 
-    public int getMightDamage()
-    {
-        return mightDamage;
-    }
-    public int getCunningDamage()
-    {
-        return cunningDamage;
-    }
-    public int getWisdomDamage()
-    {
-        return wisdomDamage;
-    }
-
-    public void rollLogic()
-    {
-        StartCoroutine(rollDelay());
-    }
-
-    IEnumerator rollDelay()
+    IEnumerator rollDelay(Enemy enemy)
     {
         Die characterDie = getCharacterDie();
         if (!characterDie.isRolling)
@@ -122,7 +70,7 @@ public class Abbot : PlayerBase
             getCharacterDieButton().gameObject.SetActive(false);
 
             string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            SetAbbotDice(dieValue);
+            SetAbbotDice(dieValue, enemy);
         }
 
     }

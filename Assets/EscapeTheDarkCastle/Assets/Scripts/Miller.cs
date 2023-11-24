@@ -40,63 +40,12 @@ public class Miller : PlayerBase
         }
     }
 
-    public int mightDamage = 0;
-    public int cunningDamage = 0;
-    public int wisdomDamage = 0;
-    private void SetMillerDice(string rollValue)
+    public void rollLogic(Enemy enemy)
     {
-        switch (rollValue)
-        {
-            case "0":
-                cunningDamage += 1;
-                break;
-
-            case "1":
-                mightDamage += 1;
-                break;
-
-            case "2":
-                cunningDamage += 1;
-                break;
-
-            case "3":
-                cunningDamage += 2;
-                setShieldActiveState(true);
-                break;
-
-            case "4":
-                wisdomDamage += 1;
-                break;
-
-            case "5":
-                mightDamage += 2;
-                setShieldActiveState(true);
-                break;
-
-            default:
-                break;
-        }
+        StartCoroutine(rollDelay(enemy));
     }
 
-    public int getMightDamage()
-    {
-        return mightDamage;
-    }
-    public int getCunningDamage()
-    {
-        return cunningDamage;
-    }
-    public int getWisdomDamage()
-    {
-        return wisdomDamage;
-    }
-
-    public void rollLogic()
-    {
-        StartCoroutine(rollDelay());
-    }
-
-    IEnumerator rollDelay()
+    IEnumerator rollDelay(Enemy enemy)
     {
         Die characterDie = getCharacterDie();
         if (!characterDie.isRolling)
@@ -119,7 +68,7 @@ public class Miller : PlayerBase
             getCharacterDieButton().gameObject.SetActive(false);
 
             string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            SetMillerDice(dieValue);
+            SetMillerDice(dieValue, enemy);
         }
 
     }
