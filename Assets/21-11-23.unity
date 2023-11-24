@@ -350,6 +350,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64780364743290360, guid: 8119599d39672654795f7333bb05241d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: bbfe40ed88e1aa445959d9ab34d9b050, type: 3}
     - target: {fileID: 114540146465411268, guid: 8119599d39672654795f7333bb05241d, type: 3}
       propertyPath: '_dieSides.Array.data[0].values.Array.data[0]'
       value: 0
@@ -378,7 +382,8 @@ PrefabInstance:
       propertyPath: _nudgeAlongForce
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114658941202837736, guid: 8119599d39672654795f7333bb05241d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -542,7 +547,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Miller
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1283940388832734590, guid: f564d0cb78ea17040ac254c8629c5e6c, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: bbfe40ed88e1aa445959d9ab34d9b050, type: 3}
+    m_RemovedComponents:
+    - {fileID: -8768097877640681277, guid: f564d0cb78ea17040ac254c8629c5e6c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6041,6 +6051,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64780364743290360, guid: 8119599d39672654795f7333bb05241d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: bbfe40ed88e1aa445959d9ab34d9b050, type: 3}
     - target: {fileID: 114540146465411268, guid: 8119599d39672654795f7333bb05241d, type: 3}
       propertyPath: '_dieSides.Array.data[0].values.Array.data[0]'
       value: 0
@@ -6069,7 +6083,8 @@ PrefabInstance:
       propertyPath: _nudgeAlongForce
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114658941202837736, guid: 8119599d39672654795f7333bb05241d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6367,7 +6382,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Abbot
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7437219118846434764, guid: 6c36b60f3be0b9748842234b5c9ce15f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: bbfe40ed88e1aa445959d9ab34d9b050, type: 3}
+    m_RemovedComponents:
+    - {fileID: -2780231611497930907, guid: 6c36b60f3be0b9748842234b5c9ce15f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
