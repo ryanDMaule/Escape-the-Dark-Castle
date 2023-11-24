@@ -15,6 +15,7 @@ public abstract class PlayerBase : MonoBehaviour
 
     [SerializeField] private new string name;
     [SerializeField] private Text healthText;
+    [SerializeField] private Text nameBattleText;
 
     [SerializeField] private Die chapterDie;
     [SerializeField] private Die characterDie;
@@ -225,6 +226,7 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.gameObject.SetActive(false);
         restButton.gameObject.SetActive(false);
         fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     public void PREPERATION_HUD()
@@ -234,6 +236,7 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.gameObject.SetActive(true);
         restButton.gameObject.SetActive(true);
         fightButton.gameObject.SetActive(true);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     public void PLAYER_TURN_HUD()
@@ -242,7 +245,8 @@ public abstract class PlayerBase : MonoBehaviour
         rollCharacterDieButton.gameObject.SetActive(true);
         combatState.gameObject.SetActive(true);
         restButton.gameObject.SetActive(false);
-        fightButton.gameObject.SetActive(false);    
+        fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     public void ENENMY_TURN_WON_LOST_HUD()
@@ -252,6 +256,7 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.gameObject.SetActive(true);
         restButton.gameObject.SetActive(false);
         fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     #endregion
