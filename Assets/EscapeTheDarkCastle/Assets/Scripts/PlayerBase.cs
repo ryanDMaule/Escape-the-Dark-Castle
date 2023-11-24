@@ -146,37 +146,17 @@ public abstract class PlayerBase : MonoBehaviour
         };
     }
 
-
-    private int enemyMight = 0;
-    private int enemyCunning = 0;
-    private int enemyWisdom = 0;
-
-    public int getRolledMight()
+    public void rollEnemyHealth(Enemy enemy)
     {
-        return enemyMight;
-    }
-    public int getRolledCunning()
-    {
-        return enemyCunning;
-    }
-    public int getRolledWisdom()
-    {
-        return enemyWisdom;
+        StartCoroutine(rollEnemyHealthIE(enemy));
     }
 
-    public void rollEnemyHealth()
-    {
-        StartCoroutine(rollEnemyHealthIE());
-    }
-
-    IEnumerator rollEnemyHealthIE()
+    IEnumerator rollEnemyHealthIE(Enemy enemy)
     {
         if (!chapterDie.isRolling)
         {
             chapterDie.gameObject.SetActive(true);
             chapterDie.Roll();
-
-            rollChapterDieButton.gameObject.SetActive(false);
 
             while (chapterDie.isRolling)
             {
@@ -184,21 +164,23 @@ public abstract class PlayerBase : MonoBehaviour
             }
 
             chapterDie.gameObject.SetActive(false);
+            rollChapterDieButton.gameObject.SetActive(false);
+
             string dieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
             ChapterDieOptions rollResult = getChapterRolResult(dieValue);
 
             switch (rollResult)
             {
                 case ChapterDieOptions.MIGHT:
-                    enemyMight++;
+                    enemy.setEnemyMight(1);
                     break;
 
                 case ChapterDieOptions.CUNNING:
-                    enemyCunning++;
+                    enemy.setEnemyCunning(1);
                     break;
 
                 case ChapterDieOptions.WISDOM:
-                    enemyWisdom++;
+                    enemy.setEnemyWisdom(1);
                     break;
 
                 default:
@@ -219,6 +201,16 @@ public abstract class PlayerBase : MonoBehaviour
     }
 
     #region HUD_methods
+
+    public void SET_DESCRIPTION_HUD()
+    {
+        rollChapterDieButton.gameObject.SetActive(false);
+        rollCharacterDieButton.gameObject.SetActive(false);
+        combatState.gameObject.SetActive(false);
+        restButton.gameObject.SetActive(false);
+        fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(false);
+    }
     public void SET_ENEMY_HEALTH_HUD()
     {
         rollChapterDieButton.gameObject.SetActive(true);
