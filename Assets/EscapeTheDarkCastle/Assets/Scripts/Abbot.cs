@@ -108,7 +108,7 @@ public class Abbot : PlayerBase
 
 
             //show the dice and spawn it rolling in the air above the camera
-            characterDie.transform.position = new Vector3(0, 15, 0);
+            //characterDie.transform.position = new Vector3(0, 15, 0);
             characterDie.gameObject.SetActive(true);
             characterDie.Roll();
 

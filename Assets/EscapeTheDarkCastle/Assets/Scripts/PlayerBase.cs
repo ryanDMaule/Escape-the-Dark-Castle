@@ -9,14 +9,13 @@ public enum ChapterDieOptions { MIGHT, CUNNING, WISDOM, FAIL }
 
 public abstract class PlayerBase : MonoBehaviour
 {
-
-    //PLAYER CLASS ELEMENTS
     private const int MAX_HEALTH = 18;
     private const int MIN_HEALTH = 0;
     public int currentHealth = 18;
 
     [SerializeField] private new string name;
     [SerializeField] private Text healthText;
+    [SerializeField] private Text nameBattleText;
 
     [SerializeField] private Die chapterDie;
     [SerializeField] private Die characterDie;
@@ -24,7 +23,6 @@ public abstract class PlayerBase : MonoBehaviour
     private bool shieldActive = false;
     private bool isResting = false;
 
-    //GAME LOGIC CLASS ELEMENTS
     [SerializeField] public Image combatState;
     [SerializeField] public Button restButton;
     [SerializeField] public Button fightButton;
@@ -228,6 +226,7 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.gameObject.SetActive(false);
         restButton.gameObject.SetActive(false);
         fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     public void PREPERATION_HUD()
@@ -237,6 +236,7 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.gameObject.SetActive(true);
         restButton.gameObject.SetActive(true);
         fightButton.gameObject.SetActive(true);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     public void PLAYER_TURN_HUD()
@@ -245,7 +245,8 @@ public abstract class PlayerBase : MonoBehaviour
         rollCharacterDieButton.gameObject.SetActive(true);
         combatState.gameObject.SetActive(true);
         restButton.gameObject.SetActive(false);
-        fightButton.gameObject.SetActive(false);    
+        fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     public void ENENMY_TURN_WON_LOST_HUD()
@@ -255,6 +256,7 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.gameObject.SetActive(true);
         restButton.gameObject.SetActive(false);
         fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(true);
     }
 
     #endregion

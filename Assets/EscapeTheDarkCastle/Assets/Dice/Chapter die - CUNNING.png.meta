@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f1e4736c1efc96e4ba07298c6a7c7ec4
+guid: 92d863418ef87a5408cc8a81e21b3569
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5454684102490542506
-    second: chapterDice_0
+      213: -6564487261146080053
+    second: Chapter die - CUNNING_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chapterDice_0
+      name: Chapter die - CUNNING_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2479
-        height: 2475
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa15be28a4ee2bb40800000000000000
-      internalID: 5454684102490542506
+      spriteID: bcc9fcabd9146e4a0800000000000000
+      internalID: -6564487261146080053
       vertices: []
       indices: 
       edges: []
@@ -152,8 +152,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      chapterDice_0: 5454684102490542506
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

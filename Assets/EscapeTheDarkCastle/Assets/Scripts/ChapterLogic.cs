@@ -16,6 +16,7 @@ public class ChapterLogic : MonoBehaviour
     [SerializeField] public Image enemy_cunning;
     [SerializeField] public Image enemy_wisdom;
     [SerializeField] public Image enemy_damage_image;
+    [SerializeField] public Image divider;
 
     [SerializeField] public Text enemy_might_text;
     [SerializeField] public Text enemy_cunning_text;
@@ -221,6 +222,8 @@ public class ChapterLogic : MonoBehaviour
 
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
+
+        divider.gameObject.SetActive(true);
     }
 
     void setPreperationHUD()
@@ -242,6 +245,8 @@ public class ChapterLogic : MonoBehaviour
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(true);
 
+        divider.gameObject.SetActive(true);
+
         Abbot.setShieldActiveState(false);
         Miller.setShieldActiveState(false);
     }
@@ -261,6 +266,8 @@ public class ChapterLogic : MonoBehaviour
 
         Abbot.PLAYER_TURN_HUD();
         Miller.PLAYER_TURN_HUD();
+
+        divider.gameObject.SetActive(true);
 
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
@@ -282,6 +289,8 @@ public class ChapterLogic : MonoBehaviour
         Abbot.ENENMY_TURN_WON_LOST_HUD();
         Miller.ENENMY_TURN_WON_LOST_HUD();
 
+        divider.gameObject.SetActive(true);
+
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
@@ -301,6 +310,8 @@ public class ChapterLogic : MonoBehaviour
 
         Abbot.ENENMY_TURN_WON_LOST_HUD();
         Miller.ENENMY_TURN_WON_LOST_HUD();
+
+        divider.gameObject.SetActive(false);
 
         win_lose_text.gameObject.SetActive(true);
         win_lose_text.text = "YOU WIN!";
@@ -322,6 +333,8 @@ public class ChapterLogic : MonoBehaviour
 
         Abbot.ENENMY_TURN_WON_LOST_HUD();
         Miller.ENENMY_TURN_WON_LOST_HUD();
+
+        divider.gameObject.SetActive(false);
 
         win_lose_text.gameObject.SetActive(true);
         win_lose_text.text = "YOU LOSE!";
