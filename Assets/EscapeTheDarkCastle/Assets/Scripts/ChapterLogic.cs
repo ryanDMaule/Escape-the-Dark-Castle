@@ -4,7 +4,7 @@ using InnerDriveStudios.DiceCreator;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BattleState { SET_ENEMY_HEALTH, PREPERATION, PLAYER_TURN, ENEMY_TURN, WON, LOST }
+public enum BattleState { DESCRIPTION, SET_ENEMY_HEALTH, PREPERATION, PLAYER_TURN, ENEMY_TURN, WON, LOST }
 
 
 public class ChapterLogic : MonoBehaviour
@@ -22,6 +22,9 @@ public class ChapterLogic : MonoBehaviour
     [SerializeField] public Text enemy_cunning_text;
     [SerializeField] public Text enemy_wisdom_text;
 
+    [SerializeField] public ScrollRect description;
+    [SerializeField] public Button description_button;
+
     [SerializeField] public Text win_lose_text;
     [SerializeField] public Button Continue_button;
 
@@ -37,13 +40,18 @@ public class ChapterLogic : MonoBehaviour
 
     void Start()
     {
-        state = BattleState.SET_ENEMY_HEALTH;
-        setEnemyHealthPhase();
+        setDescriptionPhase();
     }
 
-
-    void setEnemyHealthPhase()
+    public void setDescriptionPhase()
     {
+        state = BattleState.DESCRIPTION;
+        setDescriptionHUD();
+    }
+
+    public void setEnemyHealthPhase()
+    {
+        state = BattleState.SET_ENEMY_HEALTH;
         setEnemyHUD();
         enemy.setEnemyMight(2);
 
@@ -184,9 +192,36 @@ public class ChapterLogic : MonoBehaviour
     }
 
     #region HUD_methods
+    void setDescriptionHUD()
+    {
+        Debug.Log("setDescriptionHUD");
+
+        description.gameObject.SetActive(true);
+        description_button.gameObject.SetActive(true);
+
+        enemyImage.gameObject.SetActive(true);
+        enemy_might.gameObject.SetActive(false);
+        enemy_cunning.gameObject.SetActive(false);
+        enemy_wisdom.gameObject.SetActive(false);
+        enemy_damage_image.gameObject.SetActive(false);
+        enemy_might_text.gameObject.SetActive(false);
+        enemy_cunning_text.gameObject.SetActive(false);
+        enemy_wisdom_text.gameObject.SetActive(false);
+
+        Abbot.SET_DESCRIPTION_HUD();
+        Miller.SET_DESCRIPTION_HUD();
+
+        win_lose_text.gameObject.SetActive(false);
+        Continue_button.gameObject.SetActive(false);
+
+        divider.gameObject.SetActive(false);
+    }
     void setEnemyHUD()
     {
         Debug.Log("setEnemyHUD");
+
+        description.gameObject.SetActive(false);
+        description_button.gameObject.SetActive(false);
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -209,6 +244,9 @@ public class ChapterLogic : MonoBehaviour
     void setPreperationHUD()
     {
         Debug.Log("setPreperationHUD");
+
+        description.gameObject.SetActive(false);
+        description_button.gameObject.SetActive(false);
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -235,6 +273,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setPlayerTurnHUD");
 
+        description.gameObject.SetActive(false);
+        description_button.gameObject.SetActive(false);
+
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
         enemy_cunning.gameObject.SetActive(true);
@@ -256,6 +297,9 @@ public class ChapterLogic : MonoBehaviour
     void setEnemyTurnHUD()
     {
         Debug.Log("setEnemyTurnHUD");
+
+        description.gameObject.SetActive(false);
+        description_button.gameObject.SetActive(false);
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -279,6 +323,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setWinHUD");
 
+        description.gameObject.SetActive(false);
+        description_button.gameObject.SetActive(false);
+
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
         enemy_cunning.gameObject.SetActive(true);
@@ -301,6 +348,9 @@ public class ChapterLogic : MonoBehaviour
     void setLoseHUD()
     {
         Debug.Log("setLoseHUD");
+
+        description.gameObject.SetActive(false);
+        description_button.gameObject.SetActive(false);
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);

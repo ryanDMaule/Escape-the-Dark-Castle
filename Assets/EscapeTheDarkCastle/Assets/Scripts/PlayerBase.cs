@@ -201,6 +201,16 @@ public abstract class PlayerBase : MonoBehaviour
     }
 
     #region HUD_methods
+
+    public void SET_DESCRIPTION_HUD()
+    {
+        rollChapterDieButton.gameObject.SetActive(false);
+        rollCharacterDieButton.gameObject.SetActive(false);
+        combatState.gameObject.SetActive(false);
+        restButton.gameObject.SetActive(false);
+        fightButton.gameObject.SetActive(false);
+        nameBattleText.gameObject.SetActive(false);
+    }
     public void SET_ENEMY_HEALTH_HUD()
     {
         rollChapterDieButton.gameObject.SetActive(true);
