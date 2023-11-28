@@ -4,7 +4,7 @@ using InnerDriveStudios.DiceCreator;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BattleState { DESCRIPTION, SET_ENEMY_HEALTH, PREPERATION, PLAYER_TURN, ENEMY_TURN, WON, LOST }
+public enum BattleState { DESCRIPTION, COMBAT_OPTIONS, SET_ENEMY_HEALTH, PREPERATION, PLAYER_TURN, ENEMY_TURN, WON, LOST }
 
 
 public class ChapterLogic : MonoBehaviour
@@ -33,6 +33,7 @@ public class ChapterLogic : MonoBehaviour
     [SerializeField] public Miller Miller;
 
     [SerializeField] private Enemy enemy;
+    [SerializeField] private EnemyHud enemyHud;
 
     public BattleState state;
 
@@ -49,11 +50,17 @@ public class ChapterLogic : MonoBehaviour
         setDescriptionHUD();
     }
 
+    public void setCombatOptionsPhase()
+    {
+        state = BattleState.COMBAT_OPTIONS;
+        setCombatOptionsHUD();
+    }
+
     public void setEnemyHealthPhase()
     {
         state = BattleState.SET_ENEMY_HEALTH;
         setEnemyHUD();
-        enemy.setEnemyMight(2);
+        //enemy.setEnemyMight(2);
 
         //both player to roll their chapter die
         StartCoroutine(setEnemyhealthIE());
@@ -171,11 +178,11 @@ public class ChapterLogic : MonoBehaviour
 
         if (!Abbot.getShieldActiveState() && !Abbot.getIsRestingState())
         {
-            abbotDead = Abbot.RedcuceHealth(1);
+            abbotDead = Abbot.RedcuceHealth(enemy.getDamage());
         }
         if (!Miller.getShieldActiveState() && !Miller.getIsRestingState())
         {
-            MillerDead = Miller.RedcuceHealth(1);
+            MillerDead = Miller.RedcuceHealth(enemy.getDamage());
         }
 
         if (abbotDead || MillerDead)
@@ -199,6 +206,8 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(true);
         description_button.gameObject.SetActive(true);
 
+        enemyHud.hideOptionsHUD();
+
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(false);
         enemy_cunning.gameObject.SetActive(false);
@@ -216,12 +225,42 @@ public class ChapterLogic : MonoBehaviour
 
         divider.gameObject.SetActive(false);
     }
+
+    void setCombatOptionsHUD()
+    {
+        Debug.Log("setCombatOptionsHUD");
+
+        description.gameObject.SetActive(true);
+        description_button.gameObject.SetActive(true);
+
+        enemyHud.showOptionsHUD();
+
+        enemyImage.gameObject.SetActive(true);
+        enemy_might.gameObject.SetActive(false);
+        enemy_cunning.gameObject.SetActive(false);
+        enemy_wisdom.gameObject.SetActive(false);
+        enemy_damage_image.gameObject.SetActive(false);
+        enemy_might_text.gameObject.SetActive(false);
+        enemy_cunning_text.gameObject.SetActive(false);
+        enemy_wisdom_text.gameObject.SetActive(false);
+
+        Abbot.SET_DESCRIPTION_HUD();
+        Miller.SET_DESCRIPTION_HUD();
+
+        win_lose_text.gameObject.SetActive(false);
+        Continue_button.gameObject.SetActive(false);
+
+        divider.gameObject.SetActive(false);
+    }
+
     void setEnemyHUD()
     {
         Debug.Log("setEnemyHUD");
 
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
+
+        enemyHud.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -247,6 +286,8 @@ public class ChapterLogic : MonoBehaviour
 
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
+
+        enemyHud.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -276,6 +317,8 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
+        enemyHud.hideOptionsHUD();
+
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
         enemy_cunning.gameObject.SetActive(true);
@@ -300,6 +343,8 @@ public class ChapterLogic : MonoBehaviour
 
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
+
+        enemyHud.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -326,6 +371,8 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
+        enemyHud.hideOptionsHUD();
+
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
         enemy_cunning.gameObject.SetActive(true);
@@ -351,6 +398,8 @@ public class ChapterLogic : MonoBehaviour
 
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
+
+        enemyHud.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);

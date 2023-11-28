@@ -3,6 +3,10 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] public Image enemyDamage;
+
+    [SerializeField] public Sprite damage1;
+    [SerializeField] public Sprite damage2;
 
     [SerializeField] public Text enemy_might_text;
     [SerializeField] public Text enemy_cunning_text;
@@ -12,6 +16,36 @@ public class Enemy : MonoBehaviour
     private int enemy_cunning_int = 0;
     private int enemy_wisdom_int = 0;
 
+    private int damage = 1;
+
+    [SerializeField] public ChapterLogic cl;
+
+    public void option1()
+    {
+        setDamage(2);
+        enemyDamage.sprite = damage2;
+
+        cl.setEnemyHealthPhase();
+    }
+
+    public void option2()
+    {
+        setEnemyMight(2);
+        setDamage(1);
+        enemyDamage.sprite = damage1;
+
+        cl.setEnemyHealthPhase();
+    }
+
+    public void setDamage(int value)
+    {
+        damage = value;
+    }
+
+    public int getDamage()
+    {
+        return damage;
+    }
 
     public void setEnemyMight(int value)
     {
