@@ -39,6 +39,11 @@ public class ChapterLogic : MonoBehaviour
 
     #endregion
 
+    public BattleState getState()
+    {
+        return state;
+    }
+
     void Start()
     {
         setDescriptionPhase();

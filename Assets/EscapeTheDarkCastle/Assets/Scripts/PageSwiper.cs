@@ -16,6 +16,9 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] public Button back_button;
     [SerializeField] public Button forward_button;
 
+    [SerializeField] ChapterLogic cl;
+
+
     void Start()
     {
         panelLocation = transform.position;
@@ -23,22 +26,25 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
 
     void Update()
     {
-        if (currentPage == totalpages)
+        if(cl.getState() == BattleState.COMBAT_OPTIONS)
         {
-            forward_button.gameObject.SetActive(false);
-        }
-        else
-        {
-            forward_button.gameObject.SetActive(true);
-        }
+            if (currentPage == totalpages)
+            {
+                forward_button.gameObject.SetActive(false);
+            }
+            else
+            {
+                forward_button.gameObject.SetActive(true);
+            }
 
-        if (currentPage == 1)
-        {
-            back_button.gameObject.SetActive(false);
-        }
-        else
-        {
-            back_button.gameObject.SetActive(true);
+            if (currentPage == 1)
+            {
+                back_button.gameObject.SetActive(false);
+            }
+            else
+            {
+                back_button.gameObject.SetActive(true);
+            }
         }
 
     }

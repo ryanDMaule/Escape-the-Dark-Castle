@@ -14,8 +14,8 @@ public class EnemyHud : MonoBehaviour
 
     [SerializeField] Image background;
 
-    [SerializeField] Image backButton;
-    [SerializeField] Image forwardButton;
+    [SerializeField] Button backButton;
+    [SerializeField] Button forwardButton;
 
     [SerializeField] Image Frame_1;
     [SerializeField] Text title_1;
