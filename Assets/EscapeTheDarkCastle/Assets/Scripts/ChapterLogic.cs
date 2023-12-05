@@ -9,24 +9,11 @@ public class ChapterLogic : MonoBehaviour
 {
     #region globalVariables
 
-    [SerializeField] public Image enemyImage;
-    [SerializeField] public Image enemy_might;
-    [SerializeField] public Image enemy_cunning;
-    [SerializeField] public Image enemy_wisdom;
-    [SerializeField] public Image enemy_damage_image;
     [SerializeField] public Image divider;
-
-    [SerializeField] public Text enemy_might_text;
-    [SerializeField] public Text enemy_cunning_text;
-    [SerializeField] public Text enemy_wisdom_text;
-
-    [SerializeField] public ScrollRect description;
-    [SerializeField] public Button description_button;
 
     [SerializeField] public Text win_lose_text;
     [SerializeField] public Button Continue_button;
 
-    [SerializeField] public int enemy_damage;
     [SerializeField] public Abbot Abbot;
     [SerializeField] public Miller Miller;
 
@@ -205,19 +192,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setDescriptionHUD");
 
-        description.gameObject.SetActive(true);
-        description_button.gameObject.SetActive(true);
-
+        enemyBase.SHOW_DESCRIPTION();
         enemyBase.hideOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(false);
-        enemy_cunning.gameObject.SetActive(false);
-        enemy_wisdom.gameObject.SetActive(false);
-        enemy_damage_image.gameObject.SetActive(false);
-        enemy_might_text.gameObject.SetActive(false);
-        enemy_cunning_text.gameObject.SetActive(false);
-        enemy_wisdom_text.gameObject.SetActive(false);
+        enemyBase.SET_ENEMY_IMAGE_ONLY();
 
         Abbot.SET_DESCRIPTION_HUD();
         Miller.SET_DESCRIPTION_HUD();
@@ -232,19 +209,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setCombatOptionsHUD");
 
-        description.gameObject.SetActive(true);
-        description_button.gameObject.SetActive(true);
-
+        enemyBase.SHOW_DESCRIPTION();
         enemyBase.showOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(false);
-        enemy_cunning.gameObject.SetActive(false);
-        enemy_wisdom.gameObject.SetActive(false);
-        enemy_damage_image.gameObject.SetActive(false);
-        enemy_might_text.gameObject.SetActive(false);
-        enemy_cunning_text.gameObject.SetActive(false);
-        enemy_wisdom_text.gameObject.SetActive(false);
+        enemyBase.SET_ENEMY_IMAGE_ONLY();
 
         Abbot.SET_DESCRIPTION_HUD();
         Miller.SET_DESCRIPTION_HUD();
@@ -259,19 +226,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setEnemyHUD");
 
-        description.gameObject.SetActive(false);
-        description_button.gameObject.SetActive(false);
-
+        enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(true);
-        enemy_cunning.gameObject.SetActive(true);
-        enemy_wisdom.gameObject.SetActive(true);
-        enemy_damage_image.gameObject.SetActive(true);
-        enemy_might_text.gameObject.SetActive(true);
-        enemy_cunning_text.gameObject.SetActive(true);
-        enemy_wisdom_text.gameObject.SetActive(true);
+        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         Abbot.SET_ENEMY_HEALTH_HUD();
         Miller.SET_ENEMY_HEALTH_HUD();
@@ -286,19 +243,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setPreperationHUD");
 
-        description.gameObject.SetActive(false);
-        description_button.gameObject.SetActive(false);
-
+        enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(true);
-        enemy_cunning.gameObject.SetActive(true);
-        enemy_wisdom.gameObject.SetActive(true);
-        enemy_damage_image.gameObject.SetActive(true);
-        enemy_might_text.gameObject.SetActive(true);
-        enemy_cunning_text.gameObject.SetActive(true);
-        enemy_wisdom_text.gameObject.SetActive(true);
+        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         Abbot.PREPERATION_HUD();
         Miller.PREPERATION_HUD();
@@ -311,24 +258,13 @@ public class ChapterLogic : MonoBehaviour
         Abbot.setShieldActiveState(false);
         Miller.setShieldActiveState(false);
     }
-
     void setPlayerTurnHUD()
     {
         Debug.Log("setPlayerTurnHUD");
 
-        description.gameObject.SetActive(false);
-        description_button.gameObject.SetActive(false);
-
+        enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(true);
-        enemy_cunning.gameObject.SetActive(true);
-        enemy_wisdom.gameObject.SetActive(true);
-        enemy_damage_image.gameObject.SetActive(true);
-        enemy_might_text.gameObject.SetActive(true);
-        enemy_cunning_text.gameObject.SetActive(true);
-        enemy_wisdom_text.gameObject.SetActive(true);
+        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         Abbot.PLAYER_TURN_HUD();
         Miller.PLAYER_TURN_HUD();
@@ -343,19 +279,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setEnemyTurnHUD");
 
-        description.gameObject.SetActive(false);
-        description_button.gameObject.SetActive(false);
-
+        enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(true);
-        enemy_cunning.gameObject.SetActive(true);
-        enemy_wisdom.gameObject.SetActive(true);
-        enemy_damage_image.gameObject.SetActive(true);
-        enemy_might_text.gameObject.SetActive(true);
-        enemy_cunning_text.gameObject.SetActive(true);
-        enemy_wisdom_text.gameObject.SetActive(true);
+        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         Abbot.ENENMY_TURN_WON_LOST_HUD();
         Miller.ENENMY_TURN_WON_LOST_HUD();
@@ -370,19 +296,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setWinHUD");
 
-        description.gameObject.SetActive(false);
-        description_button.gameObject.SetActive(false);
-
+        enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(true);
-        enemy_cunning.gameObject.SetActive(true);
-        enemy_wisdom.gameObject.SetActive(true);
-        enemy_damage_image.gameObject.SetActive(true);
-        enemy_might_text.gameObject.SetActive(true);
-        enemy_cunning_text.gameObject.SetActive(true);
-        enemy_wisdom_text.gameObject.SetActive(true);
+        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         Abbot.ENENMY_TURN_WON_LOST_HUD();
         Miller.ENENMY_TURN_WON_LOST_HUD();
@@ -398,19 +314,9 @@ public class ChapterLogic : MonoBehaviour
     {
         Debug.Log("setLoseHUD");
 
-        description.gameObject.SetActive(false);
-        description_button.gameObject.SetActive(false);
-
+        enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
-
-        enemyImage.gameObject.SetActive(true);
-        enemy_might.gameObject.SetActive(true);
-        enemy_cunning.gameObject.SetActive(true);
-        enemy_wisdom.gameObject.SetActive(true);
-        enemy_damage_image.gameObject.SetActive(true);
-        enemy_might_text.gameObject.SetActive(true);
-        enemy_cunning_text.gameObject.SetActive(true);
-        enemy_wisdom_text.gameObject.SetActive(true);
+        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         Abbot.ENENMY_TURN_WON_LOST_HUD();
         Miller.ENENMY_TURN_WON_LOST_HUD();

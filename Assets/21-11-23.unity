@@ -803,12 +803,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138993756}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 912066257}
+  m_Father: {fileID: 882265580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -911,7 +911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &165521517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2782,7 +2782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &398142078
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2847,13 +2847,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2135890023}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+      - m_Target: {fileID: 2135890024}
+        m_TargetAssemblyTypeName: Skeleton, Assembly-CSharp
         m_MethodName: option1
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 916605178}
+          m_ObjectArgumentAssemblyTypeName: ChapterLogic, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3341,13 +3341,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 488229292}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 309148801}
-  m_Father: {fileID: 912066257}
+  m_Father: {fileID: 882265580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3458,8 +3458,8 @@ MonoBehaviour:
         m_MethodName: rollLogic
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2135890023}
-          m_ObjectArgumentAssemblyTypeName: Enemy, Assembly-CSharp
+          m_ObjectArgument: {fileID: 2135890024}
+          m_ObjectArgumentAssemblyTypeName: EnemyBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3520,7 +3520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &559860375
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3836,8 +3836,8 @@ MonoBehaviour:
         m_MethodName: rollEnemyHealth
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2135890023}
-          m_ObjectArgumentAssemblyTypeName: Enemy, Assembly-CSharp
+          m_ObjectArgument: {fileID: 2135890024}
+          m_ObjectArgumentAssemblyTypeName: EnemyBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4138,14 +4138,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687861412}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1996904583}
   - {fileID: 1760451128}
-  m_Father: {fileID: 912066257}
+  m_Father: {fileID: 882265580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4193,32 +4193,8 @@ MonoBehaviour:
   background: {fileID: 138993757}
   backButton: {fileID: 488229293}
   forwardButton: {fileID: 1746879335}
-  Frame_1: {fileID: 559860377}
-  title_1: {fileID: 739091085}
-  description_1: {fileID: 734189218}
-  mightImage_1: {fileID: 1913032389}
-  cunningImage_1: {fileID: 856845294}
-  WisdomImage_1: {fileID: 772425552}
-  randomImage_1: {fileID: 1082153684}
-  mightValue_1: {fileID: 248154213}
-  cunningValue_1: {fileID: 1896278486}
-  wisdomValue_1: {fileID: 1825992885}
-  randomValue_1: {fileID: 1825992885}
-  enemyDamage_1: {fileID: 1423870535}
-  continue_1: {fileID: 398142079}
-  Frame_2: {fileID: 766546419}
-  title_2: {fileID: 1587647875}
-  description_2: {fileID: 1905086265}
-  mightImage_2: {fileID: 1387455799}
-  cunningImage_2: {fileID: 1706645331}
-  WisdomImage_2: {fileID: 165521519}
-  RandomImage_2: {fileID: 874885067}
-  mightValue_2: {fileID: 919119180}
-  cunningValue_2: {fileID: 2096889067}
-  wisdomValue_2: {fileID: 1572985957}
-  randomValue_2: {fileID: 1738690108}
-  enemyDamage_2: {fileID: 1974747012}
-  continue_2: {fileID: 868960471}
+  option1: {fileID: 1996904582}
+  option2: {fileID: 1760451127}
 --- !u!95 &687861418
 Animator:
   serializedVersion: 7
@@ -4545,7 +4521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &734189217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4624,7 +4600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &739091084
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4782,7 +4758,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &766546417
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4857,7 +4833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &772425551
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5382,7 +5358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &856845293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5459,7 +5435,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &868960471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5504,13 +5480,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2135890023}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
+      - m_Target: {fileID: 2135890024}
+        m_TargetAssemblyTypeName: Skeleton, Assembly-CSharp
         m_MethodName: option2
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 916605178}
+          m_ObjectArgumentAssemblyTypeName: ChapterLogic, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5591,7 +5567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &874885065
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5650,6 +5626,45 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &882265579
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 882265580}
+  m_Layer: 5
+  m_Name: Combat options
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &882265580
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882265579}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 138993759}
+  - {fileID: 687861413}
+  - {fileID: 488229296}
+  - {fileID: 1746879334}
+  m_Father: {fileID: 912066257}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &896000775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5787,10 +5802,7 @@ RectTransform:
   - {fileID: 180974839}
   - {fileID: 230019412}
   - {fileID: 1748857810}
-  - {fileID: 138993759}
-  - {fileID: 687861413}
-  - {fileID: 488229296}
-  - {fileID: 1746879334}
+  - {fileID: 882265580}
   - {fileID: 1332737590}
   m_Father: {fileID: 1001477034}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
@@ -5962,24 +5974,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469e89ddbc791e04f89f9a79244e4b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyImage: {fileID: 2135890021}
-  enemy_might: {fileID: 1536760638}
-  enemy_cunning: {fileID: 1619701469}
-  enemy_wisdom: {fileID: 43135086}
-  enemy_damage_image: {fileID: 1318205067}
   divider: {fileID: 230019413}
-  enemy_might_text: {fileID: 1622354232}
-  enemy_cunning_text: {fileID: 1100691693}
-  enemy_wisdom_text: {fileID: 362587503}
-  description: {fileID: 104261414}
-  description_button: {fileID: 368551101}
   win_lose_text: {fileID: 1070316359}
   Continue_button: {fileID: 180974840}
-  enemy_damage: 1
   Abbot: {fileID: 2097115604}
   Miller: {fileID: 1967947438}
-  enemy: {fileID: 2135890023}
-  enemyHud: {fileID: 687861417}
+  enemyBase: {fileID: 2135890024}
   state: 0
 --- !u!4 &916605179
 Transform:
@@ -6655,7 +6655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1082153683
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6997,8 +6997,8 @@ MonoBehaviour:
         m_MethodName: rollEnemyHealth
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2135890023}
-          m_ObjectArgumentAssemblyTypeName: Enemy, Assembly-CSharp
+          m_ObjectArgument: {fileID: 2135890024}
+          m_ObjectArgumentAssemblyTypeName: EnemyBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7225,8 +7225,8 @@ MonoBehaviour:
         m_MethodName: rollLogic
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2135890023}
-          m_ObjectArgumentAssemblyTypeName: Enemy, Assembly-CSharp
+          m_ObjectArgument: {fileID: 2135890024}
+          m_ObjectArgumentAssemblyTypeName: EnemyBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -8018,7 +8018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1387455797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8303,7 +8303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1423870534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9000,7 +9000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1587647873
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9312,7 +9312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1706645329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9630,13 +9630,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1746879333}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 830404839}
-  m_Father: {fileID: 912066257}
+  m_Father: {fileID: 882265580}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -10038,7 +10038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1760451128
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10847,7 +10847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1905086263
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10926,7 +10926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1913032388
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11358,7 +11358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1974747010
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11432,7 +11432,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1996904583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11643,7 +11643,7 @@ GameObject:
   - component: {fileID: 2135890020}
   - component: {fileID: 2135890022}
   - component: {fileID: 2135890021}
-  - component: {fileID: 2135890023}
+  - component: {fileID: 2135890024}
   m_Layer: 5
   m_Name: Enemy
   m_TagString: Untagged
@@ -11715,7 +11715,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135890019}
   m_CullTransparentMesh: 1
---- !u!114 &2135890023
+--- !u!114 &2135890024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11724,16 +11724,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135890019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5bb74a3b39b388645a642ee6dd72fbad, type: 3}
+  m_Script: {fileID: 11500000, guid: 75fc9e2ed7048224cb58eaab9d0e9f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDamage: {fileID: 1318205067}
   damage1: {fileID: 6585140791154225616, guid: bbc4967ce8ecfb04d8f57a83791f47eb, type: 3}
   damage2: {fileID: 6589979746034829671, guid: 60ade6e05542dce4ab5fd0e830eb94d6, type: 3}
+  description: {fileID: 104261414}
+  description_button: {fileID: 368551101}
+  enemyImage: {fileID: 2135890021}
+  enemy_might: {fileID: 1536760638}
+  enemy_cunning: {fileID: 1619701469}
+  enemy_wisdom: {fileID: 43135086}
   enemy_might_text: {fileID: 1622354232}
   enemy_cunning_text: {fileID: 1100691693}
   enemy_wisdom_text: {fileID: 362587503}
-  cl: {fileID: 916605178}
+  enemy_damage_image: {fileID: 1318205067}
+  background: {fileID: 138993757}
+  backButton: {fileID: 488229293}
+  forwardButton: {fileID: 1746879335}
+  option1_object: {fileID: 1996904582}
+  option2_object: {fileID: 1760451127}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

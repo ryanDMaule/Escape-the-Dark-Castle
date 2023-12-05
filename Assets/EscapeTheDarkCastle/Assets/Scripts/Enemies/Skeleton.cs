@@ -21,19 +21,20 @@ public class Skeleton : EnemyBase
         option2_object.gameObject.SetActive(false);
     }
 
-    public void option1()
+    //perhaps remove it directly influencing chapter logic, have it just set anything relevant to enemy and have chapter logic listen for this finishing.
+    public void option1(ChapterLogic cl)
     {
         setDamage(2);
-        enemyDamage.sprite = damage2;
+        enemy_damage_image.sprite = damage2;
 
         cl.setEnemyHealthPhase();
     }
 
-    public void option2()
+    public void option2(ChapterLogic cl)
     {
         setEnemyMight(2);
         setDamage(1);
-        enemyDamage.sprite = damage1;
+        enemy_damage_image.sprite = damage1;
 
         cl.setEnemyHealthPhase();
     }

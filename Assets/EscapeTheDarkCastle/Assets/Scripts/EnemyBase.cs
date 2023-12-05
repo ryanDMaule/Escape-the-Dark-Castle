@@ -3,14 +3,20 @@ using UnityEngine.UI;
 
 public abstract class EnemyBase : MonoBehaviour
 {
-    [SerializeField] public Image enemyDamage;
-
     [SerializeField] public Sprite damage1;
     [SerializeField] public Sprite damage2;
 
+    [SerializeField] public ScrollRect description;
+    [SerializeField] public Button description_button;
+
+    [SerializeField] public Image enemyImage;
+    [SerializeField] public Image enemy_might;
+    [SerializeField] public Image enemy_cunning;
+    [SerializeField] public Image enemy_wisdom;
     [SerializeField] public Text enemy_might_text;
     [SerializeField] public Text enemy_cunning_text;
     [SerializeField] public Text enemy_wisdom_text;
+    [SerializeField] public Image enemy_damage_image;
 
     private int enemy_might_int = 0;
     private int enemy_cunning_int = 0;
@@ -18,9 +24,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private int damage = 1;
 
-    [SerializeField] public ChapterLogic cl;
-
-    #region options_stuffs
+    #region combat_options_stuffs
 
     [SerializeField] Image background;
     [SerializeField] Button backButton;
@@ -119,5 +123,45 @@ public abstract class EnemyBase : MonoBehaviour
         Debug.Log("enemyDead: FALSE");
         return false;
     }
+
+
+    #region HUD_methods
+    public void SET_ENEMY_IMAGE_ONLY()
+    {
+        enemyImage.gameObject.SetActive(true);
+        enemy_might.gameObject.SetActive(false);
+        enemy_cunning.gameObject.SetActive(false);
+        enemy_wisdom.gameObject.SetActive(false);
+        enemy_damage_image.gameObject.SetActive(false);
+        enemy_might_text.gameObject.SetActive(false);
+        enemy_cunning_text.gameObject.SetActive(false);
+        enemy_wisdom_text.gameObject.SetActive(false);
+    }
+    public void SET_ENEMY_ASSETS_VISIBLE()
+    {
+        enemyImage.gameObject.SetActive(true);
+        enemy_might.gameObject.SetActive(true);
+        enemy_cunning.gameObject.SetActive(true);
+        enemy_wisdom.gameObject.SetActive(true);
+        enemy_damage_image.gameObject.SetActive(true);
+        enemy_might_text.gameObject.SetActive(true);
+        enemy_cunning_text.gameObject.SetActive(true);
+        enemy_wisdom_text.gameObject.SetActive(true);
+    }
+
+    public void SHOW_DESCRIPTION()
+    {
+        description.gameObject.SetActive(true);
+        description_button.gameObject.SetActive(true);
+    }
+
+    public void HIDE_DESCRIPTION()
+    {
+        description.gameObject.SetActive(false);
+        description_button.gameObject.SetActive(false);
+    }
+
+    #endregion
+
 
 }
