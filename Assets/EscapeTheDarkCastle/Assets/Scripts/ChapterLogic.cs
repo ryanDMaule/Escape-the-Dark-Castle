@@ -31,7 +31,6 @@ public class ChapterLogic : MonoBehaviour
     [SerializeField] public Miller Miller;
 
     [SerializeField] private EnemyBase enemyBase;
-    [SerializeField] private EnemyHud enemyHud;
 
     public BattleState state;
 
@@ -209,7 +208,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(true);
         description_button.gameObject.SetActive(true);
 
-        enemyHud.hideOptionsHUD();
+        enemyBase.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(false);
@@ -236,7 +235,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(true);
         description_button.gameObject.SetActive(true);
 
-        enemyHud.showOptionsHUD();
+        enemyBase.showOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(false);
@@ -263,7 +262,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
-        enemyHud.hideOptionsHUD();
+        enemyBase.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -290,7 +289,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
-        enemyHud.hideOptionsHUD();
+        enemyBase.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -320,7 +319,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
-        enemyHud.hideOptionsHUD();
+        enemyBase.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -347,7 +346,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
-        enemyHud.hideOptionsHUD();
+        enemyBase.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -374,7 +373,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
-        enemyHud.hideOptionsHUD();
+        enemyBase.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);
@@ -402,7 +401,7 @@ public class ChapterLogic : MonoBehaviour
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
 
-        enemyHud.hideOptionsHUD();
+        enemyBase.hideOptionsHUD();
 
         enemyImage.gameObject.SetActive(true);
         enemy_might.gameObject.SetActive(true);

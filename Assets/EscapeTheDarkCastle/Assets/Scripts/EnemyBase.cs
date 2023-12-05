@@ -20,6 +20,28 @@ public abstract class EnemyBase : MonoBehaviour
 
     [SerializeField] public ChapterLogic cl;
 
+    #region options_stuffs
+
+    [SerializeField] Image background;
+    [SerializeField] Button backButton;
+    [SerializeField] Button forwardButton;
+
+    public virtual void showOptionsHUD()
+    {
+        background.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(true);
+        forwardButton.gameObject.SetActive(true);
+    }
+
+    public virtual void hideOptionsHUD()
+    {
+        background.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
+        forwardButton.gameObject.SetActive(false);
+    }
+
+    #endregion
+
     public void setDamage(int value)
     {
         damage = value;
