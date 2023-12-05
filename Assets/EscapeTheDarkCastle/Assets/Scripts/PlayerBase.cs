@@ -1,7 +1,5 @@
 using InnerDriveStudios.DiceCreator;
-using NUnit.Framework.Internal;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -146,12 +144,12 @@ public abstract class PlayerBase : MonoBehaviour
         };
     }
 
-    public void rollEnemyHealth(Enemy enemy)
+    public void rollEnemyHealth(EnemyBase enemy)
     {
         StartCoroutine(rollEnemyHealthIE(enemy));
     }
 
-    IEnumerator rollEnemyHealthIE(Enemy enemy)
+    IEnumerator rollEnemyHealthIE(EnemyBase enemy)
     {
         if (!chapterDie.isRolling)
         {

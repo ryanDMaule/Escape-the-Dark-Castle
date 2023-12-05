@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using InnerDriveStudios.DiceCreator;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +30,7 @@ public class ChapterLogic : MonoBehaviour
     [SerializeField] public Abbot Abbot;
     [SerializeField] public Miller Miller;
 
-    [SerializeField] private Enemy enemy;
+    [SerializeField] private EnemyBase enemyBase;
     [SerializeField] private EnemyHud enemyHud;
 
     public BattleState state;
@@ -161,7 +159,7 @@ public class ChapterLogic : MonoBehaviour
             }
         }
 
-        if (enemy.enemyDead())
+        if (enemyBase.enemyDead())
         {
             yield return new WaitForSeconds(2f);
             setWinHUD();
@@ -183,11 +181,11 @@ public class ChapterLogic : MonoBehaviour
 
         if (!Abbot.getShieldActiveState() && !Abbot.getIsRestingState())
         {
-            abbotDead = Abbot.RedcuceHealth(enemy.getDamage());
+            abbotDead = Abbot.RedcuceHealth(enemyBase.getDamage());
         }
         if (!Miller.getShieldActiveState() && !Miller.getIsRestingState())
         {
-            MillerDead = Miller.RedcuceHealth(enemy.getDamage());
+            MillerDead = Miller.RedcuceHealth(enemyBase.getDamage());
         }
 
         if (abbotDead || MillerDead)

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Enemy : MonoBehaviour
+public abstract class EnemyBase : MonoBehaviour
 {
     [SerializeField] public Image enemyDamage;
 
@@ -19,23 +19,6 @@ public class Enemy : MonoBehaviour
     private int damage = 1;
 
     [SerializeField] public ChapterLogic cl;
-
-    public void option1()
-    {
-        setDamage(2);
-        enemyDamage.sprite = damage2;
-
-        cl.setEnemyHealthPhase();
-    }
-
-    public void option2()
-    {
-        setEnemyMight(2);
-        setDamage(1);
-        enemyDamage.sprite = damage1;
-
-        cl.setEnemyHealthPhase();
-    }
 
     public void setDamage(int value)
     {
@@ -70,12 +53,12 @@ public class Enemy : MonoBehaviour
         if (enemy_might_int - value <= 0)
         {
             enemy_might_int = 0;
-        } else
+        }
+        else
         {
             enemy_might_int -= value;
         }
         enemy_might_text.text = enemy_might_int.ToString();
-        //Debug.Log("reduceEnemyMight: " + enemy_might_int.ToString());
     }
 
     public void reduceEnemyCunning(int value)
@@ -89,7 +72,6 @@ public class Enemy : MonoBehaviour
             enemy_cunning_int -= value;
         }
         enemy_cunning_text.text = enemy_cunning_int.ToString();
-        //Debug.Log("reduceEnemyCunning: " + enemy_cunning_int.ToString());
     }
 
     public void reduceEnemyWisdom(int value)
@@ -103,7 +85,6 @@ public class Enemy : MonoBehaviour
             enemy_wisdom_int -= value;
         }
         enemy_wisdom_text.text = enemy_wisdom_int.ToString();
-        //Debug.Log("reduceEnemyWisdom: " + enemy_wisdom_int.ToString());
     }
 
     public bool enemyDead()

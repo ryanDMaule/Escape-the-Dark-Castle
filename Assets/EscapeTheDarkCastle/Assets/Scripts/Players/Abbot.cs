@@ -1,13 +1,10 @@
 using InnerDriveStudios.DiceCreator;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Search;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Abbot : PlayerBase
 {
-    private void SetAbbotDice(string rollValue, Enemy enemy)
+    private void SetAbbotDice(string rollValue, EnemyBase enemy)
     {
         switch (rollValue)
         {
@@ -42,12 +39,12 @@ public class Abbot : PlayerBase
         }
     }
 
-    public void rollLogic(Enemy enemy)
+    public void rollLogic(EnemyBase enemy)
     {
         StartCoroutine(rollDelay(enemy));
     }
 
-    IEnumerator rollDelay(Enemy enemy)
+    IEnumerator rollDelay(EnemyBase enemy)
     {
         Die characterDie = getCharacterDie();
         if (!characterDie.isRolling)

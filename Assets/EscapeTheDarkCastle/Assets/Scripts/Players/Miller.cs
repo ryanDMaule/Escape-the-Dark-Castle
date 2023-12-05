@@ -1,11 +1,10 @@
 using InnerDriveStudios.DiceCreator;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Miller : PlayerBase
 {
-    private void SetMillerDice(string rollValue, Enemy enemy)
+    private void SetMillerDice(string rollValue, EnemyBase enemy)
     {
         switch (rollValue)
         {
@@ -40,12 +39,12 @@ public class Miller : PlayerBase
         }
     }
 
-    public void rollLogic(Enemy enemy)
+    public void rollLogic(EnemyBase enemy)
     {
         StartCoroutine(rollDelay(enemy));
     }
 
-    IEnumerator rollDelay(Enemy enemy)
+    IEnumerator rollDelay(EnemyBase enemy)
     {
         Die characterDie = getCharacterDie();
         if (!characterDie.isRolling)
