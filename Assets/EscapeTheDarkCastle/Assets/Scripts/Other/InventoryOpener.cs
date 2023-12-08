@@ -8,7 +8,7 @@ public class InventoryOpener : MonoBehaviour
 
     public GameObject panel; 
 
-    public void openInventory()
+    public void openInventory(PlayerBase player)
     {
         Animator animator = panel.GetComponent<Animator>();
 

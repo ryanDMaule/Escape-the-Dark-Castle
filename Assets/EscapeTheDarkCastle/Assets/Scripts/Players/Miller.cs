@@ -1,9 +1,30 @@
 using InnerDriveStudios.DiceCreator;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Miller : PlayerBase
 {
+    public void printInventory()
+    {
+        if(Inventory.Count == 0)
+        {
+            //Debug.Log("MILLER INVENTORY - EMPTY");
+        } else if(Inventory.Count == 1)
+        {
+            //Debug.Log("MILLER INVENTORY - SIZE 1");
+            //Debug.Log("CARD 1 : " + Inventory[0].name);
+        } else if (Inventory.Count == 2)
+        {
+            //Debug.Log("MILLER INVENTORY - SIZE 2");
+            //Debug.Log("CARD 1 : " + Inventory[0].name);
+            //Debug.Log("CARD 2 : " + Inventory[1].name);
+        }
+        else
+        {
+            //Debug.Log("MILLER - ERROR");
+        }
+    }
     private void SetMillerDice(string rollValue, EnemyBase enemy)
     {
         switch (rollValue)

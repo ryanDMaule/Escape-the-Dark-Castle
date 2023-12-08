@@ -1,5 +1,8 @@
 using InnerDriveStudios.DiceCreator;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +32,54 @@ public abstract class PlayerBase : MonoBehaviour
 
     [SerializeField] public Sprite restSprite;
     [SerializeField] public Sprite fightSprite;
+
+    [SerializeField] public Image InventorySlot1;
+    [SerializeField] public Image InventorySlot2;
+
+    public List<Card> Inventory = new List<Card>(2);
+
+    public void addInventoryItem(DeckLogic dl)
+    {
+        if (Inventory.Count < 2)
+        {
+            assignInventoryCard(dl.drawnCard);
+            dl.hide();
+        }
+        //only add if inventroy size is less than 2
+    }
+
+    public void assignInventoryCard(Card card)
+    {
+        if (Inventory.Count == 0)
+        {
+            Inventory.Add(card);
+            InventorySlot1.sprite = card.cardFace;
+            InventorySlot1.gameObject.SetActive(true);
+        }
+        else if (Inventory.Count == 1)
+        {
+            Inventory.Add(card);
+            InventorySlot2.sprite = card.cardFace;
+            InventorySlot2.gameObject.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("ERROR");
+        }
+    }
+
+    public void removeInventoyCard(Card card, DeckLogic dl)
+    {
+        if (Inventory.Contains(card))
+        {
+            Debug.Log("Removed card [ " + card.name + " ]");
+            Inventory.Remove(card);
+            dl.deck.Add(card);
+        } else
+        {
+            Debug.Log("Card not in inventory");
+        }
+    }
 
     public Die getChapterDie()
     {

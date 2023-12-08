@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] public Sprite cardFace;
+
+    public void discardCard(Card card, DeckLogic dl)
     {
-        
+        //Destroy(card);
+        card.gameObject.SetActive(false);
+
+        dl.deck.Add(card);
     }
 }

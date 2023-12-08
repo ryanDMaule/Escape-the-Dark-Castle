@@ -1,9 +1,33 @@
 using InnerDriveStudios.DiceCreator;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Abbot : PlayerBase
 {
+    public void printInventory()
+    {
+        if (Inventory.Count == 0)
+        {
+            //Debug.Log("ABBOT INVENTORY - EMPTY");
+        }
+        else if (Inventory.Count == 1)
+        {
+            //Debug.Log("ABBOT INVENTORY - SIZE 1");
+            //Debug.Log("CARD 1 : " + Inventory[0].name);
+        }
+        else if (Inventory.Count == 2)
+        {
+            //Debug.Log("ABBOT INVENTORY - SIZE 2");
+            //Debug.Log("CARD 1 : " + Inventory[0].name);
+            //Debug.Log("CARD 2 : " + Inventory[1].name);
+        }
+        else
+        {
+            //Debug.Log("ABBOT - ERROR");
+        }
+    }
+
     private void SetAbbotDice(string rollValue, EnemyBase enemy)
     {
         switch (rollValue)

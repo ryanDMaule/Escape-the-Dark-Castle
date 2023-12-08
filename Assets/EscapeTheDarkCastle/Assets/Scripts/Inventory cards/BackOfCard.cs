@@ -8,7 +8,8 @@ public class BackOfCard : MonoBehaviour
 
     public void FlipCard()
     {
-        dl.DrawCard(this.transform);
-        Destroy(this);
+        dl.DrawCard();
+        //dl.DrawCard(this.transform);
+        //this.gameObject.SetActive(false);
     }
 }
