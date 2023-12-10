@@ -38,6 +38,18 @@ public abstract class PlayerBase : MonoBehaviour
 
     public List<Card> Inventory = new List<Card>(2);
 
+    public InventoryHandler ih;
+
+    public void slot1Pressed()
+    {
+        ih.showCardOptions(Inventory[0], this);
+    }
+
+    public void slot2Pressed()
+    {
+        ih.showCardOptions(Inventory[1], this);
+    }
+
     public void addInventoryItem(DeckLogic dl)
     {
         if (Inventory.Count < 2)
@@ -73,8 +85,18 @@ public abstract class PlayerBase : MonoBehaviour
         if (Inventory.Contains(card))
         {
             Debug.Log("Removed card [ " + card.name + " ]");
+            if (Inventory[0] == card)
+            {
+                InventorySlot1.gameObject.SetActive(false);
+            }
+            else if (Inventory[1] == card)
+            {
+                InventorySlot2.gameObject.SetActive(false);
+            }
+
             Inventory.Remove(card);
-            dl.deck.Add(card);
+
+            dl.discardPile.Add(card);
         } else
         {
             Debug.Log("Card not in inventory");
