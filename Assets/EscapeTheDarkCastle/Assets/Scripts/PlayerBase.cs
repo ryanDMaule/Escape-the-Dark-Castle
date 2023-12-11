@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,41 +37,60 @@ public abstract class PlayerBase : MonoBehaviour
     [SerializeField] public Image InventorySlot1;
     [SerializeField] public Image InventorySlot2;
 
-    public List<Card> Inventory = new List<Card>(2);
+    [SerializeField] public Placeholder InventoryPlaceholder;
+    public Card[] InventoryArray = new Card[2];
 
     public InventoryHandler ih;
 
+    public void Start()
+    {
+        InventoryArray[0] = InventoryPlaceholder;
+        InventoryArray[1] = InventoryPlaceholder;
+    }
+
     public void slot1Pressed()
     {
-        ih.showCardOptions(Inventory[0], this);
+        ih.showCardOptions(InventoryArray[0], this);
     }
 
     public void slot2Pressed()
     {
-        ih.showCardOptions(Inventory[1], this);
+        ih.showCardOptions(InventoryArray[1], this);
+    }
+
+    public bool InventorySlotsFree()
+    {
+        //Debug.Log("SLOT 1 : " + InventoryArray[0].name);
+        //Debug.Log("SLOT 2 : " + InventoryArray[1].name);
+
+        if (InventoryArray[0] == InventoryPlaceholder || InventoryArray[1] == InventoryPlaceholder)
+        {
+            return true;
+        } else
+        {
+            return false;
+        }
     }
 
     public void addInventoryItem(DeckLogic dl)
     {
-        if (Inventory.Count < 2)
+        if (InventorySlotsFree())
         {
             assignInventoryCard(dl.drawnCard);
             dl.hide();
         }
-        //only add if inventroy size is less than 2
     }
 
     public void assignInventoryCard(Card card)
     {
-        if (Inventory.Count == 0)
+        if (InventoryArray[0] == InventoryPlaceholder)
         {
-            Inventory.Add(card);
+            InventoryArray[0] = card;
             InventorySlot1.sprite = card.cardFace;
             InventorySlot1.gameObject.SetActive(true);
-        }
-        else if (Inventory.Count == 1)
+        } else if (InventoryArray[1] == InventoryPlaceholder)
         {
-            Inventory.Add(card);
+            InventoryArray[1] = card;
             InventorySlot2.sprite = card.cardFace;
             InventorySlot2.gameObject.SetActive(true);
         }
@@ -82,20 +102,16 @@ public abstract class PlayerBase : MonoBehaviour
 
     public void removeInventoyCard(Card card, DeckLogic dl)
     {
-        if (Inventory.Contains(card))
+        if (InventoryArray[0] == card)
         {
-            Debug.Log("Removed card [ " + card.name + " ]");
-            if (Inventory[0] == card)
-            {
-                InventorySlot1.gameObject.SetActive(false);
-            }
-            else if (Inventory[1] == card)
-            {
-                InventorySlot2.gameObject.SetActive(false);
-            }
-
-            Inventory.Remove(card);
-
+            InventorySlot1.gameObject.SetActive(false);
+            InventoryArray[0] = InventoryPlaceholder;
+            dl.discardPile.Add(card);
+        }
+        else if (InventoryArray[1] == card)
+        {
+            InventorySlot2.gameObject.SetActive(false);
+            InventoryArray[1] = InventoryPlaceholder;
             dl.discardPile.Add(card);
         } else
         {
