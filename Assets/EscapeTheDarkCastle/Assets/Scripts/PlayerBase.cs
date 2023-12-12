@@ -48,6 +48,69 @@ public abstract class PlayerBase : MonoBehaviour
         InventoryArray[1] = InventoryPlaceholder;
     }
 
+    public GameObject panel;
+    private bool InventoryOpen = false;
+    public void openInventory(PlayerBase player1)
+    {
+        Animator animator = panel.GetComponent<Animator>();
+        if (!InventoryOpen)
+        {
+            animator.SetTrigger("Open");
+            InventoryOpen = true;
+
+            player1.closeInventory();
+        } else
+        {
+            closeInventory();
+        }
+    }
+
+    public void openInventory(PlayerBase player1, PlayerBase player2)
+    {
+        Animator animator = panel.GetComponent<Animator>();
+        if (!InventoryOpen)
+        {
+            animator.SetTrigger("Open");
+            InventoryOpen = true;
+
+            player1.closeInventory();
+            player2.closeInventory();
+        }
+        else
+        {
+            closeInventory();
+        }
+    }
+
+    public void openInventory(PlayerBase player1, PlayerBase player2, PlayerBase player3)
+    {
+        Animator animator = panel.GetComponent<Animator>();
+        if (!InventoryOpen)
+        {
+            animator.SetTrigger("Open");
+            InventoryOpen = true;
+
+            player1.closeInventory();
+            player2.closeInventory();
+            player3.closeInventory();
+        }
+        else
+        {
+            closeInventory();
+        }
+    }
+
+    public void closeInventory()
+    {
+        if (InventoryOpen)
+        {
+            Animator animator = panel.GetComponent<Animator>();
+
+            animator.SetTrigger("Close");
+            InventoryOpen = false;
+        }
+    }
+
     public void slot1Pressed()
     {
         ih.showCardOptions(InventoryArray[0], this);

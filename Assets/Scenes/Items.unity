@@ -1431,12 +1431,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 416410371}
-        m_TargetAssemblyTypeName: InventoryOpener, Assembly-CSharp
+      - m_Target: {fileID: 2097115604}
+        m_TargetAssemblyTypeName: PlayerBase, Assembly-CSharp
         m_MethodName: openInventory
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2097115604}
+          m_ObjectArgument: {fileID: 1967947438}
           m_ObjectArgumentAssemblyTypeName: PlayerBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2638,12 +2638,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 805451795}
-        m_TargetAssemblyTypeName: InventoryOpener, Assembly-CSharp
+      - m_Target: {fileID: 1967947438}
+        m_TargetAssemblyTypeName: PlayerBase, Assembly-CSharp
         m_MethodName: openInventory
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1967947438}
+          m_ObjectArgument: {fileID: 2097115604}
           m_ObjectArgumentAssemblyTypeName: PlayerBase, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -6501,6 +6501,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 879642059}
+  panel: {fileID: 1090697424}
 --- !u!1 &2054826112
 GameObject:
   m_ObjectHideFlags: 0
@@ -6605,6 +6606,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 879642059}
+  panel: {fileID: 1860741908}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
