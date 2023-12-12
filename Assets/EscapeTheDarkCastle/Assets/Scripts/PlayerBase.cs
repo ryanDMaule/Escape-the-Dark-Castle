@@ -6,6 +6,7 @@ using System.Net.NetworkInformation;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public enum ChapterDieOptions { MIGHT, CUNNING, WISDOM, FAIL }
 
@@ -36,6 +37,7 @@ public abstract class PlayerBase : MonoBehaviour
 
     [SerializeField] public Image InventorySlot1;
     [SerializeField] public Image InventorySlot2;
+    [SerializeField] public Image TwoHandedSlot;
 
     [SerializeField] public Placeholder InventoryPlaceholder;
     public Card[] InventoryArray = new Card[2];
@@ -121,65 +123,121 @@ public abstract class PlayerBase : MonoBehaviour
         ih.showCardOptions(InventoryArray[1], this);
     }
 
-    public bool InventorySlotsFree()
+    //only here for clarity, can just call either of the above 2 functions and will still work.
+    public void TwoHandedSlotPressed()
     {
-        //Debug.Log("SLOT 1 : " + InventoryArray[0].name);
-        //Debug.Log("SLOT 2 : " + InventoryArray[1].name);
+        ih.showCardOptions(InventoryArray[0], this);
+    }
 
-        if (InventoryArray[0] == InventoryPlaceholder || InventoryArray[1] == InventoryPlaceholder)
+    public int InventorySlotsFree()
+    {
+        int slotsFree = 0;
+        if (InventoryArray[0] == InventoryPlaceholder)
         {
-            return true;
-        } else
-        {
-            return false;
+            slotsFree++;
         }
+        if (InventoryArray[1] == InventoryPlaceholder)
+        {
+            slotsFree++;
+        }
+        return slotsFree;
     }
 
     public void addInventoryItem(DeckLogic dl)
     {
-        if (InventorySlotsFree())
+        int cardSize = dl.drawnCard.size;
+        switch (cardSize)
         {
-            assignInventoryCard(dl.drawnCard);
-            dl.hide();
+            case 1:
+                if(InventorySlotsFree() >= 1)
+                {
+                    assignInventoryCard(dl.drawnCard);
+                    dl.hide();
+                }
+                break;
+
+            case 2:
+                if (InventorySlotsFree() >= 2)
+                {
+                    assignInventoryCard(dl.drawnCard);
+                    dl.hide();
+                }
+                break;
+
+            default:
+                break;
         }
     }
 
     public void assignInventoryCard(Card card)
     {
-        if (InventoryArray[0] == InventoryPlaceholder)
+        if (card.size == 1)
+        {
+            if (InventoryArray[0] == InventoryPlaceholder)
+            {
+                InventoryArray[0] = card;
+                InventorySlot1.sprite = card.cardFace;
+                InventorySlot1.gameObject.SetActive(true);
+            }
+            else if (InventoryArray[1] == InventoryPlaceholder)
+            {
+                InventoryArray[1] = card;
+                InventorySlot2.sprite = card.cardFace;
+                InventorySlot2.gameObject.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("ERROR");
+            }
+        } else if (card.size == 2)
         {
             InventoryArray[0] = card;
-            InventorySlot1.sprite = card.cardFace;
-            InventorySlot1.gameObject.SetActive(true);
-        } else if (InventoryArray[1] == InventoryPlaceholder)
-        {
             InventoryArray[1] = card;
-            InventorySlot2.sprite = card.cardFace;
-            InventorySlot2.gameObject.SetActive(true);
-        }
-        else
+            TwoHandedSlot.sprite = card.cardFace;
+            TwoHandedSlot.gameObject.SetActive(true);
+        } else
         {
-            Debug.Log("ERROR");
+            Debug.Log("UNHANDLED CARD SIZE");
         }
+
     }
 
     public void removeInventoyCard(Card card, DeckLogic dl)
     {
-        if (InventoryArray[0] == card)
+        if (card.size == 1)
         {
-            InventorySlot1.gameObject.SetActive(false);
-            InventoryArray[0] = InventoryPlaceholder;
-            dl.discardPile.Add(card);
+            if (InventoryArray[0] == card)
+            {
+                InventorySlot1.gameObject.SetActive(false);
+                InventoryArray[0] = InventoryPlaceholder;
+                dl.discardPile.Add(card);
+            }
+            else if (InventoryArray[1] == card)
+            {
+                InventorySlot2.gameObject.SetActive(false);
+                InventoryArray[1] = InventoryPlaceholder;
+                dl.discardPile.Add(card);
+            }
+            else
+            {
+                Debug.Log("Card not in inventory");
+            }
+        } else if (card.size == 2)
+        {
+            if (InventoryArray[0] == card && InventoryArray[1] == card)
+            {
+                TwoHandedSlot.gameObject.SetActive(false);
+                InventoryArray[0] = InventoryPlaceholder;
+                InventoryArray[1] = InventoryPlaceholder;
+                dl.discardPile.Add(card);
+            }
+            else
+            {
+                Debug.Log("Card not in inventory");
+            }
+
         }
-        else if (InventoryArray[1] == card)
-        {
-            InventorySlot2.gameObject.SetActive(false);
-            InventoryArray[1] = InventoryPlaceholder;
-            dl.discardPile.Add(card);
-        } else
-        {
-            Debug.Log("Card not in inventory");
-        }
+    
     }
 
     public Die getChapterDie()

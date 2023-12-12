@@ -11,6 +11,7 @@ public abstract class Card : MonoBehaviour
     [SerializeField] public Sprite cardFace;
     [SerializeField] public CardUsageType cardUsageType;
     [SerializeField] public DeckLogic dl;
+    public int size;
 
     public void discardCard(Card card)
     {
