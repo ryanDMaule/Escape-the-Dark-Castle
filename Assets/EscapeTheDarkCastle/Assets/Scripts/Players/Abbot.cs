@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class Abbot : PlayerBase
 {
-    public void printInventory()
-    {
-        Debug.Log("SLOT 1 : " + InventoryArray[0].name);
-        Debug.Log("SLOT 2 : " + InventoryArray[1].name);
-    }
+    //public void Start()
+    //{
+    //    name = "Abbot";        
+    //}
 
     private void SetAbbotDice(string rollValue, EnemyBase enemy)
     {

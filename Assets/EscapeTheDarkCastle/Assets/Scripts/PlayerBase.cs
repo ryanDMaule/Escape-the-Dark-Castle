@@ -52,6 +52,13 @@ public abstract class PlayerBase : MonoBehaviour
 
     public GameObject panel;
     private bool InventoryOpen = false;
+
+    public void printInventory()
+    {
+        Debug.Log("SLOT 1 : " + InventoryArray[0].name);
+        Debug.Log("SLOT 2 : " + InventoryArray[1].name);
+    }
+
     public void openInventory(PlayerBase player1)
     {
         Animator animator = panel.GetComponent<Animator>();
