@@ -5,6 +5,7 @@ public abstract class EnemyBase : MonoBehaviour
 {
     [SerializeField] public Sprite damage1;
     [SerializeField] public Sprite damage2;
+    [SerializeField] public Sprite damage3;
 
     [SerializeField] public ScrollRect description;
     [SerializeField] public Button description_button;
