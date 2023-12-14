@@ -3354,6 +3354,57 @@ RectTransform:
   m_AnchoredPosition: {x: -286.554, y: -6.9288}
   m_SizeDelta: {x: 100.892, y: 113.86}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &498463827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 498463829}
+  - component: {fileID: 498463828}
+  m_Layer: 0
+  m_Name: Scenes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &498463828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498463827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6dfb01192bfe99498bb6836a1a2fff1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterSelect: Character select
+  itemScreen: Items
+  chapterList:
+  - Skeletons
+  - Bone beast
+  startRoomList: []
+  bossList: []
+--- !u!4 &498463829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 498463827}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.985821, y: -65.01617, z: -21.69462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &502128529 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 918066695834455553, guid: f564d0cb78ea17040ac254c8629c5e6c, type: 3}
@@ -5981,6 +6032,7 @@ MonoBehaviour:
   Miller: {fileID: 1967947438}
   enemyBase: {fileID: 2135890024}
   state: 0
+  scenes: {fileID: 498463828}
 --- !u!4 &916605179
 Transform:
   m_ObjectHideFlags: 0
@@ -8077,6 +8129,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1405022884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1405022886}
+  - component: {fileID: 1405022885}
+  m_Layer: 0
+  m_Name: MainManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1405022885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405022884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e8ba8e531a4af942ae14bbb7d8022dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Players: []
+--- !u!4 &1405022886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405022884}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.985821, y: -65.01617, z: -21.69462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406462257
 GameObject:
   m_ObjectHideFlags: 0
@@ -11341,6 +11438,15 @@ MonoBehaviour:
   rollChapterDieButton: {fileID: 1152392005}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  InventorySlot1: {fileID: 0}
+  InventorySlot2: {fileID: 0}
+  TwoHandedSlot: {fileID: 0}
+  InventoryPlaceholder: {fileID: 0}
+  InventoryArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  ih: {fileID: 0}
+  panel: {fileID: 0}
 --- !u!1 &1974747009
 GameObject:
   m_ObjectHideFlags: 0
@@ -11632,6 +11738,15 @@ MonoBehaviour:
   rollChapterDieButton: {fileID: 593603299}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  InventorySlot1: {fileID: 0}
+  InventorySlot2: {fileID: 0}
+  TwoHandedSlot: {fileID: 0}
+  InventoryPlaceholder: {fileID: 0}
+  InventoryArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  ih: {fileID: 0}
+  panel: {fileID: 0}
 --- !u!1 &2135890019
 GameObject:
   m_ObjectHideFlags: 0
@@ -11729,6 +11844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage1: {fileID: 6585140791154225616, guid: bbc4967ce8ecfb04d8f57a83791f47eb, type: 3}
   damage2: {fileID: 6589979746034829671, guid: 60ade6e05542dce4ab5fd0e830eb94d6, type: 3}
+  damage3: {fileID: 0}
   description: {fileID: 104261414}
   description_button: {fileID: 368551101}
   enemyImage: {fileID: 2135890021}
@@ -11748,6 +11864,8 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1405022886}
+  - {fileID: 498463829}
   - {fileID: 916605179}
   - {fileID: 1355276557}
   - {fileID: 254444674}

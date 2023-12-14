@@ -6,6 +6,16 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Items.unity
+    guid: 3ca2c483456c4db4d86a11523c8afd69
+  - enabled: 1
+    path: Assets/Scenes/Skeletons.unity
+    guid: db37edf9d2806264fa82695f656c4963
+  - enabled: 1
+    path: Assets/Scenes/Character select.unity
+    guid: 9edcb040505af4e4d83e18c2d8d5c47c
+  - enabled: 1
+    path: Assets/Scenes/Bone beast.unity
+    guid: d8fd68b74f8f24a46a344442de09cb66
   m_configObjects: {}
+  m_UseUCBPForAssetBundles: 0

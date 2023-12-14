@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CharacterSelect : MonoBehaviour
 {
@@ -14,9 +17,13 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] public RawImage Tailor;
 
     public Color disabledColour; 
-    public Color enabledColour; 
+    public Color enabledColour;
+
+    public Button continueButton;
 
     public List<PlayerBase> selectedCharacters = new();
+
+    public Scenes scenes;
 
     public void selectCharacter(PlayerBase player)
     {
@@ -34,6 +41,7 @@ public class CharacterSelect : MonoBehaviour
                 Debug.Log("Too many characters selected!");
             }
         }
+        allowContinue();
     }
 
     public void deselectCharacter(PlayerBase player)
@@ -83,14 +91,33 @@ public class CharacterSelect : MonoBehaviour
         }
     }
 
-    public bool allowContinue()
+    public void allowContinue()
     {
         if(selectedCharacters.Count >= 2 && selectedCharacters.Count <= 4)
         {
-            return true;
+            continueButton.interactable = true;
         } else
         {
-            return false;
+            continueButton.interactable = false;
         }
+    }
+
+    public void loadNextScene()
+    {
+        //ASSIGN THE SELECTED PLAYERS TO PERSISTENT STORAGE (MainManager)
+
+        /*
+        foreach (var player in selectedCharacters)
+        {
+            Debug.Log("4EACH:" + player);
+            MainManager.Instance.Players.Add(player);
+        }
+        */
+
+        //MainManager.Instance.addPlayers(selectedCharacters);
+
+        //MainManager.Instance.printPlayers();
+
+        Loader.Load(scenes.chapterList[Random.Range(0, scenes.chapterList.Count)]);
     }
 }

@@ -21,6 +21,8 @@ public class ChapterLogic : MonoBehaviour
 
     public BattleState state;
 
+    public Scenes scenes;
+
     #endregion
 
     public BattleState getState()
@@ -30,6 +32,8 @@ public class ChapterLogic : MonoBehaviour
 
     void Start()
     {
+        MainManager.Instance.printPlayers();
+
         setDescriptionPhase();
     }
 
@@ -148,8 +152,7 @@ public class ChapterLogic : MonoBehaviour
         if (enemyBase.enemyDead())
         {
             yield return new WaitForSeconds(2f);
-            setWinHUD();
-            Debug.Log("setWinHUD");
+            win();
         }
         else
         {
@@ -185,6 +188,14 @@ public class ChapterLogic : MonoBehaviour
             setPreperationHUD();
         }
 
+    }
+
+    public void win()
+    {
+        Debug.Log("YOU WIN!");
+        //setWinHUD();
+
+        Loader.Load(scenes.itemScreen);
     }
 
     #region HUD_methods
