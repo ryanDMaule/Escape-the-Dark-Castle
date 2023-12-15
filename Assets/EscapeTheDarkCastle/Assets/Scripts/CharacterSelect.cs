@@ -1,10 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class CharacterSelect : MonoBehaviour
 {
@@ -114,10 +110,11 @@ public class CharacterSelect : MonoBehaviour
         }
         */
 
-        //MainManager.Instance.addPlayers(selectedCharacters);
+        MainManager.Instance.addPlayers(selectedCharacters);
+        MainManager.Instance.printPlayers();
 
-        //MainManager.Instance.printPlayers();
+        //Loader.Load(scenes.chapterList[Random.Range(0, scenes.chapterList.Count)]);
 
-        Loader.Load(scenes.chapterList[Random.Range(0, scenes.chapterList.Count)]);
+        Loader.Load(scenes.preGame);
     }
 }

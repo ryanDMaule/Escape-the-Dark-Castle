@@ -9,6 +9,7 @@ public class Scenes : MonoBehaviour
 
     public string characterSelect = "Character select";
     public string itemScreen = "Items";
+    public string preGame = "Pre game";
 
     public List<string> chapterList = new List<string>
     {
