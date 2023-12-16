@@ -50,10 +50,6 @@ public class MainManager : MonoBehaviour
             Players.Add(players[i]);
             updatePlayer(players[i], i);
         }
-        //foreach (var player in players)
-        //{
-        //    Players.Add(player);
-        //}
     }
 
     public string getPlayerName(int arrayPos)
