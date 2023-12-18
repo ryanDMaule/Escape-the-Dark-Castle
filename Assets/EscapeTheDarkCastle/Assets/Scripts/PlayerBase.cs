@@ -50,6 +50,11 @@ public abstract class PlayerBase : MonoBehaviour
         InventoryArray[1] = InventoryPlaceholder;
     }
 
+    public abstract int getPlayerMight();
+    public abstract int getPlayerCunning();
+    public abstract int getPlayerWisdom();
+
+
     public GameObject panel;
     private bool InventoryOpen = false;
 

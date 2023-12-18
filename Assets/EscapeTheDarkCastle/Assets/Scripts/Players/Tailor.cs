@@ -1,10 +1,16 @@
 using InnerDriveStudios.DiceCreator;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class Tailor : PlayerBase
 {
+    private readonly int might = 1;
+    private int cunning = 4;
+    private int wisdom = 3;
+
     private void setDice(string rollValue, EnemyBase enemy)
     {
         //implement
@@ -42,4 +48,20 @@ public class Tailor : PlayerBase
         }
 
     }
+
+    public override int getPlayerMight()
+    {
+        return might;
+    }
+
+    public override int getPlayerCunning()
+    {
+        return cunning;
+    }
+
+    public override int getPlayerWisdom()
+    {
+        return wisdom;
+    }
+
 }

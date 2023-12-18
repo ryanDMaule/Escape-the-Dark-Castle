@@ -39,7 +39,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 615}
+  m_AnchoredPosition: {x: 0, y: 338}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &442148461720292848
@@ -99,7 +99,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 966, y: -70}
+  m_AnchoredPosition: {x: 110, y: -70}
   m_SizeDelta: {x: 68.455, y: 68.455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2930562478358772613
@@ -174,7 +174,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 875.84, y: -586}
+  m_AnchoredPosition: {x: 0, y: -586}
   m_SizeDelta: {x: 691.93, y: 64.343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2226983781805884601
@@ -384,7 +384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 875.84, y: -352}
+  m_AnchoredPosition: {x: 0, y: -352}
   m_SizeDelta: {x: 418.284, y: 311.064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5843899552515939499
@@ -460,7 +460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 786, y: -70}
+  m_AnchoredPosition: {x: -109, y: -70}
   m_SizeDelta: {x: 68.455, y: 68.455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &301683097302672017
@@ -667,7 +667,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 875.83875, y: -299.86}
+  m_AnchoredPosition: {x: 0, y: -299.86}
   m_SizeDelta: {x: 691.928, y: 599.731}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1810633191190796045
@@ -721,7 +721,7 @@ GameObject:
   - component: {fileID: 6452029765024619661}
   m_Layer: 5
   m_Name: Text (Legacy) (1)
-  m_TagString: Untagged
+  m_TagString: cunning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -786,7 +786,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 0
 --- !u!1 &6468847727351896978
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 5785008571967785087}
   m_Layer: 5
   m_Name: Text (Legacy) (2)
-  m_TagString: Untagged
+  m_TagString: wisdom
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -865,7 +865,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 4
+  m_Text: 0
 --- !u!1 &6918639930429845345
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 875.84, y: -70}
+  m_AnchoredPosition: {x: 0, y: -70}
   m_SizeDelta: {x: 68.455, y: 68.455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1872773996307524607
@@ -955,7 +955,7 @@ GameObject:
   - component: {fileID: 2406630720917277730}
   m_Layer: 5
   m_Name: Text (Legacy)
-  m_TagString: Untagged
+  m_TagString: might
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1020,7 +1020,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 3
+  m_Text: 0
 --- !u!1 &8930995287287149686
 GameObject:
   m_ObjectHideFlags: 0

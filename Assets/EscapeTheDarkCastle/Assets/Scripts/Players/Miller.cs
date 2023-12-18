@@ -1,10 +1,16 @@
 using InnerDriveStudios.DiceCreator;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 public class Miller : PlayerBase
 {
+    private readonly int might = 3;
+    private int cunning = 4;
+    private int wisdom = 1;
+
     private void SetMillerDice(string rollValue, EnemyBase enemy)
     {
         switch (rollValue)
@@ -71,6 +77,21 @@ public class Miller : PlayerBase
             SetMillerDice(dieValue, enemy);
         }
 
+    }
+
+    public override int getPlayerMight()
+    {
+        return might;
+    }
+
+    public override int getPlayerCunning()
+    {
+        return cunning;
+    }
+
+    public override int getPlayerWisdom()
+    {
+        return wisdom;
     }
 
 }

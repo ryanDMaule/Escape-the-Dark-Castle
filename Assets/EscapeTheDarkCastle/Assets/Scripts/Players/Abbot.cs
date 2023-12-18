@@ -10,6 +10,10 @@ public class Abbot : PlayerBase
     //    name = "Abbot";        
     //}
 
+    private int might = 3;
+    private int cunning = 1;
+    private int wisdom = 4;
+
     private void SetAbbotDice(string rollValue, EnemyBase enemy)
     {
         switch (rollValue)
@@ -78,5 +82,18 @@ public class Abbot : PlayerBase
 
     }
 
+    public override int getPlayerMight()
+    {
+        return might;
+    }
 
+    public override int getPlayerCunning()
+    {
+        return cunning;
+    }
+
+    public override int getPlayerWisdom()
+    {
+        return wisdom;
+    }
 }

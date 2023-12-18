@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Cook : PlayerBase
 {
+    private readonly int might = 4;
+    private int cunning = 3;
+    private int wisdom = 1;
     private void setDice(string rollValue, EnemyBase enemy)
     {
         //implement
@@ -43,4 +46,18 @@ public class Cook : PlayerBase
 
     }
 
+    public override int getPlayerMight()
+    {
+        return might;
+    }
+
+    public override int getPlayerCunning()
+    {
+        return cunning;
+    }
+
+    public override int getPlayerWisdom()
+    {
+        return wisdom;
+    }
 }

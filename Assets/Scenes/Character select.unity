@@ -397,6 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSelect: Character select
   itemScreen: Items
+  preGame: Pre game
   chapterList:
   - Skeletons
   - Bone beast
@@ -484,6 +485,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players: []
+  player1_name: 
+  player1_health: 18
+  player1_inventory0: {fileID: 0}
+  player1_inventory1: {fileID: 0}
+  player2_name: 
+  player2_health: 18
+  player2_inventory0: {fileID: 0}
+  player2_inventory1: {fileID: 0}
+  player3_name: 
+  player3_health: 18
+  player3_inventory0: {fileID: 0}
+  player3_inventory1: {fileID: 0}
+  player4_name: 
+  player4_health: 18
+  player4_inventory0: {fileID: 0}
+  player4_inventory1: {fileID: 0}
   drawCards: 1
 --- !u!4 &471234888
 Transform:

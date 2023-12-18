@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Tanner : PlayerBase
 {
+    private readonly int might = 1;
+    private int cunning = 4;
+    private int wisdom = 3;
+
     private void setDice(string rollValue, EnemyBase enemy)
     {
         //implement
@@ -42,4 +46,20 @@ public class Tanner : PlayerBase
         }
 
     }
+
+    public override int getPlayerMight()
+    {
+        return might;
+    }
+
+    public override int getPlayerCunning()
+    {
+        return cunning;
+    }
+
+    public override int getPlayerWisdom()
+    {
+        return wisdom;
+    }
+
 }

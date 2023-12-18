@@ -12,6 +12,11 @@ TagManager:
   - Abbot
   - HUD-name
   - HUD-health
+  - might
+  - cunning
+  - wisdom
+  - placeholder
+  - Inventory
   layers:
   - Default
   - TransparentFX

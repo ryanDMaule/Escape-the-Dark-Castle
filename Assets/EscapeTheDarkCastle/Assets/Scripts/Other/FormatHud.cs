@@ -5,6 +5,8 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
+using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class FormatHud : MonoBehaviour
 {
@@ -26,6 +28,9 @@ public class FormatHud : MonoBehaviour
     [SerializeField] public GameObject player2;
     [SerializeField] public GameObject player3;
     [SerializeField] public GameObject player4;
+
+    [SerializeField] public GameObject inventory;
+    //[SerializeField] public GameObject inventoryPlaceholder;
 
 
     public void Start()
@@ -167,27 +172,45 @@ public class FormatHud : MonoBehaviour
         switch (playerName)
         {
             case "Abbot":
-                playerObject.AddComponent<Abbot>();
+                PlayerBase abbot = playerObject.AddComponent<Abbot>();
+                //instantiateInventory(playerObject, abbot);
+                formatInventory(arrayPos, abbot);
+
                 break;
 
             case "Miller":
-                playerObject.AddComponent<Miller>();
+                PlayerBase miller = playerObject.AddComponent<Miller>();
+                //instantiateInventory(playerObject, miller);
+                formatInventory(arrayPos, miller);
+
                 break;
 
             case "Smith":
-                playerObject.AddComponent<Smith>();
+                PlayerBase smith = playerObject.AddComponent<Smith>();
+                //instantiateInventory(playerObject, smith);
+                formatInventory(arrayPos, smith);
+
                 break;
 
             case "Cook":
-                playerObject.AddComponent<Cook>();
+                PlayerBase cook = playerObject.AddComponent<Cook>();
+                //instantiateInventory(playerObject, cook);
+                formatInventory(arrayPos, cook);
+
                 break;
 
             case "Tanner":
-                playerObject.AddComponent<Tanner>();
+                PlayerBase tanner = playerObject.AddComponent<Tanner>();
+                //instantiateInventory(playerObject, tanner);
+                formatInventory(arrayPos, tanner);
+
                 break;
 
             case "Tailor":
-                playerObject.AddComponent<Tailor>();
+                PlayerBase tailor = playerObject.AddComponent<Tailor>();
+                //instantiateInventory(playerObject, tailor);
+                formatInventory(arrayPos, tailor);
+
                 break;
 
             default:
@@ -233,7 +256,60 @@ public class FormatHud : MonoBehaviour
         assignPlayer(arrayPos, name);
     }
 
+    private void formatInventory(int arrayPos, PlayerBase player)
+    {
+        var playerObject = getPlayerObject(arrayPos);
 
+        var textFields = playerObject.GetComponentsInChildren<Text>();
+        foreach (var text in textFields)
+        {
+            if (text.tag == "might")
+            {
+                text.text = player.getPlayerMight().ToString();
+            }
 
+            if (text.tag == "cunning")
+            {
+                text.text = player.getPlayerCunning().ToString();
+            }
 
+            if (text.tag == "wisdom")
+            {
+                text.text = player.getPlayerWisdom().ToString();
+            }
+        }
+      
+
+        //apply animator component
+
+    }
+
+    /*
+    public void instantiateInventory(GameObject playerObject, PlayerBase player)
+    {
+        GameObject inventoryObject = Instantiate(inventory, playerObject.transform);
+        inventoryObject.transform.position = inventoryPlaceholder.transform.position;
+
+        var textFields = inventoryObject.GetComponentsInChildren<Text>();
+        foreach (var text in textFields)
+        {
+            if (text.tag == "might")
+            {
+                text.text = player.getPlayerMight().ToString();
+            }
+
+            if (text.tag == "cunning")
+            {
+                text.text = player.getPlayerCunning().ToString();
+            }
+
+            if (text.tag == "wisdom")
+            {
+                text.text = player.getPlayerWisdom().ToString();
+            }
+        }
+    }
+    */
+
+ 
 }
