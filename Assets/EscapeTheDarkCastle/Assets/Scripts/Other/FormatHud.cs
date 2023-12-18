@@ -1,15 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 using static UnityEditor.Progress;
-using static UnityEngine.UIElements.UxmlAttributeDescription;
 
 public class FormatHud : MonoBehaviour
 {
+    public List<PlayerBase> Players = new();
 
     [SerializeField] public GameObject placeholder1;
     [SerializeField] public GameObject placeholder2;
@@ -31,7 +27,6 @@ public class FormatHud : MonoBehaviour
 
     [SerializeField] public GameObject inventory;
     //[SerializeField] public GameObject inventoryPlaceholder;
-
 
     public void Start()
     {
@@ -164,7 +159,7 @@ public class FormatHud : MonoBehaviour
         }
     }
 
-    public void assignPlayer(int arrayPos, string playerName)
+    public void assignPlayer(int arrayPos, string playerName, GameObject hud)
     {
         GameObject playerObject = getPlayerObject(arrayPos);
         //playerObject.name = playerName;
@@ -173,44 +168,68 @@ public class FormatHud : MonoBehaviour
         {
             case "Abbot":
                 PlayerBase abbot = playerObject.AddComponent<Abbot>();
+                abbot.name = "Abbot";
+
                 //instantiateInventory(playerObject, abbot);
                 formatInventory(arrayPos, abbot);
+                setInventoryAnimator(hud, abbot);
 
+                Players.Add(abbot);
                 break;
 
             case "Miller":
                 PlayerBase miller = playerObject.AddComponent<Miller>();
+                miller.name = "Miller";
+
                 //instantiateInventory(playerObject, miller);
                 formatInventory(arrayPos, miller);
+                setInventoryAnimator(hud, miller);
 
+                Players.Add(miller);
                 break;
 
             case "Smith":
                 PlayerBase smith = playerObject.AddComponent<Smith>();
+                smith.name = "Smith";
+
                 //instantiateInventory(playerObject, smith);
                 formatInventory(arrayPos, smith);
+                setInventoryAnimator(hud, smith);
 
+                Players.Add(smith);
                 break;
 
             case "Cook":
                 PlayerBase cook = playerObject.AddComponent<Cook>();
+                cook.name = "Cook";
+
                 //instantiateInventory(playerObject, cook);
                 formatInventory(arrayPos, cook);
+                setInventoryAnimator(hud, cook);
 
+                Players.Add(cook);
                 break;
 
             case "Tanner":
                 PlayerBase tanner = playerObject.AddComponent<Tanner>();
+                tanner.name = "Tammer";
+
                 //instantiateInventory(playerObject, tanner);
                 formatInventory(arrayPos, tanner);
+                setInventoryAnimator(hud, tanner);
 
+                Players.Add(tanner);
                 break;
 
             case "Tailor":
                 PlayerBase tailor = playerObject.AddComponent<Tailor>();
+                tailor.name = "Tailor";
+
                 //instantiateInventory(playerObject, tailor);
                 formatInventory(arrayPos, tailor);
+                setInventoryAnimator(hud, tailor);
 
+                Players.Add(tailor);
                 break;
 
             default:
@@ -253,12 +272,21 @@ public class FormatHud : MonoBehaviour
                 Debug.Log("Error!");
                 break;
         }
-        assignPlayer(arrayPos, name);
+        assignPlayer(arrayPos, name, placeholder);
     }
 
     private void formatInventory(int arrayPos, PlayerBase player)
     {
         var playerObject = getPlayerObject(arrayPos);
+        var test = playerObject.GetComponentsInChildren<RectTransform>();
+
+        foreach (var item in test)
+        {
+            if (item.tag == "Inventory")
+            {
+                playerObject.GetComponent<PlayerBase>().panel = item.gameObject;
+            }
+        }
 
         var textFields = playerObject.GetComponentsInChildren<Text>();
         foreach (var text in textFields)
@@ -278,10 +306,12 @@ public class FormatHud : MonoBehaviour
                 text.text = player.getPlayerWisdom().ToString();
             }
         }
-      
+    }
 
-        //apply animator component
-
+    private void setInventoryAnimator(GameObject playerHud, PlayerBase player)
+    {
+        var button = playerHud.GetComponentInChildren<Button>();
+        button.onClick.AddListener(() => player.openInventory(Players));
     }
 
     /*
@@ -311,5 +341,5 @@ public class FormatHud : MonoBehaviour
     }
     */
 
- 
+
 }

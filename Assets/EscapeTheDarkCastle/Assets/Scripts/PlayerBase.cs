@@ -64,31 +64,13 @@ public abstract class PlayerBase : MonoBehaviour
         Debug.Log("SLOT 2 : " + InventoryArray[1].name);
     }
 
-    public void openInventory(PlayerBase player1)
+    public void openInventory()
     {
         Animator animator = panel.GetComponent<Animator>();
         if (!InventoryOpen)
         {
             animator.SetTrigger("Open");
             InventoryOpen = true;
-
-            player1.closeInventory();
-        } else
-        {
-            closeInventory();
-        }
-    }
-
-    public void openInventory(PlayerBase player1, PlayerBase player2)
-    {
-        Animator animator = panel.GetComponent<Animator>();
-        if (!InventoryOpen)
-        {
-            animator.SetTrigger("Open");
-            InventoryOpen = true;
-
-            player1.closeInventory();
-            player2.closeInventory();
         }
         else
         {
@@ -96,7 +78,7 @@ public abstract class PlayerBase : MonoBehaviour
         }
     }
 
-    public void openInventory(PlayerBase player1, PlayerBase player2, PlayerBase player3)
+    public void openInventory(List<PlayerBase> Players)
     {
         Animator animator = panel.GetComponent<Animator>();
         if (!InventoryOpen)
@@ -104,9 +86,13 @@ public abstract class PlayerBase : MonoBehaviour
             animator.SetTrigger("Open");
             InventoryOpen = true;
 
-            player1.closeInventory();
-            player2.closeInventory();
-            player3.closeInventory();
+            foreach (var player in Players)
+            {
+                if (player != this)
+                {
+                    player.closeInventory();
+                }
+            }
         }
         else
         {
