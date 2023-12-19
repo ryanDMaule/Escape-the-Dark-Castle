@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MainManager : MonoBehaviour
@@ -11,27 +12,27 @@ public class MainManager : MonoBehaviour
 
     //player 1
     public string player1_name = null; 
-    public int player1_health = 18; 
-    public Card player1_inventory0 = null; 
-    public Card player1_inventory1 = null;
+    public int player1_health = 18;
+    public string player1_inventory0 = "Placeholder"; 
+    public string player1_inventory1 = "Placeholder";
 
     //player 2
     public string player2_name = null;
     public int player2_health = 18;
-    public Card player2_inventory0 = null;
-    public Card player2_inventory1 = null;
+    public string player2_inventory0 = "Placeholder";
+    public string player2_inventory1 = "Placeholder";
 
     //player 3
     public string player3_name = null;
     public int player3_health = 18;
-    public Card player3_inventory0 = null;
-    public Card player3_inventory1 = null;
+    public string player3_inventory0 = "Placeholder";
+    public string player3_inventory1 = "Placeholder";
 
     //player 4
     public string player4_name = null;
     public int player4_health = 18;
-    public Card player4_inventory0 = null;
-    public Card player4_inventory1 = null;
+    public string player4_inventory0 = "Placeholder";
+    public string player4_inventory1 = "Placeholder";
 
     public int drawCards = 1;
 
@@ -103,29 +104,29 @@ public class MainManager : MonoBehaviour
             case 0:
                 player1_name = player.name;
                 player1_health = player.currentHealth;
-                player1_inventory0 = player.InventoryArray[0];
-                player1_inventory1 = player.InventoryArray[1];
+                player1_inventory0 = player.InventoryArray[0].name;
+                player1_inventory1 = player.InventoryArray[1].name;
                 break;
 
             case 1:
                 player2_name = player.name;
                 player2_health = player.currentHealth;
-                player2_inventory0 = player.InventoryArray[0];
-                player2_inventory1 = player.InventoryArray[1];
+                player2_inventory0 = player.InventoryArray[0].name;
+                player2_inventory1 = player.InventoryArray[1].name;
                 break;
 
             case 2:
                 player3_name = player.name;
                 player3_health = player.currentHealth;
-                player3_inventory0 = player.InventoryArray[0];
-                player3_inventory1 = player.InventoryArray[1];
+                player3_inventory0 = player.InventoryArray[0].name;
+                player3_inventory1 = player.InventoryArray[1].name;
                 break;
 
             case 3:
                 player4_name = player.name;
                 player4_health = player.currentHealth;
-                player4_inventory0 = player.InventoryArray[0];
-                player4_inventory1 = player.InventoryArray[1];
+                player4_inventory0 = player.InventoryArray[0].name;
+                player4_inventory1 = player.InventoryArray[1].name;
                 break;
 
             default:

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5492194378898823146}
   m_Layer: 5
   m_Name: Smith HUD icon
-  m_TagString: Untagged
+  m_TagString: HUD-health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 7744052184464078599}
   m_Layer: 5
   m_Name: Text (Legacy)
-  m_TagString: Untagged
+  m_TagString: HUD-health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

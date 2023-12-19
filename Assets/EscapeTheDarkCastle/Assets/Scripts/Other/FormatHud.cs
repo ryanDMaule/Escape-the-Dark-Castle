@@ -1,4 +1,6 @@
+using System.Buffers;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEditor.Progress;
@@ -27,6 +29,9 @@ public class FormatHud : MonoBehaviour
 
     [SerializeField] public GameObject inventory;
     //[SerializeField] public GameObject inventoryPlaceholder;
+
+    [SerializeField] public GameObject cardContainer;
+    [SerializeField] public DeckLogic dl;
 
     public void Start()
     {
@@ -170,9 +175,9 @@ public class FormatHud : MonoBehaviour
                 PlayerBase abbot = playerObject.AddComponent<Abbot>();
                 abbot.name = "Abbot";
 
-                //instantiateInventory(playerObject, abbot);
-                formatInventory(arrayPos, abbot);
+                formatInventory(arrayPos, abbot, hud);
                 setInventoryAnimator(hud, abbot);
+                applyPlayerItems(arrayPos, abbot);
 
                 Players.Add(abbot);
                 break;
@@ -181,9 +186,9 @@ public class FormatHud : MonoBehaviour
                 PlayerBase miller = playerObject.AddComponent<Miller>();
                 miller.name = "Miller";
 
-                //instantiateInventory(playerObject, miller);
-                formatInventory(arrayPos, miller);
+                formatInventory(arrayPos, miller, hud);
                 setInventoryAnimator(hud, miller);
+                applyPlayerItems(arrayPos, miller);
 
                 Players.Add(miller);
                 break;
@@ -192,9 +197,9 @@ public class FormatHud : MonoBehaviour
                 PlayerBase smith = playerObject.AddComponent<Smith>();
                 smith.name = "Smith";
 
-                //instantiateInventory(playerObject, smith);
-                formatInventory(arrayPos, smith);
+                formatInventory(arrayPos, smith, hud);
                 setInventoryAnimator(hud, smith);
+                applyPlayerItems(arrayPos, smith);
 
                 Players.Add(smith);
                 break;
@@ -203,9 +208,9 @@ public class FormatHud : MonoBehaviour
                 PlayerBase cook = playerObject.AddComponent<Cook>();
                 cook.name = "Cook";
 
-                //instantiateInventory(playerObject, cook);
-                formatInventory(arrayPos, cook);
+                formatInventory(arrayPos, cook, hud);
                 setInventoryAnimator(hud, cook);
+                applyPlayerItems(arrayPos, cook);
 
                 Players.Add(cook);
                 break;
@@ -214,9 +219,9 @@ public class FormatHud : MonoBehaviour
                 PlayerBase tanner = playerObject.AddComponent<Tanner>();
                 tanner.name = "Tammer";
 
-                //instantiateInventory(playerObject, tanner);
-                formatInventory(arrayPos, tanner);
+                formatInventory(arrayPos, tanner, hud);
                 setInventoryAnimator(hud, tanner);
+                applyPlayerItems(arrayPos, tanner);
 
                 Players.Add(tanner);
                 break;
@@ -225,9 +230,9 @@ public class FormatHud : MonoBehaviour
                 PlayerBase tailor = playerObject.AddComponent<Tailor>();
                 tailor.name = "Tailor";
 
-                //instantiateInventory(playerObject, tailor);
-                formatInventory(arrayPos, tailor);
+                formatInventory(arrayPos, tailor, hud);
                 setInventoryAnimator(hud, tailor);
+                applyPlayerItems(arrayPos, tailor);
 
                 Players.Add(tailor);
                 break;
@@ -275,7 +280,7 @@ public class FormatHud : MonoBehaviour
         assignPlayer(arrayPos, name, placeholder);
     }
 
-    private void formatInventory(int arrayPos, PlayerBase player)
+    private void formatInventory(int arrayPos, PlayerBase player, GameObject hud)
     {
         var playerObject = getPlayerObject(arrayPos);
         var test = playerObject.GetComponentsInChildren<RectTransform>();
@@ -285,6 +290,16 @@ public class FormatHud : MonoBehaviour
             if (item.tag == "Inventory")
             {
                 playerObject.GetComponent<PlayerBase>().panel = item.gameObject;
+
+                var hudComponenets = hud.GetComponentsInChildren<Text>();
+                foreach (var text in hudComponenets)
+                {
+                    if (text.tag == "HUD-health")
+                    {
+                        playerObject.GetComponent<PlayerBase>().healthText = text;
+                        break;
+                    }
+                }
             }
         }
 
@@ -306,6 +321,31 @@ public class FormatHud : MonoBehaviour
                 text.text = player.getPlayerWisdom().ToString();
             }
         }
+
+        var image = playerObject.GetComponentsInChildren<Image>();
+        foreach (var slot in image)
+        {
+            if (slot.tag == "InventorySlot1")
+            {
+                player.GetComponent<PlayerBase>().InventorySlot1 = slot;
+                continue;
+            }
+            if (slot.tag == "InventorySlot2")
+            {
+                player.GetComponent<PlayerBase>().InventorySlot2 = slot;
+                continue;
+            }
+            if (slot.tag == "InventorySlotMid")
+            {
+                player.GetComponent<PlayerBase>().TwoHandedSlot = slot;
+                break;
+            }
+        }
+        player.GetComponent<PlayerBase>().InventorySlot1.gameObject.SetActive(false);
+        player.GetComponent<PlayerBase>().InventorySlot2.gameObject.SetActive(false);
+        player.GetComponent<PlayerBase>().TwoHandedSlot.gameObject.SetActive(false);
+
+
     }
 
     private void setInventoryAnimator(GameObject playerHud, PlayerBase player)
@@ -341,5 +381,73 @@ public class FormatHud : MonoBehaviour
     }
     */
 
+    private void applyPlayerItems(int arrayPos, PlayerBase player)
+    {
+        switch (arrayPos)
+        {
+            case 0:
+                player.SetCurrentHealth(MainManager.Instance.player1_health);
+                //apply item cards
+                instantiateCard(MainManager.Instance.player1_inventory0, player);
+                instantiateCard(MainManager.Instance.player1_inventory1, player);
+                break;
+
+            case 1:
+                player.SetCurrentHealth(MainManager.Instance.player2_health);
+                //apply item cards
+                instantiateCard(MainManager.Instance.player2_inventory0, player);
+                instantiateCard(MainManager.Instance.player2_inventory1, player);
+                break;
+
+            case 2:
+                player.SetCurrentHealth(MainManager.Instance.player3_health);
+                //apply item cards
+                instantiateCard(MainManager.Instance.player3_inventory0, player);
+                instantiateCard(MainManager.Instance.player3_inventory1, player);
+                break;
+
+            case 3:
+                player.SetCurrentHealth(MainManager.Instance.player4_health);
+                //apply item cards
+                instantiateCard(MainManager.Instance.player4_inventory0, player);
+                instantiateCard(MainManager.Instance.player4_inventory1, player);
+                break;
+
+            default:
+                Debug.Log("Error!");
+                break;
+        }
+    }
+
+    private void instantiateCard(string cardName, PlayerBase player)
+    {
+        Debug.Log("Item card:" + cardName);
+        switch (cardName)
+        {
+            case "decayed blade_0":
+                player.assignInventoryCard(Instantiate(dl.decayedBlade, cardContainer.transform));
+                break;
+
+            case "stale loaf of bread_0":
+                player.assignInventoryCard(Instantiate(dl.staleLoafOfBread, cardContainer.transform));
+                break;
+
+            case "rotten shield_0":
+                player.assignInventoryCard(Instantiate(dl.rottenShield, cardContainer.transform));
+                break;
+
+            case "Cracked axe":
+                player.assignInventoryCard(Instantiate(dl.crackedAxe, cardContainer.transform));
+                break;
+
+            case "the replication stones_0":
+                player.assignInventoryCard(Instantiate(dl.theReplicationStones, cardContainer.transform));
+                break;
+
+            default:
+                Debug.Log("Card not found");
+                break;
+        }
+    }
 
 }

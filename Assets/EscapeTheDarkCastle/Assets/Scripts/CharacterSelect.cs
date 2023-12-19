@@ -18,6 +18,7 @@ public class CharacterSelect : MonoBehaviour
     public Button continueButton;
 
     public List<PlayerBase> selectedCharacters = new();
+    [SerializeField] public Placeholder InventoryPlaceholder;
 
     public Scenes scenes;
 
@@ -30,6 +31,8 @@ public class CharacterSelect : MonoBehaviour
         {
             if (selectedCharacters.Count < 4)
             {
+                player.InventoryArray[0] = InventoryPlaceholder;
+                player.InventoryArray[1] = InventoryPlaceholder;
                 selectedCharacters.Add(player);
                 setCardOpactiy(player, enabledColour);
             } else
@@ -101,20 +104,9 @@ public class CharacterSelect : MonoBehaviour
     public void loadNextScene()
     {
         //ASSIGN THE SELECTED PLAYERS TO PERSISTENT STORAGE (MainManager)
-
-        /*
-        foreach (var player in selectedCharacters)
-        {
-            Debug.Log("4EACH:" + player);
-            MainManager.Instance.Players.Add(player);
-        }
-        */
-
         MainManager.Instance.addPlayers(selectedCharacters);
-        MainManager.Instance.printPlayers();
 
-        //Loader.Load(scenes.chapterList[Random.Range(0, scenes.chapterList.Count)]);
-
+        //load the pre game screen
         Loader.Load(scenes.preGame);
     }
 }

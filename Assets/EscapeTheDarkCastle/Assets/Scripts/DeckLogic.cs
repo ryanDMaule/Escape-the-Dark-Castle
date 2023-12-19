@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class DeckLogic : MonoBehaviour
 {
 
+    //card prefabs
+    [SerializeField] public Card decayedBlade;
+    [SerializeField] public Card staleLoafOfBread;
+    [SerializeField] public Card rottenShield;
+    [SerializeField] public Card crackedAxe;
+    [SerializeField] public Card theReplicationStones;
+
     public List<Card> deck = new List<Card>();
     public List<Card> discardPile = new List<Card>();
 

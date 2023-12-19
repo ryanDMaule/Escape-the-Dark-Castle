@@ -17,7 +17,7 @@ public abstract class PlayerBase : MonoBehaviour
     public int currentHealth = 18;
 
     [SerializeField] private new string name;
-    [SerializeField] private Text healthText;
+    [SerializeField] public Text healthText;
     [SerializeField] private Text nameBattleText;
 
     [SerializeField] private Die chapterDie;

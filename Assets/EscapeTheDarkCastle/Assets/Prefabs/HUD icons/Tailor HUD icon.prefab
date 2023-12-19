@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8530407149719365020}
   m_Layer: 5
   m_Name: Text (Legacy)
-  m_TagString: Untagged
+  m_TagString: HUD-health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8164378793532712115}
   m_Layer: 5
   m_Name: Abbot health text
-  m_TagString: abbotHealthText
+  m_TagString: HUD-health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

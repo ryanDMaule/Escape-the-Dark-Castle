@@ -99,7 +99,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 110, y: -140}
+  m_AnchoredPosition: {x: 110, y: -505}
   m_SizeDelta: {x: 68.455, y: 68.455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2930562478358772613
@@ -229,11 +229,11 @@ GameObject:
   - component: {fileID: 5108137692424917350}
   m_Layer: 5
   m_Name: slot 2
-  m_TagString: Untagged
+  m_TagString: InventorySlot2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9048496950490392176
 RectTransform:
   m_ObjectHideFlags: 0
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 253124783058270287}
   m_Layer: 5
   m_Name: inventory block image
-  m_TagString: Untagged
+  m_TagString: InventoryBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +384,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -389}
+  m_AnchoredPosition: {x: 0, y: -290}
   m_SizeDelta: {x: 418.284, y: 311.064}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5843899552515939499
@@ -460,7 +460,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -109, y: -140}
+  m_AnchoredPosition: {x: -109, y: -505}
   m_SizeDelta: {x: 68.455, y: 68.455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &301683097302672017
@@ -515,11 +515,11 @@ GameObject:
   - component: {fileID: 7365987949054749791}
   m_Layer: 5
   m_Name: slot 1
-  m_TagString: Untagged
+  m_TagString: InventorySlot1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6620601616389737060
 RectTransform:
   m_ObjectHideFlags: 0
@@ -901,7 +901,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -140}
+  m_AnchoredPosition: {x: 0, y: -505}
   m_SizeDelta: {x: 68.455, y: 68.455}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1872773996307524607
@@ -1035,11 +1035,11 @@ GameObject:
   - component: {fileID: 4458696733862709560}
   m_Layer: 5
   m_Name: 2 handed slot
-  m_TagString: Untagged
+  m_TagString: InventorySlotMid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7911206487419151068
 RectTransform:
   m_ObjectHideFlags: 0

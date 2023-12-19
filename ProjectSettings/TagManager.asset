@@ -5,8 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - healthCounter
-  - abbotHealthText
-  - millerHealthText
   - ChapterDie
   - Miller
   - Abbot
@@ -17,6 +15,10 @@ TagManager:
   - wisdom
   - placeholder
   - Inventory
+  - InventoryBlock
+  - InventorySlot1
+  - InventorySlot2
+  - InventorySlotMid
   layers:
   - Default
   - TransparentFX
