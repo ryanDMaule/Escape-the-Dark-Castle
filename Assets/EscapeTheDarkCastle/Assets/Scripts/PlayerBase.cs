@@ -16,6 +16,7 @@ public abstract class PlayerBase : MonoBehaviour
     private const int MIN_HEALTH = 0;
     public int currentHealth = 18;
 
+    [SerializeField] public GameObject hud;
     [SerializeField] private new string name;
     [SerializeField] public Text healthText;
     [SerializeField] private Text nameBattleText;
@@ -49,7 +50,6 @@ public abstract class PlayerBase : MonoBehaviour
         InventoryArray[0] = InventoryPlaceholder;
         InventoryArray[1] = InventoryPlaceholder;
     }
-
     public abstract int getPlayerMight();
     public abstract int getPlayerCunning();
     public abstract int getPlayerWisdom();

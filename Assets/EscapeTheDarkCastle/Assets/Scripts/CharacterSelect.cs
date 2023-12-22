@@ -109,4 +109,13 @@ public class CharacterSelect : MonoBehaviour
         //load the pre game screen
         Loader.Load(scenes.preGame);
     }
+
+    public void loadExperiment()
+    {
+        //ASSIGN THE SELECTED PLAYERS TO PERSISTENT STORAGE (MainManager)
+        MainManager.Instance.addPlayers(selectedCharacters);
+
+        //load the pre game screen
+        Loader.Load(scenes.preGameExperiment);
+    }
 }
