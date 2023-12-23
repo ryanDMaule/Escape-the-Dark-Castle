@@ -14,6 +14,8 @@ public class FormatHud : MonoBehaviour
     [SerializeField] public GameObject player3;
     [SerializeField] public GameObject player4;   
 
+    [SerializeField] public InventoryHandler ih;   
+
     public void Start()
     {
         formatHud();
@@ -115,6 +117,8 @@ public class FormatHud : MonoBehaviour
 
     private void formatInventory(PlayerBase player, GameObject playerInventoryContainer, GameObject hud)
     {
+        player.GetComponent<PlayerBase>().ih = ih;
+
         var playerObjectRectObjects = playerInventoryContainer.GetComponentsInChildren<RectTransform>();
         foreach (var item in playerObjectRectObjects)
         {
@@ -178,6 +182,32 @@ public class FormatHud : MonoBehaviour
                 break;
             }
         }
+
+        var buttons = playerInventoryContainer.GetComponentsInChildren<Button>();
+        foreach (var button in buttons)
+        {
+            Debug.Log("button: " + button);
+
+            if (button.tag == "InventorySlot1")
+            {
+                Debug.Log("POP");
+                button.onClick.AddListener(() => player.slot1Pressed());
+                continue;
+            }
+            if (button.tag == "InventorySlot2")
+            {
+                Debug.Log("POW");
+                button.onClick.AddListener(() => player.slot2Pressed());
+                continue;
+            }
+            if (button.tag == "InventorySlotMid")
+            {
+                Debug.Log("ZOOM");
+                button.onClick.AddListener(() => player.TwoHandedSlotPressed());
+                continue;
+            }
+        }
+
         player.GetComponent<PlayerBase>().InventorySlot1.gameObject.SetActive(false);
         player.GetComponent<PlayerBase>().InventorySlot2.gameObject.SetActive(false);
         player.GetComponent<PlayerBase>().TwoHandedSlot.gameObject.SetActive(false);

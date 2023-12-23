@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SaveMe : MonoBehaviour
 {
-    //public static SaveMe Instance;
     void Start()
     {
         Debug.Log("SaveMe!");
@@ -13,8 +12,10 @@ public class SaveMe : MonoBehaviour
         Debug.Log("gameObject:" + gameObject.name);
 
     }
-    
+
     /*
+    public static SaveMe Instance;
+
     private void Awake()
     {
         if (Instance != null)
