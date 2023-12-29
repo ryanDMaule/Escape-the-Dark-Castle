@@ -11,6 +11,7 @@ public class Scenes : MonoBehaviour
     public string itemScreen = "Items";
     public string preGame = "Pre game";
     public string preGameExperiment = "Pre game Experiment";
+    public string skeletonExperiment = "Skeletons experiment";
 
     public List<string> chapterList = new List<string>
     {
@@ -24,6 +25,11 @@ public class Scenes : MonoBehaviour
     public void loadRandomChapter()
     {
         Loader.Load(chapterList[Random.Range(0, chapterList.Count)]);
+    }
+
+    public void loadExperimentChapter()
+    {
+        Loader.Load(skeletonExperiment);
     }
 
 }

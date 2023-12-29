@@ -8,6 +8,8 @@ public class MainManager : MonoBehaviour
 
     public List<PlayerBase> Players = new();
 
+    [SerializeField] public ChapterLogicNew cl;
+
     public int drawCards = 1;
 
     public void printPlayers()
@@ -41,6 +43,32 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public void playersRolled()
+    {
+        bool allPlayersRolled = true;
+        foreach(var player in Players)
+        {
+            if (!player.hasRolled)
+            {
+                allPlayersRolled = false;
+                break;
+            }
+        }
+
+        if (allPlayersRolled)
+        {
+            Debug.Log("ALL PLAYERS ROLLED");
+            foreach (var player in Players)
+            {
+                player.hasRolled = false;
+            }
+            cl.preperationPhase();
+        } else
+        {
+            Debug.Log("ALL PLAYERS HAVE NOT ROLLED");
+        }
     }
 
 }

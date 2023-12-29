@@ -411,17 +411,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1036976132612662720, guid: 62ea7737eaabb884681645151a69e337, type: 3}
   m_PrefabInstance: {fileID: 728817016}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &107990516 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8566329473272582038, guid: 4a3cdba713e6c754ebd713e5fc0b169e, type: 3}
-  m_PrefabInstance: {fileID: 1160536893}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 566564b4a2dc59c4eb17736cc58c63ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &116106943
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,6 +457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 1139763875233492027, guid: 452bef3ab3f05dd4c920e3b48d8929e6, type: 3}
+  chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
+  characterDiePrefab: {fileID: -60624326624102291, guid: 16c5d81fa23ae094faec639dbfd41b35, type: 3}
   name: Cook
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
@@ -616,6 +607,7 @@ MonoBehaviour:
   itemScreen: Items
   preGame: Pre game
   preGameExperiment: Pre game Experiment
+  skeletonExperiment: Skeletons experiment
   chapterList:
   - Skeletons
   - Bone beast
@@ -1133,7 +1125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players: []
   drawCards: 1
-  card: {fileID: 107990516}
 --- !u!4 &471234888
 Transform:
   m_ObjectHideFlags: 0
@@ -1886,6 +1877,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 1768632710775314378, guid: 264d8a9de7b521043b75b27846a41822, type: 3}
+  chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
+  characterDiePrefab: {fileID: -1453106625844770252, guid: 329a8257c39c0ed429ad6776e927752a, type: 3}
   name: Miller
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
@@ -2098,6 +2091,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 9158057336077593613, guid: 5f158763a69e9ce49ab7c3c0cb21c7e1, type: 3}
+  chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
+  characterDiePrefab: {fileID: -60624326624102291, guid: 069ee010bc036f34a942635785c7d5cd, type: 3}
   name: Abbot
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
@@ -2792,6 +2787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 5358500774035940945, guid: e5ee78c3b9eb9074fb152ae8a0771649, type: 3}
+  chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
+  characterDiePrefab: {fileID: -60624326624102291, guid: 06d866749fa76a64e8137ff97f87cbf8, type: 3}
   name: Tailor
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
@@ -2944,6 +2941,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 7269512455417262215, guid: 7b993a1691bf02a48bc6ed3736610b69, type: 3}
+  chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
+  characterDiePrefab: {fileID: -60624326624102291, guid: a5d45140d33e5394fa6e4c82c6899bf6, type: 3}
   name: Smith
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
@@ -3090,6 +3089,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 1408029724453074794, guid: 4cfe4afcb46abde4da404ee04deb46a3, type: 3}
+  chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
+  characterDiePrefab: {fileID: -60624326624102291, guid: 81bd7d4b36ac40e4da4ac96ff9b653c8, type: 3}
   name: Tanner
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}

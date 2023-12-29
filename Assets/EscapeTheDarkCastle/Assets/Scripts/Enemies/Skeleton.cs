@@ -30,7 +30,24 @@ public class Skeleton : EnemyBase
         cl.setEnemyHealthPhase();
     }
 
+    public void option1New(ChapterLogicNew cl)
+    {
+        setDamage(2);
+        enemy_damage_image.sprite = damage2;
+
+        cl.setEnemyHealthPhase();
+    }
+
     public void option2(ChapterLogic cl)
+    {
+        setEnemyMight(2);
+        setDamage(1);
+        enemy_damage_image.sprite = damage1;
+
+        cl.setEnemyHealthPhase();
+    }
+
+    public void option2New(ChapterLogicNew cl)
     {
         setEnemyMight(2);
         setDamage(1);

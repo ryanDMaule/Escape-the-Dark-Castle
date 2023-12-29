@@ -15,6 +15,7 @@ public class FormatHud : MonoBehaviour
     [SerializeField] public GameObject player4;   
 
     [SerializeField] public InventoryHandler ih;   
+    [SerializeField] public GameObject dieCollection;   
 
     public void Start()
     {
@@ -106,10 +107,19 @@ public class FormatHud : MonoBehaviour
         }
     }
 
+    //Instantiates the passed players characterDie and a chapter die to the die container
     //Instantiates the passed players specific HUD prefab to the placeholder position provided (making a child gameObject beneath placeholder)
     //We then call assignPlayer()
     public void setHudDetails(PlayerBase player, GameObject playerInventoryContainer, GameObject hud)
     {
+        var chapterDie = Instantiate(player.chapterDiePrefab, dieCollection.transform);
+        player.GetComponent<PlayerBase>().chapterDie = chapterDie;
+        chapterDie.gameObject.SetActive(false);
+
+        var characterDie = Instantiate(player.characterDiePrefab, dieCollection.transform);
+        player.GetComponent<PlayerBase>().characterDie = characterDie;
+        characterDie.gameObject.SetActive(false);
+
         Instantiate(player.hud, hud.transform);
         formatInventory(player, playerInventoryContainer, hud);
         setInventoryAnimator(player, hud);

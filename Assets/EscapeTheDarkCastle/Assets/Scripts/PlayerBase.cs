@@ -17,12 +17,15 @@ public abstract class PlayerBase : MonoBehaviour
     public int currentHealth = 18;
 
     [SerializeField] public GameObject hud;
+    [SerializeField] public Die chapterDiePrefab;
+    [SerializeField] public Die characterDiePrefab;
+
     [SerializeField] private new string name;
     [SerializeField] public Text healthText;
     [SerializeField] private Text nameBattleText;
 
-    [SerializeField] private Die chapterDie;
-    [SerializeField] private Die characterDie;
+    [SerializeField] public Die chapterDie;
+    [SerializeField] public Die characterDie;
 
     private bool shieldActive = false;
     private bool isResting = false;
@@ -352,13 +355,16 @@ public abstract class PlayerBase : MonoBehaviour
         };
     }
 
-    public void rollEnemyHealth(EnemyBase enemy)
+    public void rollEnemyHealth(EnemyBase enemy, Button button)
     {
-        StartCoroutine(rollEnemyHealthIE(enemy));
+        //StartCoroutine(rollEnemyHealthIE(enemy));
+        StartCoroutine(rollEnemyHealthIE(enemy, button));
     }
 
-    IEnumerator rollEnemyHealthIE(EnemyBase enemy)
+    IEnumerator rollEnemyHealthIEOld(EnemyBase enemy)
     {
+        Debug.Log("rollEnemyHealthIE!");
+
         if (!chapterDie.isRolling)
         {
             chapterDie.gameObject.SetActive(true);
@@ -394,6 +400,52 @@ public abstract class PlayerBase : MonoBehaviour
             }
 
             chapterDie.gameObject.SetActive(false);
+        }
+    }
+
+    public bool hasRolled = false;
+
+    IEnumerator rollEnemyHealthIE(EnemyBase enemy, Button button)
+    {
+        Debug.Log("rollEnemyHealthIE!");
+
+        if (!chapterDie.isRolling)
+        {
+            chapterDie.gameObject.SetActive(true);
+            chapterDie.Roll();
+
+            while (chapterDie.isRolling)
+            {
+                yield return null;
+            }
+
+            //do something aesthetically nicer
+            button.interactable = false;
+
+            string dieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
+            ChapterDieOptions rollResult = getChapterRolResult(dieValue);
+
+            switch (rollResult)
+            {
+                case ChapterDieOptions.MIGHT:
+                    enemy.setEnemyMight(1);
+                    break;
+
+                case ChapterDieOptions.CUNNING:
+                    enemy.setEnemyCunning(1);
+                    break;
+
+                case ChapterDieOptions.WISDOM:
+                    enemy.setEnemyWisdom(1);
+                    break;
+
+                default:
+                    break;
+            }
+
+            chapterDie.gameObject.SetActive(false);
+            hasRolled = true;
+            MainManager.Instance.playersRolled();
         }
     }
 
