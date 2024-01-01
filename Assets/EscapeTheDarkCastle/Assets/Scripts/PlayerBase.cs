@@ -20,12 +20,12 @@ public abstract class PlayerBase : MonoBehaviour
     [SerializeField] public Die chapterDiePrefab;
     [SerializeField] public Die characterDiePrefab;
 
+    [SerializeField] public Die chapterDie;
+    [SerializeField] public Die characterDie;
+
     [SerializeField] private new string name;
     [SerializeField] public Text healthText;
     [SerializeField] private Text nameBattleText;
-
-    [SerializeField] public Die chapterDie;
-    [SerializeField] public Die characterDie;
 
     private bool shieldActive = false;
     private bool isResting = false;
@@ -56,7 +56,37 @@ public abstract class PlayerBase : MonoBehaviour
     public abstract int getPlayerMight();
     public abstract int getPlayerCunning();
     public abstract int getPlayerWisdom();
+    public abstract void getPlayerDieValue(string rollValue, EnemyBase enemy);
+    
+    public void rollLogic(EnemyBase enemy)
+    {
+        StartCoroutine(rollDelay(enemy));
+    }
 
+    IEnumerator rollDelay(EnemyBase enemy)
+    {
+        Die characterDie = getCharacterDie();
+        if (!characterDie.isRolling)
+        {
+            //show the dice and spawn it rolling in the air above the camera
+            //characterDie.transform.position = new Vector3(0, 15, 0);
+            characterDie.gameObject.SetActive(true);
+            characterDie.Roll();
+
+            while (characterDie.isRolling)
+            {
+                yield return null;
+            }
+
+            //when rolling is false hide the die itself
+            characterDie.gameObject.SetActive(false);
+            getCharacterDieButton().gameObject.SetActive(false);
+
+            string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
+            getPlayerDieValue(dieValue, enemy);
+        }
+    }
+    
 
     public GameObject panel;
     private bool InventoryOpen = false;
@@ -355,11 +385,17 @@ public abstract class PlayerBase : MonoBehaviour
         };
     }
 
-    public void rollEnemyHealth(EnemyBase enemy, Button button)
+    public void rollEnemyHealth(EnemyBase enemy)
     {
-        //StartCoroutine(rollEnemyHealthIE(enemy));
+        StartCoroutine(rollEnemyHealthIEOld(enemy));
+    }
+
+    
+    public void rollEnemyHealthNew(EnemyBase enemy, Button button)
+    {
         StartCoroutine(rollEnemyHealthIE(enemy, button));
     }
+    
 
     IEnumerator rollEnemyHealthIEOld(EnemyBase enemy)
     {
@@ -411,6 +447,8 @@ public abstract class PlayerBase : MonoBehaviour
 
         if (!chapterDie.isRolling)
         {
+            button.interactable = false;
+
             chapterDie.gameObject.SetActive(true);
             chapterDie.Roll();
 
@@ -418,9 +456,6 @@ public abstract class PlayerBase : MonoBehaviour
             {
                 yield return null;
             }
-
-            //do something aesthetically nicer
-            button.interactable = false;
 
             string dieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
             ChapterDieOptions rollResult = getChapterRolResult(dieValue);

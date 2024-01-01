@@ -80,7 +80,7 @@ public class FormatChapter : MonoBehaviour
             //ROLL
             if (button.tag == "ChapterDie")
             {
-                button.onClick.AddListener(() => player.rollEnemyHealth(enemy, button));
+                button.onClick.AddListener(() => player.rollEnemyHealthNew(enemy, button));
                 continue;
             }
 
@@ -88,6 +88,7 @@ public class FormatChapter : MonoBehaviour
             if (button.tag == "fightButton")
             {
                 button.onClick.AddListener(() => player.fightState());
+                button.gameObject.SetActive(false);
                 continue;
             }
 
@@ -95,6 +96,7 @@ public class FormatChapter : MonoBehaviour
             if (button.tag == "restButton")
             {
                 //button.onClick.AddListener(() => player.rest());
+                button.gameObject.SetActive(false);
                 continue;
             }
         }

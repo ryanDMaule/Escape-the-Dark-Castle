@@ -1,52 +1,42 @@
-using InnerDriveStudios.DiceCreator;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.PackageManager.UI;
-using UnityEngine;
-
 public class Tailor : PlayerBase
 {
     private readonly int might = 1;
     private int cunning = 4;
     private int wisdom = 3;
 
-    private void setDice(string rollValue, EnemyBase enemy)
+    public override void getPlayerDieValue(string rollValue, EnemyBase enemy)
     {
-        //implement
-    }
-
-    public void rollLogic(EnemyBase enemy)
-    {
-        StartCoroutine(rollDelay(enemy));
-    }
-
-    IEnumerator rollDelay(EnemyBase enemy)
-    {
-        Die characterDie = getCharacterDie();
-        if (!characterDie.isRolling)
+        switch (rollValue)
         {
-            Debug.Log("ROLL");
+            case "0":
+                enemy.reduceEnemyCunning(1);
+                break;
 
+            case "1":
+                enemy.reduceEnemyWisdom(1);
+                break;
 
-            //show the dice and spawn it rolling in the air above the camera
-            //characterDie.transform.position = new Vector3(0, 15, 0);
-            characterDie.gameObject.SetActive(true);
-            characterDie.Roll();
+            case "2":
+                enemy.reduceEnemyCunning(1);
+                break;
 
-            while (characterDie.isRolling)
-            {
-                yield return null;
-            }
+            case "3":
+                enemy.reduceEnemyCunning(2);
+                setShieldActiveState(true);
+                break;
 
-            //when rolling is false hide the die itself
-            characterDie.gameObject.SetActive(false);
-            getCharacterDieButton().gameObject.SetActive(false);
+            case "4":
+                enemy.reduceEnemyMight(1);
+                break;
 
-            string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            setDice(dieValue, enemy);
+            case "5":
+                enemy.reduceEnemyWisdom(2);
+                setShieldActiveState(true);
+                break;
+
+            default:
+                break;
         }
-
     }
 
     public override int getPlayerMight()
