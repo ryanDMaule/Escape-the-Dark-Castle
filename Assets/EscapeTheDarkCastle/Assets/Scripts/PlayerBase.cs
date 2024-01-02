@@ -17,6 +17,8 @@ public abstract class PlayerBase : MonoBehaviour
     public int currentHealth = 18;
 
     [SerializeField] public GameObject hud;
+    [SerializeField] public GameObject roundHud;
+
     [SerializeField] public Die chapterDiePrefab;
     [SerializeField] public Die characterDiePrefab;
 
@@ -33,8 +35,8 @@ public abstract class PlayerBase : MonoBehaviour
     [SerializeField] public Image combatState;
     [SerializeField] public Button restButton;
     [SerializeField] public Button fightButton;
-    [SerializeField] private Button rollCharacterDieButton;
-    [SerializeField] private Button rollChapterDieButton;
+    [SerializeField] public Button rollCharacterDieButton;
+    [SerializeField] public Button rollChapterDieButton;
 
     [SerializeField] public Sprite restSprite;
     [SerializeField] public Sprite fightSprite;
@@ -493,6 +495,20 @@ public abstract class PlayerBase : MonoBehaviour
         setIsRestingState(true);
     }
 
+    public void restNew()
+    {
+        foreach (var player in MainManager.Instance.Players)
+        {
+            if(player == this)
+            {
+                setIsRestingState(true);
+            } else
+            {
+                player.setIsRestingState(false);
+            }
+        }
+    }
+
     #region HUD_methods
 
     public void SET_DESCRIPTION_HUD()
@@ -522,6 +538,15 @@ public abstract class PlayerBase : MonoBehaviour
         restButton.gameObject.SetActive(true);
         fightButton.gameObject.SetActive(true);
         nameBattleText.gameObject.SetActive(true);
+    }
+
+    public void PREPERATION_HUD_NEW()
+    {
+        roundHud.gameObject.SetActive(true);
+        combatState.gameObject.SetActive(true);
+        rollChapterDieButton.gameObject.SetActive(false);
+        restButton.gameObject.SetActive(true);
+        fightButton.gameObject.SetActive(true);
     }
 
     public void PLAYER_TURN_HUD()
@@ -560,6 +585,5 @@ public abstract class PlayerBase : MonoBehaviour
     {
         rollCharacterDieButton.gameObject.SetActive(true);
     }
-
 
 }

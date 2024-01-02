@@ -457,20 +457,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 1139763875233492027, guid: 452bef3ab3f05dd4c920e3b48d8929e6, type: 3}
+  roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
   characterDiePrefab: {fileID: -60624326624102291, guid: 16c5d81fa23ae094faec639dbfd41b35, type: 3}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Cook
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
-  restSprite: {fileID: 0}
-  fightSprite: {fileID: 0}
+  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
@@ -480,6 +481,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   panel: {fileID: 0}
+  hasRolled: 0
 --- !u!1 &254444672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,6 +1126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players: []
+  cl: {fileID: 0}
   drawCards: 1
 --- !u!4 &471234888
 Transform:
@@ -1877,20 +1880,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 1768632710775314378, guid: 264d8a9de7b521043b75b27846a41822, type: 3}
+  roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
   characterDiePrefab: {fileID: -1453106625844770252, guid: 329a8257c39c0ed429ad6776e927752a, type: 3}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Miller
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
-  restSprite: {fileID: 0}
-  fightSprite: {fileID: 0}
+  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
@@ -1900,6 +1904,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   panel: {fileID: 0}
+  hasRolled: 0
 --- !u!1 &1015517077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,20 +2096,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 9158057336077593613, guid: 5f158763a69e9ce49ab7c3c0cb21c7e1, type: 3}
+  roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
   characterDiePrefab: {fileID: -60624326624102291, guid: 069ee010bc036f34a942635785c7d5cd, type: 3}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Abbot
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
-  restSprite: {fileID: 0}
-  fightSprite: {fileID: 0}
+  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
@@ -2114,6 +2120,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   panel: {fileID: 0}
+  hasRolled: 0
 --- !u!1001 &1160536893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2787,20 +2794,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 5358500774035940945, guid: e5ee78c3b9eb9074fb152ae8a0771649, type: 3}
+  roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
   characterDiePrefab: {fileID: -60624326624102291, guid: 06d866749fa76a64e8137ff97f87cbf8, type: 3}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Tailor
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
-  restSprite: {fileID: 0}
-  fightSprite: {fileID: 0}
+  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
@@ -2810,6 +2818,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   panel: {fileID: 0}
+  hasRolled: 0
 --- !u!4 &1597078067
 Transform:
   m_ObjectHideFlags: 0
@@ -2941,20 +2950,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 7269512455417262215, guid: 7b993a1691bf02a48bc6ed3736610b69, type: 3}
+  roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
   characterDiePrefab: {fileID: -60624326624102291, guid: a5d45140d33e5394fa6e4c82c6899bf6, type: 3}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Smith
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
-  restSprite: {fileID: 0}
-  fightSprite: {fileID: 0}
+  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
@@ -2964,6 +2974,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   panel: {fileID: 0}
+  hasRolled: 0
 --- !u!1 &2034461423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3089,20 +3100,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   hud: {fileID: 1408029724453074794, guid: 4cfe4afcb46abde4da404ee04deb46a3, type: 3}
+  roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
   characterDiePrefab: {fileID: -60624326624102291, guid: 81bd7d4b36ac40e4da4ac96ff9b653c8, type: 3}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Tanner
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
-  restSprite: {fileID: 0}
-  fightSprite: {fileID: 0}
+  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
@@ -3112,6 +3124,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   panel: {fileID: 0}
+  hasRolled: 0
 --- !u!1 &2067802269
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,6 +64,19 @@ public class FormatChapter : MonoBehaviour
 
     private void formatPlayerControlBlock(GameObject controlBlock, PlayerBase player)
     {
+        player.roundHud = controlBlock;
+
+        var images = controlBlock.GetComponentsInChildren<Image>();
+        foreach (var image in images)
+        {
+            if (image.tag == "combatState")
+            {
+                player.combatState = image;
+                image.gameObject.SetActive(false);
+                break;
+            }
+        }
+
         var textFields = controlBlock.GetComponentsInChildren<Text>();
         foreach (var item in textFields)
         {
@@ -80,6 +93,8 @@ public class FormatChapter : MonoBehaviour
             //ROLL
             if (button.tag == "ChapterDie")
             {
+                player.rollChapterDieButton = button;
+
                 button.onClick.AddListener(() => player.rollEnemyHealthNew(enemy, button));
                 continue;
             }
@@ -87,6 +102,8 @@ public class FormatChapter : MonoBehaviour
             //FIGHT
             if (button.tag == "fightButton")
             {
+                player.fightButton = button;
+
                 button.onClick.AddListener(() => player.fightState());
                 button.gameObject.SetActive(false);
                 continue;
@@ -95,12 +112,13 @@ public class FormatChapter : MonoBehaviour
             //REST
             if (button.tag == "restButton")
             {
-                //button.onClick.AddListener(() => player.rest());
+                player.restButton = button;
+
+                button.onClick.AddListener(() => player.restNew());
                 button.gameObject.SetActive(false);
                 continue;
             }
         }
     }
-
 
 }

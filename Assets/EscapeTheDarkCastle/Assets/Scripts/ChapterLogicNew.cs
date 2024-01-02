@@ -19,6 +19,8 @@ public class ChapterLogicNew : MonoBehaviour
 
     public Scenes scenes;
 
+    public FormatChapter fc;
+
     #endregion
 
     public BattleState getState()
@@ -122,8 +124,14 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.hideOptionsHUD();
         enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
-        playersCombinedHUD.SetActive(false);
-
+        //set the rest and fight buttons to active
+        playersCombinedHUD.SetActive(true);
+        foreach(var player in MainManager.Instance.Players)
+        {
+            //player.prepHUD();
+            player.PREPERATION_HUD_NEW();
+        }
+        
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(true);
     }
