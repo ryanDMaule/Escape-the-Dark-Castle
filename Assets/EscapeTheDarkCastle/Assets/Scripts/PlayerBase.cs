@@ -88,7 +88,41 @@ public abstract class PlayerBase : MonoBehaviour
             getPlayerDieValue(dieValue, enemy);
         }
     }
-    
+
+    public void rollLogicNew(EnemyBase enemy, Button roll, Button next)
+    {
+        StartCoroutine(rollDelayNew(enemy, roll, next));
+    }
+
+    IEnumerator rollDelayNew(EnemyBase enemy, Button roll, Button next)
+    {
+        Die characterDie = getCharacterDie();
+
+        if (!characterDie.isRolling)
+        {
+            //show the dice and spawn it rolling in the air above the camera
+            //characterDie.transform.position = new Vector3(0, 15, 0);
+            characterDie.gameObject.SetActive(true);
+            roll.interactable = false;
+
+            characterDie.Roll();
+
+            while (characterDie.isRolling)
+            {
+                yield return null;
+            }
+
+            next.interactable = true;
+
+            //when rolling is false hide the die itself
+            characterDie.gameObject.SetActive(false);
+
+            string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
+            getPlayerDieValue(dieValue, enemy);
+
+            enemy.enemyDead();
+        }
+    }
 
     public GameObject panel;
     private bool InventoryOpen = false;
@@ -380,9 +414,9 @@ public abstract class PlayerBase : MonoBehaviour
     {
         return rollValue switch
         {
-            "0" or "5" => ChapterDieOptions.CUNNING,
-            "1" or "2" => ChapterDieOptions.MIGHT,
-            "3" or "4" => ChapterDieOptions.WISDOM,
+            "2" or "3" => ChapterDieOptions.CUNNING,
+            "6" or "5" => ChapterDieOptions.MIGHT,
+            "1" or "4" => ChapterDieOptions.WISDOM,
             _ => ChapterDieOptions.FAIL,
         };
     }

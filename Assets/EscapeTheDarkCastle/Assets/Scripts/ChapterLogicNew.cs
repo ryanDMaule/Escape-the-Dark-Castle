@@ -9,6 +9,11 @@ public class ChapterLogicNew : MonoBehaviour
     #region globalVariables
 
     [SerializeField] public GameObject playersCombinedHUD;
+    [SerializeField] public GameObject playerTurnHUD;
+    [SerializeField] public Text playerTurnName;
+    [SerializeField] public Button playerTurnRoll;
+    [SerializeField] public Button playerTurnInventory;
+    [SerializeField] public Button playerTurnEndTurn;
 
     [SerializeField] public Text win_lose_text;
     [SerializeField] public Button Continue_button;
@@ -60,10 +65,85 @@ public class ChapterLogicNew : MonoBehaviour
         setPreperationHUD();
     }
 
-    public void setPlayerTurnPhase()
+    public void startPlayerTurnPhase()
     {
-        setPlayerTurnHUD();
+        foreach(var p in MainManager.Instance.Players)
+        {
+            if (p.getIsRestingState())
+            {
+                p.IncreaseHealth(1);
+            }
+        }
+
+        PlayerBase player = MainManager.Instance.Players[0];
+        if (player.getIsRestingState())
+        {
+            Debug.Log("PLAYER RESTING SKIP");
+
+            PlayerBase result = MainManager.Instance.getNextPlayer(player);
+            if (result == null)
+            {
+                startEnemyTurnPhase();
+            }
+            else
+            {
+                setPlayerTurnPhase(result);
+            }
+        } else
+        {
+            setPlayerTurnHUD();
+            //formatPlayerTurnHUD(MainManager.Instance.Players[0]);
+            formatPlayerTurnHUDNew(MainManager.Instance.Players[0]);
+        }
     }
+
+    public void setPlayerTurnPhase(PlayerBase player)
+    {
+        if (player.getIsRestingState())
+        {
+            Debug.Log("PLAYER RESTING SKIP");
+
+            PlayerBase result = MainManager.Instance.getNextPlayer(player);
+            if (result == null)
+            {
+                startEnemyTurnPhase();
+            }
+            else
+            {
+                setPlayerTurnPhase(result);
+            }
+        }
+        else
+        {
+            setPlayerTurnHUD();
+            //formatPlayerTurnHUD(player);
+            formatPlayerTurnHUDNew(player);
+        }
+    }
+
+    public void startEnemyTurnPhase()
+    {
+        bool playerDead = false;
+
+        setEnemyTurnHUD();
+        foreach (var player in MainManager.Instance.Players)
+        {
+            if (!player.getShieldActiveState() && !player.getIsRestingState())
+            {
+                playerDead = player.RedcuceHealth(enemyBase.getDamage());
+            }
+            player.setShieldActiveState(false);
+        }
+
+        if (!playerDead)
+        {
+            setPreperationHUD();
+        } else
+        {
+            setLoseHUD();
+        }
+    }
+
 
     public void win()
     {
@@ -83,6 +163,7 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.SET_ENEMY_IMAGE_ONLY();
 
         playersCombinedHUD.SetActive(false);
+        playerTurnHUD.SetActive(false);
 
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
@@ -97,6 +178,7 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.SET_ENEMY_IMAGE_ONLY();
 
         playersCombinedHUD.SetActive(false);
+        playerTurnHUD.SetActive(false);
 
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
@@ -111,6 +193,7 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         playersCombinedHUD.SetActive(true);
+        playerTurnHUD.SetActive(false);
 
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
@@ -128,10 +211,10 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(true);
         foreach(var player in MainManager.Instance.Players)
         {
-            //player.prepHUD();
             player.PREPERATION_HUD_NEW();
         }
-        
+        playerTurnHUD.SetActive(false);
+
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(true);
     }
@@ -144,10 +227,86 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         playersCombinedHUD.SetActive(false);
+        playerTurnHUD.SetActive(true);
 
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
+
+    private void formatPlayerTurnHUD(PlayerBase player)
+    {
+        var textFields = playerTurnHUD.GetComponentsInChildren<Text>();
+        foreach (var item in textFields)
+        {
+            if (item.tag == "HUD-name")
+            {
+                item.text = player.name;
+                break;
+            }
+        }
+
+        var buttons = playerTurnHUD.GetComponentsInChildren<Button>();
+        foreach (var button in buttons)
+        {
+            //ROLL
+            if (button.tag == "CharacterDie")
+            {
+                button.onClick.RemoveAllListeners();
+                //button.onClick.AddListener(() => player.rollLogicNew(enemyBase));
+                button.onClick.AddListener(() => player.rollLogicNew(enemyBase, playerTurnRoll, playerTurnEndTurn));
+                continue;
+            }
+
+            //INVENTORY
+            if (button.tag == "Inventory")
+            {
+                button.onClick.RemoveAllListeners();
+                button.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
+                continue;
+            }
+
+            //END TURN
+            if (button.tag == "Finish")
+            {
+                button.onClick.RemoveAllListeners();
+                PlayerBase result = MainManager.Instance.getNextPlayer(player);
+                if(result == null)
+                {
+                    button.onClick.AddListener(() => startEnemyTurnPhase());
+                } else
+                {
+                    button.onClick.AddListener(() => setPlayerTurnPhase(result));
+                }
+                continue;
+            }
+        }
+    }
+
+    private void formatPlayerTurnHUDNew(PlayerBase player)
+    {
+        playerTurnName.text = player.name;
+    
+        playerTurnRoll.onClick.RemoveAllListeners();
+        playerTurnRoll.onClick.AddListener(() => player.rollLogicNew(enemyBase, playerTurnRoll, playerTurnEndTurn));
+
+        playerTurnInventory.onClick.RemoveAllListeners();
+        playerTurnInventory.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
+
+        playerTurnEndTurn.onClick.RemoveAllListeners();
+        PlayerBase result = MainManager.Instance.getNextPlayer(player);
+        if (result == null)
+        {
+            playerTurnEndTurn.onClick.AddListener(() => startEnemyTurnPhase());
+        }
+        else
+        {
+            playerTurnEndTurn.onClick.AddListener(() => setPlayerTurnPhase(result));
+        }
+
+        playerTurnRoll.interactable = true;
+        playerTurnEndTurn.interactable = false;
+    }
+
 
     void setEnemyTurnHUD()
     {
@@ -158,12 +317,13 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         playersCombinedHUD.SetActive(false);
+        playerTurnHUD.SetActive(false);
 
         win_lose_text.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
 
-    void setWinHUD()
+    public void setWinHUD()
     {
         Debug.Log("setWinHUD");
 
@@ -172,6 +332,7 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         playersCombinedHUD.SetActive(false);
+        playerTurnHUD.SetActive(false);
 
         win_lose_text.gameObject.SetActive(true);
         win_lose_text.text = "YOU WIN!";
@@ -187,6 +348,7 @@ public class ChapterLogicNew : MonoBehaviour
         enemyBase.SET_ENEMY_ASSETS_VISIBLE();
 
         playersCombinedHUD.SetActive(false);
+        playerTurnHUD.SetActive(false);
 
         win_lose_text.gameObject.SetActive(true);
         win_lose_text.text = "YOU LOSE!";

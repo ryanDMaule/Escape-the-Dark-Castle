@@ -23,6 +23,7 @@ TagManager:
   - restButton
   - fightButton
   - combatState
+  - CharacterDie
   layers:
   - Default
   - TransparentFX

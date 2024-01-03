@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class MainManager : MonoBehaviour
 {
@@ -43,6 +44,24 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    public PlayerBase getNextPlayer(PlayerBase passedPlayer)
+    {
+        for (int i = 0; i < Players.Count; i++)
+        {
+            if (Players[i] == passedPlayer)
+            {
+                if(i+1 < Players.Count)
+                {
+                    return Players[i + 1];
+                } else
+                {
+                    return null;
+                }
+            }
+        }
+        return null;
     }
 
     public void playersRolled()

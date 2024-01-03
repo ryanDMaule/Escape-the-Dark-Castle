@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public abstract class EnemyBase : MonoBehaviour
 {
+    [Header("Events")]
+    public GameEvent EnemyDead;
+
     [SerializeField] public Sprite damage1;
     [SerializeField] public Sprite damage2;
     [SerializeField] public Sprite damage3;
@@ -116,9 +119,13 @@ public abstract class EnemyBase : MonoBehaviour
 
     public bool enemyDead()
     {
+        Debug.Log("enemyDead");
+
         if (enemy_might_int == 0 && enemy_cunning_int == 0 && enemy_wisdom_int == 0)
         {
             Debug.Log("enemyDead: TRUE");
+
+            EnemyDead.Raise();
             return true;
         }
         Debug.Log("enemyDead: FALSE");
