@@ -1,9 +1,38 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Skeleton : EnemyBase
 {
     [SerializeField] GameObject option1_object;
     [SerializeField] GameObject option2_object;
+
+    private void Start()
+    {
+        setPlayerRollTotal();
+    }
+
+    private void setPlayerRollTotal()
+    {
+        var textFields = option1_object.GetComponentsInChildren<Text>();
+        foreach (var textField in textFields)
+        {
+            if (textField.tag == "healthCounter")
+            {
+                textField.text = MainManager.Instance.Players.Count.ToString();
+                break;
+            }
+        }
+
+        textFields = option2_object.GetComponentsInChildren<Text>();
+        foreach (var textField in textFields)
+        {
+            if (textField.tag == "healthCounter")
+            {
+                textField.text = MainManager.Instance.Players.Count.ToString();
+                break;
+            }
+        }
+    }
 
     public override void showOptionsHUD()
     {
