@@ -307,6 +307,15 @@ public abstract class PlayerBase : MonoBehaviour
     
     }
 
+    public bool inventoryContainsCard(string cardName)
+    {
+        if (InventoryArray[0].name == cardName || InventoryArray[1].name == cardName)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public Die getChapterDie()
     {
         return chapterDie;

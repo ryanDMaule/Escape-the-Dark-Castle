@@ -15,8 +15,8 @@ public class FormatHud : MonoBehaviour
     [SerializeField] public GameObject player4;   
 
     [SerializeField] public InventoryHandler ih;   
-    [SerializeField] public GameObject dieCollection;   
-
+    [SerializeField] public GameObject dieCollection;  
+    
     public void Start()
     {
         formatHud();

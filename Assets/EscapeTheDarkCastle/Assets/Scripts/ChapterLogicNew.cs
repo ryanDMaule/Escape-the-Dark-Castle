@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -130,7 +131,20 @@ public class ChapterLogicNew : MonoBehaviour
         {
             if (!player.getShieldActiveState() && !player.getIsRestingState())
             {
-                playerDead = player.RedcuceHealth(enemyBase.getDamage());
+                //TODO : update cards to have an ENUM title
+                if(player.inventoryContainsCard("rotten shield_0"))
+                {
+                    int damage = enemyBase.getDamage();
+                    if(damage > 1)
+                    {
+                        damage--;
+                    }
+                    playerDead = player.RedcuceHealth(damage);
+                }
+                else
+                {
+                    playerDead = player.RedcuceHealth(enemyBase.getDamage());
+                }
             }
             player.setShieldActiveState(false);
         }
