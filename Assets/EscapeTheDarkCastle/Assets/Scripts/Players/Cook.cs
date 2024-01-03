@@ -8,15 +8,36 @@ public class Cook : PlayerBase
         switch (rollValue)
         {
             case "0":
-                enemy.reduceEnemyCunning(1);
+                if (this.inventoryContainsCard("the replication stones_0"))
+                {
+                    enemy.reduceEnemyCunning(2);
+                }
+                else
+                {
+                    enemy.reduceEnemyCunning(1);
+                }
                 break;
 
             case "1":
-                enemy.reduceEnemyWisdom(1);
+                if (this.inventoryContainsCard("the replication stones_0"))
+                {
+                    enemy.reduceEnemyWisdom(2);
+                }
+                else
+                {
+                    enemy.reduceEnemyWisdom(1);
+                }
                 break;
 
             case "2":
-                enemy.reduceEnemyMight(1);
+                if (this.inventoryContainsCard("the replication stones_0"))
+                {
+                    enemy.reduceEnemyMight(2);
+                }
+                else
+                {
+                    enemy.reduceEnemyMight(1);
+                }
                 break;
 
             case "3":
@@ -25,7 +46,14 @@ public class Cook : PlayerBase
                 break;
 
             case "4":
-                enemy.reduceEnemyMight(1);
+                if (this.inventoryContainsCard("the replication stones_0"))
+                {
+                    enemy.reduceEnemyMight(2);
+                }
+                else
+                {
+                    enemy.reduceEnemyMight(1);
+                }
                 break;
 
             case "5":
