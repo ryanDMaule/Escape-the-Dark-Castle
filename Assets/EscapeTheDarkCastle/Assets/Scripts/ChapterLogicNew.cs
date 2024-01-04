@@ -302,7 +302,14 @@ public class ChapterLogicNew : MonoBehaviour
         playerTurnName.text = player.name;
     
         playerTurnRoll.onClick.RemoveAllListeners();
-        playerTurnRoll.onClick.AddListener(() => player.rollLogicNew(enemyBase, playerTurnRoll, playerTurnEndTurn));
+        if (player.inventoryContainsCard("Cracked axe"))
+        {
+            playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRoll(enemyBase, playerTurnRoll, playerTurnEndTurn));
+        }
+        else
+        {
+            playerTurnRoll.onClick.AddListener(() => player.rollLogicNew(enemyBase, playerTurnRoll, playerTurnEndTurn));
+        }
 
         playerTurnInventory.onClick.RemoveAllListeners();
         playerTurnInventory.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
