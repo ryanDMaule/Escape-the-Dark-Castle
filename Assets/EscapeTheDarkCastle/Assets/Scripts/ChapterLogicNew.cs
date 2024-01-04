@@ -129,7 +129,7 @@ public class ChapterLogicNew : MonoBehaviour
         setEnemyTurnHUD();
         foreach (var player in MainManager.Instance.Players)
         {
-            if (!player.getShieldActiveState() && !player.getIsRestingState())
+            if (!player.getShieldActiveState() && !player.getIsRestingState() && !player.getPotionProtectionState())
             {
                 //TODO : update cards to have an ENUM title
                 if(player.inventoryContainsCard("rotten shield_0"))
@@ -147,6 +147,7 @@ public class ChapterLogicNew : MonoBehaviour
                 }
             }
             player.setShieldActiveState(false);
+            player.setPotionProtectionState(false);
         }
 
         if (!playerDead)

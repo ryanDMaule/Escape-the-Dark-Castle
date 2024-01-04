@@ -31,6 +31,7 @@ public abstract class PlayerBase : MonoBehaviour
 
     private bool shieldActive = false;
     private bool isResting = false;
+    private bool potionProtection = false;
 
     [SerializeField] public Image combatState;
     [SerializeField] public Button restButton;
@@ -409,6 +410,21 @@ public abstract class PlayerBase : MonoBehaviour
         {
             combatState.sprite = fightSprite;
         }
+    }
+
+    //if true player should take no damage on enemy turn
+    public bool getPotionProtectionState()
+    {
+        if (potionProtection)
+        {
+            return true;
+        }
+        else return false;
+    }
+
+    public void setPotionProtectionState(bool state)
+    {
+        potionProtection = state;
     }
 
     //set a character to fight in the next player turn phase

@@ -155,6 +155,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7177c1047a796f14db920d4fe019c182, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &70562771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5729632132980442441, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+  m_PrefabInstance: {fileID: 1047204511}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7eed229c1534b4291c98536c461c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &70562773 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+  m_PrefabInstance: {fileID: 1047204511}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &102175409
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,6 +1102,8 @@ MonoBehaviour:
   characterSelect: Character select
   itemScreen: Items
   preGame: Pre game
+  preGameExperiment: Pre game Experiment
+  skeletonExperiment: Skeletons experiment
   chapterList:
   - Skeletons
   - Bone beast
@@ -2486,6 +2504,7 @@ Transform:
   - {fileID: 1437070333}
   - {fileID: 1845616920}
   - {fileID: 13202387}
+  - {fileID: 70562773}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &735987499
@@ -3000,12 +3019,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c27db3f1a30ad4aa804af750bc20d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  decayedBlade: {fileID: 0}
+  staleLoafOfBread: {fileID: 0}
+  rottenShield: {fileID: 0}
+  crackedAxe: {fileID: 0}
+  theReplicationStones: {fileID: 0}
   deck:
   - {fileID: 1557101953}
   - {fileID: 1953143716}
   - {fileID: 1610585851}
   - {fileID: 13202390}
   - {fileID: 1845616918}
+  - {fileID: 70562771}
   discardPile: []
   drawnCardimage: {fileID: 857399046}
   CardOptionButtons: {fileID: 756094863}
@@ -3861,6 +3886,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1016081895}
   m_CullTransparentMesh: 1
+--- !u!1001 &1047204511
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 710954422}
+    m_Modifications:
+    - target: {fileID: 3027009015543406348, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_Name
+      value: Effervescent potion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3027009015543406348, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -221.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -73
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -47.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5729632132980442441, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: dl
+      value: 
+      objectReference: {fileID: 866926392}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
 --- !u!1 &1090697424
 GameObject:
   m_ObjectHideFlags: 0
@@ -6534,11 +6624,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 18
+  hud: {fileID: 0}
+  roundHud: {fileID: 0}
+  chapterDiePrefab: {fileID: 0}
+  characterDiePrefab: {fileID: 0}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Miller
   healthText: {fileID: 461463549}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
@@ -6555,6 +6649,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 879642059}
   panel: {fileID: 1090697424}
+  hasRolled: 0
 --- !u!1 &2013356261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6772,11 +6867,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 18
+  hud: {fileID: 0}
+  roundHud: {fileID: 0}
+  chapterDiePrefab: {fileID: 0}
+  characterDiePrefab: {fileID: 0}
+  chapterDie: {fileID: 0}
+  characterDie: {fileID: 0}
   name: Abbot
   healthText: {fileID: 1783799245}
   nameBattleText: {fileID: 0}
-  chapterDie: {fileID: 0}
-  characterDie: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
@@ -6793,6 +6892,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 879642059}
   panel: {fileID: 1860741908}
+  hasRolled: 0
 --- !u!1001 &1117506215480132447
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -6,6 +6,8 @@ public class EffervescentPotion : Card
 {
     public override void useItem(PlayerBase player)
     {
-        //do nothing
+        player.setPotionProtectionState(true);
+        dl.discardPile.Add(this);
+        player.ih.hideCardOptions();
     }
 }
