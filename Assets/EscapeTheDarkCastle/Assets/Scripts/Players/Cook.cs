@@ -66,6 +66,17 @@ public class Cook : PlayerBase
         }
     }
 
+    public override ChapterDieOptions getCharacterRollResult(string rollValue)
+    {
+        return rollValue switch
+        {
+            "0" or "5" => ChapterDieOptions.CUNNING,
+            "2" or "3" or "4" => ChapterDieOptions.MIGHT,
+            "1" => ChapterDieOptions.WISDOM,
+            _ => ChapterDieOptions.FAIL,
+        };
+    }
+
     public override int getPlayerMight()
     {
         return might;

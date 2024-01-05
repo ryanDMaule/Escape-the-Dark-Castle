@@ -60,6 +60,7 @@ public abstract class PlayerBase : MonoBehaviour
     public abstract int getPlayerCunning();
     public abstract int getPlayerWisdom();
     public abstract void getPlayerDieValue(string rollValue, EnemyBase enemy);
+    public abstract ChapterDieOptions getCharacterRollResult(string rollValue);
     
     public void rollLogic(EnemyBase enemy)
     {
@@ -95,6 +96,16 @@ public abstract class PlayerBase : MonoBehaviour
         StartCoroutine(rollDelayNew(enemy, roll, next));
     }
 
+    public void standardTurn(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    {
+        StartCoroutine(standardTurnIE(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
+    }
+
+    public void reRoll(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    {
+        StartCoroutine(reRollIE(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
+    }
+
     IEnumerator rollDelayNew(EnemyBase enemy, Button roll, Button next)
     {
         Die characterDie = getCharacterDie();
@@ -123,6 +134,128 @@ public abstract class PlayerBase : MonoBehaviour
 
             enemy.enemyDead();
         }
+    }
+
+    //stores the rolled value so that it can be applied at the end of the turn
+    public string initialRollValue = "";
+    public string reRollValue = "";
+    public string selectedValue = "";
+
+    IEnumerator standardTurnIE(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    {
+        Die characterDie = getCharacterDie();
+
+        if (!characterDie.isRolling)
+        {
+            //show the dice and spawn it rolling in the air above the camera
+            //characterDie.transform.position = new Vector3(0, 15, 0);
+            characterDie.gameObject.SetActive(true);
+            roll.interactable = false;
+
+            characterDie.Roll();
+
+            while (characterDie.isRolling)
+            {
+                yield return null;
+            }
+
+            next.interactable = true;
+
+            //when rolling is false hide the die itself
+            characterDie.gameObject.SetActive(false);
+            rolledFace.gameObject.SetActive(true);
+
+            string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
+            initialRollValue = dieValue;
+            rolledFace.sprite = GetCharacterDieFace(dieValue);
+
+            if (reRollEligilble(dieValue))
+            {
+                roll.onClick.RemoveAllListeners();
+                roll.onClick.AddListener(() => reRoll(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
+                roll.interactable = true;
+            }
+        }
+    }
+
+    private bool reRollEligilble(string rollResult)
+    {
+        if(this.getCharacterRollResult(rollResult) == ChapterDieOptions.WISDOM && this.inventoryContainsCard("decayed blade_0"))
+        {
+            return true;
+        }
+        if (this.getCharacterRollResult(rollResult) == ChapterDieOptions.CUNNING && this.inventoryContainsCard("Rusted flail"))
+        {
+            return true;
+        }
+        return false;
+    }
+
+    IEnumerator reRollIE(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    {
+        Die characterDie = getCharacterDie();
+
+        if (!characterDie.isRolling)
+        {
+            next.onClick.RemoveAllListeners();
+            next.onClick.AddListener(() => getPlayerDieValue(selectedValue, enemy));
+
+            PlayerBase result = MainManager.Instance.getNextPlayer(this);
+            if (result == null)
+            {
+                next.onClick.AddListener(() => cl.startEnemyTurnPhase());
+            }
+            else
+            {
+                next.onClick.AddListener(() => cl.setPlayerTurnPhase(result));
+            }
+            next.onClick.AddListener(() => enemy.enemyDead());
+
+            //show the dice and spawn it rolling in the air above the camera
+            //characterDie.transform.position = new Vector3(0, 15, 0);
+            characterDie.gameObject.SetActive(true);
+            roll.interactable = false;
+            next.interactable = false;
+
+            characterDie.Roll();
+
+            while (characterDie.isRolling)
+            {
+                yield return null;
+            }
+
+            rerollOnClickFormatting(face1, face2, next);
+
+            secondRolledFace.gameObject.SetActive(true);
+
+            //when rolling is false hide the die itself
+            characterDie.gameObject.SetActive(false);
+
+            string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
+            reRollValue = dieValue;
+            secondRolledFace.sprite = GetCharacterDieFace(dieValue);
+        }
+    }
+
+    private void rerollOnClickFormatting(Button face1, Button face2, Button next)
+    {
+        face1.onClick.AddListener(() => dieOption1Selected(next));
+        face2.onClick.AddListener(() => dieOption2Selected(next));
+    }
+
+    private void dieOption1Selected(Button next)
+    {
+        Debug.Log("dieOption1Selected");
+        selectedValue = initialRollValue;
+
+        next.interactable = true;
+    }
+    private void dieOption2Selected(Button next)
+    {
+        Debug.Log("dieOption2Selected");
+        selectedValue = reRollValue;
+
+        next.interactable = true;
     }
 
     public void CrackedAxeRoll(EnemyBase enemy, Button roll, Button next)
@@ -713,5 +846,30 @@ public abstract class PlayerBase : MonoBehaviour
     {
         rollCharacterDieButton.gameObject.SetActive(true);
     }
+
+    #region characterDieSprites
+
+    [SerializeField] public Sprite side_0;
+    [SerializeField] public Sprite side_1;
+    [SerializeField] public Sprite side_2;
+    [SerializeField] public Sprite side_3;
+    [SerializeField] public Sprite side_4;
+    [SerializeField] public Sprite side_5;
+
+    public Sprite GetCharacterDieFace(string rollValue)
+    {
+        return rollValue switch
+        {
+            "0" => side_0,
+            "1" => side_1,
+            "2" => side_2,
+            "3" => side_3,
+            "4" => side_4,
+            "5" => side_5,
+            _ => throw new System.Exception(),
+        };
+    }
+
+    #endregion
 
 }

@@ -482,6 +482,12 @@ MonoBehaviour:
   ih: {fileID: 0}
   panel: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_2: {fileID: -708376562642207408, guid: 30fba48f456dfb34f8bffeef5ea617b4, type: 3}
+  side_3: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
 --- !u!1 &254444672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1907,6 +1913,12 @@ MonoBehaviour:
   ih: {fileID: 0}
   panel: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_2: {fileID: -430045794630880756, guid: 1cda00486084b0541ab70469924b3d8c, type: 3}
+  side_3: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
 --- !u!1 &1015517077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2135,12 @@ MonoBehaviour:
   ih: {fileID: 0}
   panel: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_2: {fileID: 8209988120149200247, guid: aa84f8ffa00fedf4086bbd66931126aa, type: 3}
+  side_3: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
 --- !u!1001 &1160536893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2821,6 +2839,12 @@ MonoBehaviour:
   ih: {fileID: 0}
   panel: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_2: {fileID: 8247560783862177409, guid: 949cf1e41d8569b4bbffcf6037d8282f, type: 3}
+  side_3: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
 --- !u!4 &1597078067
 Transform:
   m_ObjectHideFlags: 0
@@ -3043,6 +3067,12 @@ MonoBehaviour:
   ih: {fileID: 0}
   panel: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_1: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_2: {fileID: 5617245196893214943, guid: 2704cf204004ce443b519b1a7c65fc99, type: 3}
+  side_3: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
 --- !u!1 &2034461423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3193,6 +3223,12 @@ MonoBehaviour:
   ih: {fileID: 0}
   panel: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_2: {fileID: -1837591823509370267, guid: b7a686f7d2f7ebb449258db5ee400f6a, type: 3}
+  side_3: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
 --- !u!1 &2067802269
 GameObject:
   m_ObjectHideFlags: 0

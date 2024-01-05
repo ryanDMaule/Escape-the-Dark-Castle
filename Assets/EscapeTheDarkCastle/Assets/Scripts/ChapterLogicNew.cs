@@ -16,6 +16,11 @@ public class ChapterLogicNew : MonoBehaviour
     [SerializeField] public Button playerTurnInventory;
     [SerializeField] public Button playerTurnEndTurn;
 
+    [SerializeField] public Image playerTurnInitialDieImage;
+    [SerializeField] public Image playerTurnSecondDieImage;
+    [SerializeField] public Button initialRollButton;
+    [SerializeField] public Button rerollRollButton;
+
     [SerializeField] public Text win_lose_text;
     [SerializeField] public Button Continue_button;
 
@@ -299,8 +304,10 @@ public class ChapterLogicNew : MonoBehaviour
 
     private void formatPlayerTurnHUDNew(PlayerBase player)
     {
+        //SET NAME
         playerTurnName.text = player.name;
     
+        //ROLL BUTTON
         playerTurnRoll.onClick.RemoveAllListeners();
         if (player.inventoryContainsCard("Cracked axe"))
         {
@@ -308,13 +315,20 @@ public class ChapterLogicNew : MonoBehaviour
         }
         else
         {
-            playerTurnRoll.onClick.AddListener(() => player.rollLogicNew(enemyBase, playerTurnRoll, playerTurnEndTurn));
+            playerTurnRoll.onClick.AddListener(() => player.standardTurn(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, initialRollButton, rerollRollButton, this));
         }
 
+        //INVENTORY BUTTON
         playerTurnInventory.onClick.RemoveAllListeners();
         playerTurnInventory.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
 
+        //END TURN BUTTON
         playerTurnEndTurn.onClick.RemoveAllListeners();
+
+        //deals the damage the player rolled
+        playerTurnEndTurn.onClick.AddListener(() => player.getPlayerDieValue(player.initialRollValue, enemyBase));
+
+        //determines whos turns next
         PlayerBase result = MainManager.Instance.getNextPlayer(player);
         if (result == null)
         {
@@ -324,11 +338,23 @@ public class ChapterLogicNew : MonoBehaviour
         {
             playerTurnEndTurn.onClick.AddListener(() => setPlayerTurnPhase(result));
         }
+        //checks if the enemy is dead
+        playerTurnEndTurn.onClick.AddListener(() => enemyBase.enemyDead());
+
+
+        //CLEAN UP
+        playerTurnInitialDieImage.gameObject.SetActive(false);
+        playerTurnSecondDieImage.gameObject.SetActive(false);
+
+        player.initialRollValue = "";
+        player.reRollValue = "";
+        player.selectedValue = "";
 
         playerTurnRoll.interactable = true;
         playerTurnEndTurn.interactable = false;
     }
 
+    //make a function where it listens for if a player re rolls and updates the conttinue button to check for the selectedface variable
 
     void setEnemyTurnHUD()
     {

@@ -67,6 +67,17 @@ public class Miller : PlayerBase
         }
     }
 
+    public override ChapterDieOptions getCharacterRollResult(string rollValue)
+    {
+        return rollValue switch
+        {
+            "0" or "2" or "3" => ChapterDieOptions.CUNNING,
+            "1" or "5" => ChapterDieOptions.MIGHT,
+            "4" => ChapterDieOptions.WISDOM,
+            _ => ChapterDieOptions.FAIL,
+        };
+    }
+
     public override int getPlayerMight()
     {
         return might;

@@ -64,7 +64,18 @@ public class Abbot : PlayerBase
             default:
                 break;
         }
-    }    
+    }
+
+    public override ChapterDieOptions getCharacterRollResult(string rollValue)
+    {
+        return rollValue switch
+        {
+            "0" => ChapterDieOptions.CUNNING,
+            "1" or "5" => ChapterDieOptions.MIGHT,
+            "2" or "3" or "4" => ChapterDieOptions.WISDOM,
+            _ => ChapterDieOptions.FAIL,
+        };
+    }
 
     public override int getPlayerMight()
     {
