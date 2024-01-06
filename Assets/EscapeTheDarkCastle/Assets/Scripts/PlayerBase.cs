@@ -258,18 +258,33 @@ public abstract class PlayerBase : MonoBehaviour
         next.interactable = true;
     }
 
-    public void CrackedAxeRoll(EnemyBase enemy, Button roll, Button next)
+    public void CrackedAxeRoll(EnemyBase enemy, Button roll, Button next, Image face1, Image face2, ChapterLogicNew cl)
     {
-        StartCoroutine(CrackedAxeRollIE(enemy, roll, next));
+        StartCoroutine(CrackedAxeRollIE(enemy, roll, next, face1, face2, cl));
     }
 
-    IEnumerator CrackedAxeRollIE(EnemyBase enemy, Button roll, Button next)
+    IEnumerator CrackedAxeRollIE(EnemyBase enemy, Button roll, Button next, Image face1, Image face2, ChapterLogicNew cl)
     {
         Die characterDie = getCharacterDie();
         Die chapterDie = getChapterDie();
 
         if (!characterDie.isRolling && !chapterDie.isRolling)
         {
+            next.onClick.RemoveAllListeners();
+            next.onClick.AddListener(() => getPlayerDieValue(initialRollValue, enemy));
+            next.onClick.AddListener(() => chapterDieDamage(reRollValue, enemy));
+
+            PlayerBase result = MainManager.Instance.getNextPlayer(this);
+            if (result == null)
+            {
+                next.onClick.AddListener(() => cl.startEnemyTurnPhase());
+            }
+            else
+            {
+                next.onClick.AddListener(() => cl.setPlayerTurnPhase(result));
+            }
+            next.onClick.AddListener(() => enemy.enemyDead());
+
             //show the dice and spawn it rolling in the air above the camera
             //characterDie.transform.position = new Vector3(0, 15, 0);
             characterDie.gameObject.SetActive(true);
@@ -296,11 +311,16 @@ public abstract class PlayerBase : MonoBehaviour
             characterDie.gameObject.SetActive(false);
             chapterDie.gameObject.SetActive(false);
 
+            face1.gameObject.SetActive(true);
+            face2.gameObject.SetActive(true);
+
             string characterDieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            getPlayerDieValue(characterDieValue, enemy);
+            initialRollValue = characterDieValue;
+            face1.sprite = GetCharacterDieFace(characterDieValue);
 
             string chapterDieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            chapterDieDamage(characterDieValue, enemy);
+            reRollValue = chapterDieValue;
+            face2.sprite = GetChapterDieFace(chapterDieValue);
 
             enemy.enemyDead();
         }
@@ -615,6 +635,10 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.sprite = fightSprite;
     }
 
+    [SerializeField] public Sprite mightSprite;
+    [SerializeField] public Sprite cunningSprite;
+    [SerializeField] public Sprite wisdomSprite;
+
     //returns the face a chapter die lands on
     public ChapterDieOptions getChapterRolResult(string rollValue)
     {
@@ -626,6 +650,18 @@ public abstract class PlayerBase : MonoBehaviour
             _ => ChapterDieOptions.FAIL,
         };
     }
+
+    public Sprite GetChapterDieFace(string rollValue)
+    {
+        return rollValue switch
+        {
+            "2" or "3" => cunningSprite,
+            "6" or "5" => mightSprite,
+            "1" or "4" => wisdomSprite,
+            _ => throw new Exception(),
+        };
+    }
+
 
     public void chapterDieDamage(string rollValue, EnemyBase enemy)
     {

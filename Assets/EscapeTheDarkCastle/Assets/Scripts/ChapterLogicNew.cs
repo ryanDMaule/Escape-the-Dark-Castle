@@ -311,7 +311,7 @@ public class ChapterLogicNew : MonoBehaviour
         playerTurnRoll.onClick.RemoveAllListeners();
         if (player.inventoryContainsCard("Cracked axe"))
         {
-            playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRoll(enemyBase, playerTurnRoll, playerTurnEndTurn));
+            playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRoll(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, this));
         }
         else
         {
