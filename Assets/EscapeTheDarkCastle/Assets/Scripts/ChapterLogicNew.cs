@@ -375,6 +375,9 @@ public class ChapterLogicNew : MonoBehaviour
     {
         Debug.Log("setWinHUD");
 
+        //remove down the line, just testing stuffs
+        scenes.loadItemsExperimentChapter();
+
         enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
         enemyBase.SET_ENEMY_ASSETS_VISIBLE();

@@ -9,6 +9,7 @@ public class Scenes : MonoBehaviour
 
     public string characterSelect = "Character select";
     public string itemScreen = "Items";
+    public string itemScreenExperiment = "Items experiment";
     public string preGame = "Pre game";
     public string preGameExperiment = "Pre game Experiment";
     public string skeletonExperiment = "Skeletons experiment";
@@ -30,6 +31,11 @@ public class Scenes : MonoBehaviour
     public void loadExperimentChapter()
     {
         Loader.Load(skeletonExperiment);
+    }
+
+    public void loadItemsExperimentChapter()
+    {
+        Loader.Load(itemScreenExperiment);
     }
 
 }

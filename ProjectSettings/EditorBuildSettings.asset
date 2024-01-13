@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Test.unity
     guid: 8228032c1178ba84488818ed707646f9
   - enabled: 1
+    path: Assets/Scenes/Items experiment.unity
+    guid: 02d290b41cef44945bd57316e788ed14
+  - enabled: 1
     path: Assets/Scenes/Chapters/Skeletons experiment.unity
     guid: 8cd08a234e3210a4aacee7f1287e1980
   - enabled: 1
