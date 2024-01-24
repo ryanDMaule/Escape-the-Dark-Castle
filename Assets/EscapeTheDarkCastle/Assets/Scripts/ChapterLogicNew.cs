@@ -42,6 +42,7 @@ public class ChapterLogicNew : MonoBehaviour
     void Start()
     {
         MainManager.Instance.printPlayers();
+        MainManager.Instance.updateGameState(GameState.CHAPTER);
 
         setDescriptionPhase();
     }
@@ -170,7 +171,8 @@ public class ChapterLogicNew : MonoBehaviour
         Debug.Log("YOU WIN!");
         //setWinHUD();
 
-        Loader.Load(scenes.itemScreen);
+        //Loader.Load(scenes.itemScreen);
+        Loader.Load(scenes.itemScreenExperiment);
     }
 
     #region HUD_methods

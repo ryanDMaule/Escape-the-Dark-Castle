@@ -1101,6 +1101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSelect: Character select
   itemScreen: Items
+  itemScreenExperiment: Items experiment
   preGame: Pre game
   preGameExperiment: Pre game Experiment
   skeletonExperiment: Skeletons experiment
@@ -3019,11 +3020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52c27db3f1a30ad4aa804af750bc20d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decayedBlade: {fileID: 0}
-  staleLoafOfBread: {fileID: 0}
-  rottenShield: {fileID: 0}
-  crackedAxe: {fileID: 0}
-  theReplicationStones: {fileID: 0}
   deck:
   - {fileID: 1557101953}
   - {fileID: 1953143716}
@@ -6648,8 +6644,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 879642059}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   panel: {fileID: 1090697424}
+  mightSprite: {fileID: 0}
+  cunningSprite: {fileID: 0}
+  wisdomSprite: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: 0}
+  side_1: {fileID: 0}
+  side_2: {fileID: 0}
+  side_3: {fileID: 0}
+  side_4: {fileID: 0}
+  side_5: {fileID: 0}
 --- !u!1 &2013356261
 GameObject:
   m_ObjectHideFlags: 0
@@ -6891,8 +6900,21 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 879642059}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   panel: {fileID: 1860741908}
+  mightSprite: {fileID: 0}
+  cunningSprite: {fileID: 0}
+  wisdomSprite: {fileID: 0}
   hasRolled: 0
+  side_0: {fileID: 0}
+  side_1: {fileID: 0}
+  side_2: {fileID: 0}
+  side_3: {fileID: 0}
+  side_4: {fileID: 0}
+  side_5: {fileID: 0}
 --- !u!1001 &1117506215480132447
 PrefabInstance:
   m_ObjectHideFlags: 0

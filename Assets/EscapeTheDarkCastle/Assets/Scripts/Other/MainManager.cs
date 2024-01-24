@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
+public enum GameState { CHARACTER_SELECT, PRE_GAME, CHAPTER, ITEMS_PHASE }
 
 public class MainManager : MonoBehaviour
 {
@@ -10,8 +11,27 @@ public class MainManager : MonoBehaviour
     public List<PlayerBase> Players = new();
 
     [SerializeField] public ChapterLogicNew cl;
+    [SerializeField] public DeckLogic dl;
+
+    private GameState currentGameState;
 
     public int drawCards = 1;
+
+    [Header("Events")]
+    public GameEvent GameStateUpdate;
+
+    public void updateGameState(GameState gs)
+    {
+        currentGameState = gs;
+
+        //update radio to inidicate the state has changed
+        GameStateUpdate.Raise();
+    }
+
+    public GameState getCurrentGameState()
+    {
+        return currentGameState;
+    }
 
     public void printPlayers()
     {

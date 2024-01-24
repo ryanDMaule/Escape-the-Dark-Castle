@@ -51,6 +51,9 @@ public abstract class PlayerBase : MonoBehaviour
 
     public InventoryHandler ih;
 
+    [Header("Events")]
+    public GameEvent InventoryUpdate;
+
     public void Start()
     {
         InventoryArray[0] = InventoryPlaceholder;
@@ -384,17 +387,20 @@ public abstract class PlayerBase : MonoBehaviour
 
     public void slot1Pressed()
     {
+        ih.closeTradePlayersList();
         ih.showCardOptions(InventoryArray[0], this);
     }
 
     public void slot2Pressed()
     {
+        ih.closeTradePlayersList();
         ih.showCardOptions(InventoryArray[1], this);
     }
 
     //only here for clarity, can just call either of the above 2 functions and will still work.
     public void TwoHandedSlotPressed()
     {
+        ih.closeTradePlayersList();
         ih.showCardOptions(InventoryArray[0], this);
     }
 
@@ -418,7 +424,7 @@ public abstract class PlayerBase : MonoBehaviour
         switch (cardSize)
         {
             case 1:
-                if(InventorySlotsFree() >= 1)
+                if (InventorySlotsFree() >= 1)
                 {
                     assignInventoryCard(dl.drawnCard);
                     dl.hide();
@@ -440,19 +446,29 @@ public abstract class PlayerBase : MonoBehaviour
 
     public void assignInventoryCard(Card card)
     {
+        Debug.Log("KARD SIZE: " + card.size);
+
         if (card.size == 1)
         {
             if (InventoryArray[0] == InventoryPlaceholder)
             {
+                Debug.Log("MEEP");
+
                 InventoryArray[0] = card;
                 InventorySlot1.sprite = card.cardFace;
                 InventorySlot1.gameObject.SetActive(true);
+
+                InventoryUpdate.Raise();
             }
             else if (InventoryArray[1] == InventoryPlaceholder)
             {
+                Debug.Log("MOOP");
+
                 InventoryArray[1] = card;
                 InventorySlot2.sprite = card.cardFace;
                 InventorySlot2.gameObject.SetActive(true);
+
+                InventoryUpdate.Raise();
             }
             else
             {
@@ -460,11 +476,16 @@ public abstract class PlayerBase : MonoBehaviour
             }
         } else if (card.size == 2)
         {
+            Debug.Log("MORP");
+
             InventoryArray[0] = card;
             InventoryArray[1] = card;
             TwoHandedSlot.sprite = card.cardFace;
             TwoHandedSlot.gameObject.SetActive(true);
-        } else
+
+            InventoryUpdate.Raise();
+        }
+        else
         {
             Debug.Log("UNHANDLED CARD SIZE");
         }
@@ -480,12 +501,16 @@ public abstract class PlayerBase : MonoBehaviour
                 InventorySlot1.gameObject.SetActive(false);
                 InventoryArray[0] = InventoryPlaceholder;
                 dl.discardPile.Add(card);
+
+                InventoryUpdate.Raise();
             }
             else if (InventoryArray[1] == card)
             {
                 InventorySlot2.gameObject.SetActive(false);
                 InventoryArray[1] = InventoryPlaceholder;
                 dl.discardPile.Add(card);
+
+                InventoryUpdate.Raise();
             }
             else
             {
@@ -499,6 +524,8 @@ public abstract class PlayerBase : MonoBehaviour
                 InventoryArray[0] = InventoryPlaceholder;
                 InventoryArray[1] = InventoryPlaceholder;
                 dl.discardPile.Add(card);
+
+                InventoryUpdate.Raise();
             }
             else
             {
@@ -507,6 +534,48 @@ public abstract class PlayerBase : MonoBehaviour
 
         }
     
+    }
+
+    public void tradeInventoryCard(Card card)
+    {
+        if (card.size == 1)
+        {
+            if (InventoryArray[0] == card)
+            {
+                InventorySlot1.gameObject.SetActive(false);
+                InventoryArray[0] = InventoryPlaceholder;
+
+                InventoryUpdate.Raise();
+            }
+            else if (InventoryArray[1] == card)
+            {
+                InventorySlot2.gameObject.SetActive(false);
+                InventoryArray[1] = InventoryPlaceholder;
+
+                InventoryUpdate.Raise();
+            }
+            else
+            {
+                Debug.Log("Card not in inventory");
+            }
+        }
+        else if (card.size == 2)
+        {
+            if (InventoryArray[0] == card && InventoryArray[1] == card)
+            {
+                TwoHandedSlot.gameObject.SetActive(false);
+                InventoryArray[0] = InventoryPlaceholder;
+                InventoryArray[1] = InventoryPlaceholder;
+
+                InventoryUpdate.Raise();
+            }
+            else
+            {
+                Debug.Log("Card not in inventory");
+            }
+
+        }
+
     }
 
     public bool inventoryContainsCard(string cardName)

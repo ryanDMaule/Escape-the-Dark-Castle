@@ -19,6 +19,9 @@ public class FormatHud : MonoBehaviour
     
     public void Start()
     {
+        ih.dl = MainManager.Instance.dl;
+        ih.deleteUnusedTradeButtons();
+
         formatHud();
         clearUnusedObjects();
     }

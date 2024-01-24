@@ -475,11 +475,12 @@ MonoBehaviour:
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
-  InventoryPlaceholder: {fileID: 0}
+  InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 0}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -619,6 +620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSelect: Character select
   itemScreen: Items
+  itemScreenExperiment: Items experiment
   preGame: Pre game
   preGameExperiment: Pre game Experiment
   skeletonExperiment: Skeletons experiment
@@ -650,6 +652,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 421604585}
     m_Modifications:
+    - target: {fileID: 1001398657086204303, guid: 31f32a9ea7988fc48996730db5188d88, type: 3}
+      propertyPath: dl
+      value: 
+      objectReference: {fileID: 762769793}
     - target: {fileID: 1468209548327717319, guid: 31f32a9ea7988fc48996730db5188d88, type: 3}
       propertyPath: m_LocalPosition.x
       value: -261.2
@@ -1143,7 +1149,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players: []
   cl: {fileID: 0}
-  drawCards: 1
+  dl: {fileID: 762769793}
+  drawCards: 6
+  GameStateUpdate: {fileID: 11400000, guid: 5238d1304d945c447af2518e07ae6e66, type: 2}
 --- !u!4 &471234888
 Transform:
   m_ObjectHideFlags: 0
@@ -1565,7 +1573,7 @@ PrefabInstance:
     - target: {fileID: 2052098175479505793, guid: 62ea7737eaabb884681645151a69e337, type: 3}
       propertyPath: dl
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 762769793}
     - target: {fileID: 5436598631897011222, guid: 62ea7737eaabb884681645151a69e337, type: 3}
       propertyPath: m_Name
       value: Cracked axe
@@ -1579,6 +1587,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62ea7737eaabb884681645151a69e337, type: 3}
+--- !u!114 &728817017 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2052098175479505793, guid: 62ea7737eaabb884681645151a69e337, type: 3}
+  m_PrefabInstance: {fileID: 728817016}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eb103f20809513499cf60d229746344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &742828968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,6 +1674,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742828968}
   m_CullTransparentMesh: 1
+--- !u!1 &762769791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762769794}
+  - component: {fileID: 762769793}
+  - component: {fileID: 762769792}
+  m_Layer: 0
+  m_Name: DeckLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &762769792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762769791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 950520b58c83c9f42aeb92914218c021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &762769793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762769791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52c27db3f1a30ad4aa804af750bc20d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deck:
+  - {fileID: 1686911419}
+  - {fileID: 868953784}
+  - {fileID: 1160536894}
+  - {fileID: 728817017}
+  - {fileID: 786377206}
+  - {fileID: 1820030099}
+  - {fileID: 1822542825310565184}
+  - {fileID: 1400225172}
+  - {fileID: 1899371007}
+  discardPile: []
+  drawnCardimage: {fileID: 0}
+  CardOptionButtons: {fileID: 0}
+  drawnCard: {fileID: 0}
+--- !u!4 &762769794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762769791}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.2000008, y: 73.2, z: -28.300001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &786377205
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1706,7 +1796,7 @@ PrefabInstance:
     - target: {fileID: 1811109001989407639, guid: 04f52e3741b6279428f9e129aead8dbd, type: 3}
       propertyPath: dl
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 762769793}
     - target: {fileID: 2715875223441041404, guid: 04f52e3741b6279428f9e129aead8dbd, type: 3}
       propertyPath: m_Name
       value: the replication stones_0
@@ -1720,6 +1810,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04f52e3741b6279428f9e129aead8dbd, type: 3}
+--- !u!114 &786377206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1811109001989407639, guid: 04f52e3741b6279428f9e129aead8dbd, type: 3}
+  m_PrefabInstance: {fileID: 786377205}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7177c1047a796f14db920d4fe019c182, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &868953783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1739,7 +1840,7 @@ PrefabInstance:
     - target: {fileID: 8624285539752491445, guid: 75350bd1dea814d4aba8a2a787be6944, type: 3}
       propertyPath: dl
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 762769793}
     - target: {fileID: 8707977770610592666, guid: 75350bd1dea814d4aba8a2a787be6944, type: 3}
       propertyPath: m_LocalPosition.x
       value: -181.4
@@ -1785,6 +1886,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75350bd1dea814d4aba8a2a787be6944, type: 3}
+--- !u!114 &868953784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8624285539752491445, guid: 75350bd1dea814d4aba8a2a787be6944, type: 3}
+  m_PrefabInstance: {fileID: 868953783}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1450b9b9f3bdf5247ab11accd27db264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &931643995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1462289958073052, guid: c825a794b63c3ff4da9c26839651a40a, type: 3}
@@ -1919,6 +2031,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 0}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -2147,6 +2260,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 0}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -2220,12 +2334,23 @@ PrefabInstance:
     - target: {fileID: 8566329473272582038, guid: 4a3cdba713e6c754ebd713e5fc0b169e, type: 3}
       propertyPath: dl
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 762769793}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3cdba713e6c754ebd713e5fc0b169e, type: 3}
+--- !u!114 &1160536894 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8566329473272582038, guid: 4a3cdba713e6c754ebd713e5fc0b169e, type: 3}
+  m_PrefabInstance: {fileID: 1160536893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566564b4a2dc59c4eb17736cc58c63ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1162471046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,8 +2537,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000038147, y: -346}
-  m_SizeDelta: {x: 303.85, y: 132.925}
+  m_AnchoredPosition: {x: 5.325, y: -346}
+  m_SizeDelta: {x: 293.2, y: 128.266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380572568
 MonoBehaviour:
@@ -2437,8 +2562,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: PLEASE SELECT 2-4 CHARACTERS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
+  m_sharedMaterial: {fileID: 8549429200997056990, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2520,6 +2645,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 421604585}
     m_Modifications:
+    - target: {fileID: 519931366916340292, guid: 084bb5d16f1b1b048bf25dcfc79dc01b, type: 3}
+      propertyPath: dl
+      value: 
+      objectReference: {fileID: 762769793}
     - target: {fileID: 3283543031775179019, guid: 084bb5d16f1b1b048bf25dcfc79dc01b, type: 3}
       propertyPath: m_Name
       value: Partailly rotten apple
@@ -2578,6 +2707,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8225490299037473185, guid: 084bb5d16f1b1b048bf25dcfc79dc01b, type: 3}
   m_PrefabInstance: {fileID: 1400225170}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1400225172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 519931366916340292, guid: 084bb5d16f1b1b048bf25dcfc79dc01b, type: 3}
+  m_PrefabInstance: {fileID: 1400225170}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be2c9599dc8fb046851dfa19a2a8430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1401900869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2918,11 +3058,12 @@ MonoBehaviour:
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
-  InventoryPlaceholder: {fileID: 0}
+  InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 0}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3011,12 +3152,23 @@ PrefabInstance:
     - target: {fileID: 3981392698043583540, guid: 897509640614e8c4296f19d5b8e26faa, type: 3}
       propertyPath: dl
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 762769793}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 897509640614e8c4296f19d5b8e26faa, type: 3}
+--- !u!114 &1686911419 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3981392698043583540, guid: 897509640614e8c4296f19d5b8e26faa, type: 3}
+  m_PrefabInstance: {fileID: 1686911418}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c95b7eb88814e4da3aa898a0d1861d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1820030097
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3073,6 +3225,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5729632132980442441, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+      propertyPath: dl
+      value: 
+      objectReference: {fileID: 762769793}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3083,6 +3239,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4656295586147810251, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
   m_PrefabInstance: {fileID: 1820030097}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1820030099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5729632132980442441, guid: 2006b799c3234f14184a8f50b4950115, type: 3}
+  m_PrefabInstance: {fileID: 1820030097}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e7eed229c1534b4291c98536c461c4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1864963280 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1237424586555441078, guid: 04f52e3741b6279428f9e129aead8dbd, type: 3}
@@ -3152,11 +3319,12 @@ MonoBehaviour:
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
-  InventoryPlaceholder: {fileID: 0}
+  InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 0}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3186,6 +3354,14 @@ PrefabInstance:
     - target: {fileID: 10092566977262328, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2852807635552211251, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
+      propertyPath: dl
+      value: 
+      objectReference: {fileID: 762769793}
+    - target: {fileID: 2852807635552211251, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
+      propertyPath: size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6690776276539841826, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3237,6 +3413,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6690776276539841826, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
   m_PrefabInstance: {fileID: 1899371005}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1899371007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2852807635552211251, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
+  m_PrefabInstance: {fileID: 1899371005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eedc6686226d0e04fa6b5183722c9e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2034461423
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,7 +3482,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: c129e5e2cc05f9444b835ae06d259109, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -3380,11 +3567,12 @@ MonoBehaviour:
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
-  InventoryPlaceholder: {fileID: 0}
+  InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
   - {fileID: 0}
   ih: {fileID: 0}
+  InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3715,6 +3903,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 421604585}
     m_Modifications:
+    - target: {fileID: 3341570293436710993, guid: d38e83b826da1024583ab78b666a59aa, type: 3}
+      propertyPath: dl
+      value: 
+      objectReference: {fileID: 762769793}
     - target: {fileID: 5238800496578325977, guid: d38e83b826da1024583ab78b666a59aa, type: 3}
       propertyPath: m_Name
       value: Rusted flail
@@ -3773,15 +3965,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6448271231735599063, guid: d38e83b826da1024583ab78b666a59aa, type: 3}
   m_PrefabInstance: {fileID: 1822542825310565182}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1822542825310565184 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3341570293436710993, guid: d38e83b826da1024583ab78b666a59aa, type: 3}
+  m_PrefabInstance: {fileID: 1822542825310565182}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d824cbba36779ab4ca102bcac583fa90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 471234888}
+  - {fileID: 532554283}
   - {fileID: 445822353}
   - {fileID: 301428659}
-  - {fileID: 532554283}
   - {fileID: 1355276557}
+  - {fileID: 762769794}
   - {fileID: 421604585}
   - {fileID: 254444674}
   - {fileID: 567576586}

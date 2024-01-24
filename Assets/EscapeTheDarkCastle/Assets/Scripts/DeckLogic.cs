@@ -7,12 +7,14 @@ public class DeckLogic : MonoBehaviour
 {
 
     //card prefabs
+    /*
     [SerializeField] public Card decayedBlade;
     [SerializeField] public Card staleLoafOfBread;
     [SerializeField] public Card rottenShield;
     [SerializeField] public Card crackedAxe;
     [SerializeField] public Card theReplicationStones;
-
+    */
+     
     public List<Card> deck = new List<Card>();
     public List<Card> discardPile = new List<Card>();
 
@@ -101,5 +103,17 @@ public class DeckLogic : MonoBehaviour
         drawnCard.gameObject.SetActive(false);
         CardOptionButtons.gameObject.SetActive(false);
     }
+
+    public void setDrawnCardImage(Image image)
+    {
+        Debug.Log("setDrawnCardImage");
+        this.drawnCardimage = image;
+    }
+    public void setCardOptionHud(GameObject overlay)
+    {
+        Debug.Log("setCardOptionHud");
+        this.CardOptionButtons = overlay;
+    }
+
 
 }
