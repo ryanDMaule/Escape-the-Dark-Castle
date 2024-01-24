@@ -12,6 +12,8 @@ public abstract class EnemyBase : MonoBehaviour
 
     [SerializeField] public ScrollRect description;
     [SerializeField] public Button description_button;
+    [SerializeField] public Button audioButton;
+
 
     [SerializeField] public Image enemyImage;
     [SerializeField] public Image enemy_might;
@@ -161,12 +163,14 @@ public abstract class EnemyBase : MonoBehaviour
     {
         description.gameObject.SetActive(true);
         description_button.gameObject.SetActive(true);
+        audioButton.gameObject.SetActive(true);
     }
 
     public void HIDE_DESCRIPTION()
     {
         description.gameObject.SetActive(false);
         description_button.gameObject.SetActive(false);
+        audioButton.gameObject.SetActive(false);
     }
 
     #endregion
