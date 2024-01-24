@@ -76,7 +76,6 @@ public class itemsPhaseHandler : MonoBehaviour
 
     public void reduceDrawTotal()
     {
-        Debug.Log("POP drawTotal: " + drawTotal);
         drawTotal--;
         allowContinue();
     }
