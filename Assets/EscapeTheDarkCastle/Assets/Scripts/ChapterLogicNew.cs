@@ -13,7 +13,7 @@ public class ChapterLogicNew : MonoBehaviour
     [SerializeField] public GameObject playerTurnHUD;
     [SerializeField] public Text playerTurnName;
     [SerializeField] public Button playerTurnRoll;
-    [SerializeField] public Button playerTurnInventory;
+    //[SerializeField] public Button playerTurnInventory;
     [SerializeField] public Button playerTurnEndTurn;
 
     [SerializeField] public Image playerTurnInitialDieImage;
@@ -321,8 +321,8 @@ public class ChapterLogicNew : MonoBehaviour
         }
 
         //INVENTORY BUTTON
-        playerTurnInventory.onClick.RemoveAllListeners();
-        playerTurnInventory.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
+        //playerTurnInventory.onClick.RemoveAllListeners();
+        //playerTurnInventory.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
 
         //END TURN BUTTON
         playerTurnEndTurn.onClick.RemoveAllListeners();

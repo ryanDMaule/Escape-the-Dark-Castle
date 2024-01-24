@@ -180,8 +180,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -477}
-  m_SizeDelta: {x: 201.813, y: 48.847}
+  m_AnchoredPosition: {x: 1, y: -525}
+  m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &21164417
 MonoBehaviour:
@@ -259,8 +259,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2951802150405364340, guid: b1fbd343847933a44a3af5efea61edf2, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -462,7 +462,7 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 16c5d81fa23ae094faec639dbfd41b35, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
-  name: Cook
+  name: COOK
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
@@ -1376,6 +1376,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4320088061183900, guid: c825a794b63c3ff4da9c26839651a40a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.53
+      objectReference: {fileID: 0}
     - target: {fileID: 4392948196552748, guid: c825a794b63c3ff4da9c26839651a40a, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2013,7 +2017,7 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -1453106625844770252, guid: 329a8257c39c0ed429ad6776e927752a, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
-  name: Miller
+  name: MILLER
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
@@ -2105,8 +2109,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
+  m_sharedMaterial: {fileID: 8549429200997056990, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2130,8 +2134,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2242,7 +2246,7 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 069ee010bc036f34a942635785c7d5cd, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
-  name: Abbot
+  name: ABBOT
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
@@ -2537,7 +2541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.325, y: -346}
+  m_AnchoredPosition: {x: 5.325, y: -372}
   m_SizeDelta: {x: 293.2, y: 128.266}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1380572568
@@ -3045,7 +3049,7 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 06d866749fa76a64e8137ff97f87cbf8, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
-  name: Tailor
+  name: TAILOR
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
@@ -3306,7 +3310,7 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: a5d45140d33e5394fa6e4c82c6899bf6, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
-  name: Smith
+  name: SMITH
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
@@ -3558,7 +3562,7 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 81bd7d4b36ac40e4da4ac96ff9b653c8, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
-  name: Tanner
+  name: TANNER
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}

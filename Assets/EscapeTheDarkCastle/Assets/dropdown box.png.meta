@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 20300223ff3ca83498c46206edbff529
+guid: 84360dc6cd7b84546a55e72550eb2450
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4355859177173127828
-    second: rest phase frame_0
+      213: -7885781214751040496
+    second: dropdown box_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rest phase frame_0
+      name: dropdown box_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 775
-        height: 111
+        width: 402
+        height: 122
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c6d68fc1821ec83c0800000000000000
-      internalID: -4355859177173127828
+      spriteID: 01cd05e04c3109290800000000000000
+      internalID: -7885781214751040496
       vertices: []
       indices: 
       edges: []
