@@ -3363,6 +3363,10 @@ PrefabInstance:
       propertyPath: size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2852807635552211251, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
+      propertyPath: cardUsageType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6690776276539841826, guid: 392e1c49943c7e746823d967b681d5a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -99.3

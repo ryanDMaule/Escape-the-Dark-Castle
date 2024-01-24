@@ -24,7 +24,7 @@ public class ChapterLogicNew : MonoBehaviour
     [SerializeField] public Text win_lose_text;
     [SerializeField] public Button Continue_button;
 
-    [SerializeField] private EnemyBase enemyBase;
+    [SerializeField] public EnemyBase enemyBase;
 
     public BattleState state;
 

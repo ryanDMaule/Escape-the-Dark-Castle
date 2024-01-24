@@ -6,7 +6,9 @@ public class BrewOfMight : Card
 {
     public override void useItem(PlayerBase player)
     {
-        //do nothing
+        MainManager.Instance.cl.enemyBase.reduceEnemyMight(1);
+        dl.discardPile.Add(this);
+        player.ih.hideCardOptions();
     }
 
 }
