@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum BattleState { DESCRIPTION, COMBAT_OPTIONS, SET_ENEMY_HEALTH, PREPERATION, PLAYER_TURN, ENEMY_TURN, WON, LOST }
 
 public class ChapterLogicNew : MonoBehaviour
 {

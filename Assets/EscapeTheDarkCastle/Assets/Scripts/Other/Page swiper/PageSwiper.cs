@@ -16,7 +16,7 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] public Button back_button;
     [SerializeField] public Button forward_button;
 
-    [SerializeField] ChapterLogic cl;
+    [SerializeField] ChapterLogicNew cl;
 
 
     void Start()
