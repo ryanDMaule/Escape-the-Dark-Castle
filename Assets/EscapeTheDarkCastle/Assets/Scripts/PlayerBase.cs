@@ -53,6 +53,7 @@ public abstract class PlayerBase : MonoBehaviour
 
     [Header("Events")]
     public GameEvent InventoryUpdate;
+    public GameEvent PlayerDead;
 
     public void Start()
     {
@@ -632,6 +633,7 @@ public abstract class PlayerBase : MonoBehaviour
         else
         {
             SetCurrentHealth(0);
+            PlayerDead.Raise();
             return true;
         }
     }

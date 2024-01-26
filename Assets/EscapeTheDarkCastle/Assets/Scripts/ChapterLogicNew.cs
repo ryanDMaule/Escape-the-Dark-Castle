@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class ChapterLogicNew : MonoBehaviour
 {
     #region globalVariables
+    [SerializeField] public string deathBio = "";
+    [SerializeField] public AudioClip deathClip;
 
     [SerializeField] public GameObject playersCombinedHUD;
     [SerializeField] public GameObject playerTurnHUD;
@@ -161,7 +163,7 @@ public class ChapterLogicNew : MonoBehaviour
             setPreperationHUD();
         } else
         {
-            setLoseHUD();
+            //setLoseHUD();
         }
     }
 
@@ -392,7 +394,7 @@ public class ChapterLogicNew : MonoBehaviour
         Continue_button.gameObject.SetActive(false);
     }
 
-    void setLoseHUD()
+    public void setLoseHUD()
     {
         Debug.Log("setLoseHUD");
 

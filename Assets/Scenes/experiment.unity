@@ -481,6 +481,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -1150,6 +1151,7 @@ MonoBehaviour:
   Players: []
   cl: {fileID: 0}
   dl: {fileID: 762769793}
+  fgo: {fileID: 0}
   drawCards: 6
   GameStateUpdate: {fileID: 11400000, guid: 5238d1304d945c447af2518e07ae6e66, type: 2}
 --- !u!4 &471234888
@@ -2036,6 +2038,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -2265,6 +2268,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3068,6 +3072,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3329,6 +3334,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3581,6 +3587,7 @@ MonoBehaviour:
   - {fileID: 0}
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
+  PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
   initialRollValue: 
   reRollValue: 
   selectedValue: 

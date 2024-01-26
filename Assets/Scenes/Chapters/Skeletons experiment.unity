@@ -5074,6 +5074,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e487a2d69a9d3349b17af9d62a48fce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathBio: For each skeleton you strike down, two more emerge from the shadows.
+    They soon surround you, and your unheeded pleas expose them for what they are
+    - mindless servants of a dark power without mercy. You are hacked to death by
+    blow after blow of their rusty weapons.  As you fade from consciousness, the
+    last thing you hear is the furious demise of your fellow prisoners. Your mutilated
+    carcasses are dragged away - your only legacy a smear of blood upon the flagstones. 
+    Your adventure ends here.
+  deathClip: {fileID: 8300000, guid: 523f01b24608db249b52dc978a74657d, type: 3}
   playersCombinedHUD: {fileID: 881592391}
   playerTurnHUD: {fileID: 1834083941}
   playerTurnName: {fileID: 1111379834}
@@ -7310,7 +7318,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 916605180}
         m_TargetAssemblyTypeName: ChapterLogicNew, Assembly-CSharp
-        m_MethodName: win
+        m_MethodName: setLoseHUD
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7679,6 +7687,7 @@ MonoBehaviour:
   Players: []
   cl: {fileID: 0}
   dl: {fileID: 0}
+  fgo: {fileID: 0}
   drawCards: 1
   GameStateUpdate: {fileID: 0}
 --- !u!4 &1405022886
