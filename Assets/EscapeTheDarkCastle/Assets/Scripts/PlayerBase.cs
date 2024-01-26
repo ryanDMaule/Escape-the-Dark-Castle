@@ -80,6 +80,8 @@ public abstract class PlayerBase : MonoBehaviour
     [Header("Events")]
     public GameEvent InventoryUpdate;
     public GameEvent PlayerDead;
+    public GameEvent RollStarted;
+    public GameEvent RollFinished;
 
     #endregion
 
@@ -117,12 +119,14 @@ public abstract class PlayerBase : MonoBehaviour
             roll.interactable = false;
 
             characterDie.Roll();
+            RollStarted.Raise();
 
             while (characterDie.isRolling)
             {
                 yield return null;
             }
 
+            RollFinished.Raise();
             next.interactable = true;
 
             //when rolling is false hide the die itself
@@ -187,11 +191,14 @@ public abstract class PlayerBase : MonoBehaviour
             next.interactable = false;
 
             characterDie.Roll();
+            RollStarted.Raise();
 
             while (characterDie.isRolling)
             {
                 yield return null;
             }
+
+            RollFinished.Raise();
 
             rerollOnClickFormatting(face1, face2, next);
 
@@ -263,6 +270,7 @@ public abstract class PlayerBase : MonoBehaviour
 
             characterDie.Roll();
             chapterDie.Roll();
+            RollStarted.Raise();
 
             while (characterDie.isRolling)
             {
@@ -274,6 +282,7 @@ public abstract class PlayerBase : MonoBehaviour
                 yield return null;
             }
 
+            RollFinished.Raise();
             next.interactable = true;
 
             //when rolling is false hide the die itself
@@ -331,6 +340,7 @@ public abstract class PlayerBase : MonoBehaviour
 
             chapterDie.gameObject.SetActive(true);
             chapterDie.Roll();
+            RollStarted.Raise();
 
             while (chapterDie.isRolling)
             {

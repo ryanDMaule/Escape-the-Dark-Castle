@@ -20,6 +20,7 @@ public class MainManager : MonoBehaviour
 
     [Header("Events")]
     public GameEvent GameStateUpdate;
+    public GameEvent RollFinished;
 
     public void updateGameState(GameState gs)
     {
@@ -96,6 +97,9 @@ public class MainManager : MonoBehaviour
         if (allPlayersRolled)
         {
             Debug.Log("ALL PLAYERS ROLLED");
+
+            RollFinished.Raise();
+
             foreach (var player in Players)
             {
                 player.hasRolled = false;

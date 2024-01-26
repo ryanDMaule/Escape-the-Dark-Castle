@@ -462,19 +462,33 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 16c5d81fa23ae094faec639dbfd41b35, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
+  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
+  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
+  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_2: {fileID: -708376562642207408, guid: 30fba48f456dfb34f8bffeef5ea617b4, type: 3}
+  side_3: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  hasRolled: 0
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   name: COOK
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  rollCharacterDieButton: {fileID: 0}
-  rollChapterDieButton: {fileID: 0}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  rollCharacterDieButton: {fileID: 0}
+  rollChapterDieButton: {fileID: 0}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
+  panel: {fileID: 0}
   InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
@@ -482,20 +496,8 @@ MonoBehaviour:
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
-  initialRollValue: 
-  reRollValue: 
-  selectedValue: 
-  panel: {fileID: 0}
-  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
-  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
-  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
-  hasRolled: 0
-  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
-  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
-  side_2: {fileID: -708376562642207408, guid: 30fba48f456dfb34f8bffeef5ea617b4, type: 3}
-  side_3: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
-  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
-  side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  RollStarted: {fileID: 11400000, guid: 6fdca34b7bd458346aa6ac2fdcdca406, type: 2}
+  RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
 --- !u!1 &254444672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,6 +1149,7 @@ MonoBehaviour:
   dl: {fileID: 762769793}
   drawCards: 6
   GameStateUpdate: {fileID: 11400000, guid: 5238d1304d945c447af2518e07ae6e66, type: 2}
+  RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
 --- !u!4 &471234888
 Transform:
   m_ObjectHideFlags: 0
@@ -1199,8 +1202,8 @@ MonoBehaviour:
   Tailor: {fileID: 402083275}
   disabledColour: {r: 0.8039216, g: 0.8039216, b: 0.8039216, a: 1}
   enabledColour: {r: 1, g: 1, b: 1, a: 1}
-  continueButton: {fileID: 21164417}
   selectedCharacters: []
+  continueButton: {fileID: 21164417}
   InventoryPlaceholder: {fileID: 1089392734}
   scenes: {fileID: 301428658}
 --- !u!4 &532554283
@@ -1727,8 +1730,8 @@ MonoBehaviour:
   - {fileID: 1899371007}
   discardPile: []
   drawnCardimage: {fileID: 0}
-  CardOptionButtons: {fileID: 0}
   drawnCard: {fileID: 0}
+  CardOptionButtons: {fileID: 0}
 --- !u!4 &762769794
 Transform:
   m_ObjectHideFlags: 0
@@ -2012,19 +2015,33 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -1453106625844770252, guid: 329a8257c39c0ed429ad6776e927752a, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
+  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
+  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
+  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_2: {fileID: -430045794630880756, guid: 1cda00486084b0541ab70469924b3d8c, type: 3}
+  side_3: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  hasRolled: 0
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   name: MILLER
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  rollCharacterDieButton: {fileID: 0}
-  rollChapterDieButton: {fileID: 0}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  rollCharacterDieButton: {fileID: 0}
+  rollChapterDieButton: {fileID: 0}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
+  panel: {fileID: 0}
   InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
@@ -2032,20 +2049,8 @@ MonoBehaviour:
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
-  initialRollValue: 
-  reRollValue: 
-  selectedValue: 
-  panel: {fileID: 0}
-  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
-  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
-  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
-  hasRolled: 0
-  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
-  side_1: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
-  side_2: {fileID: -430045794630880756, guid: 1cda00486084b0541ab70469924b3d8c, type: 3}
-  side_3: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
-  side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
-  side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  RollStarted: {fileID: 11400000, guid: 6fdca34b7bd458346aa6ac2fdcdca406, type: 2}
+  RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
 --- !u!1 &1015517077
 GameObject:
   m_ObjectHideFlags: 0
@@ -2242,19 +2247,33 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 069ee010bc036f34a942635785c7d5cd, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
+  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
+  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
+  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_2: {fileID: 8209988120149200247, guid: aa84f8ffa00fedf4086bbd66931126aa, type: 3}
+  side_3: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  hasRolled: 0
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   name: ABBOT
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  rollCharacterDieButton: {fileID: 0}
-  rollChapterDieButton: {fileID: 0}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  rollCharacterDieButton: {fileID: 0}
+  rollChapterDieButton: {fileID: 0}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
+  panel: {fileID: 0}
   InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
@@ -2262,20 +2281,8 @@ MonoBehaviour:
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
-  initialRollValue: 
-  reRollValue: 
-  selectedValue: 
-  panel: {fileID: 0}
-  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
-  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
-  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
-  hasRolled: 0
-  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
-  side_1: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
-  side_2: {fileID: 8209988120149200247, guid: aa84f8ffa00fedf4086bbd66931126aa, type: 3}
-  side_3: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
-  side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
-  side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  RollStarted: {fileID: 11400000, guid: 6fdca34b7bd458346aa6ac2fdcdca406, type: 2}
+  RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
 --- !u!1001 &1160536893
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3046,19 +3053,33 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 06d866749fa76a64e8137ff97f87cbf8, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
+  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
+  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
+  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_2: {fileID: 8247560783862177409, guid: 949cf1e41d8569b4bbffcf6037d8282f, type: 3}
+  side_3: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  hasRolled: 0
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   name: TAILOR
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  rollCharacterDieButton: {fileID: 0}
-  rollChapterDieButton: {fileID: 0}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  rollCharacterDieButton: {fileID: 0}
+  rollChapterDieButton: {fileID: 0}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
+  panel: {fileID: 0}
   InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
@@ -3066,20 +3087,8 @@ MonoBehaviour:
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
-  initialRollValue: 
-  reRollValue: 
-  selectedValue: 
-  panel: {fileID: 0}
-  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
-  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
-  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
-  hasRolled: 0
-  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
-  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
-  side_2: {fileID: 8247560783862177409, guid: 949cf1e41d8569b4bbffcf6037d8282f, type: 3}
-  side_3: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
-  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
-  side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  RollStarted: {fileID: 11400000, guid: 6fdca34b7bd458346aa6ac2fdcdca406, type: 2}
+  RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
 --- !u!4 &1597078067
 Transform:
   m_ObjectHideFlags: 0
@@ -3308,19 +3317,33 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: a5d45140d33e5394fa6e4c82c6899bf6, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
+  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
+  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
+  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
+  side_0: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_1: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_2: {fileID: 5617245196893214943, guid: 2704cf204004ce443b519b1a7c65fc99, type: 3}
+  side_3: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  hasRolled: 0
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   name: SMITH
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  rollCharacterDieButton: {fileID: 0}
-  rollChapterDieButton: {fileID: 0}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  rollCharacterDieButton: {fileID: 0}
+  rollChapterDieButton: {fileID: 0}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
+  panel: {fileID: 0}
   InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
@@ -3328,20 +3351,8 @@ MonoBehaviour:
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
-  initialRollValue: 
-  reRollValue: 
-  selectedValue: 
-  panel: {fileID: 0}
-  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
-  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
-  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
-  hasRolled: 0
-  side_0: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
-  side_1: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
-  side_2: {fileID: 5617245196893214943, guid: 2704cf204004ce443b519b1a7c65fc99, type: 3}
-  side_3: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
-  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
-  side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  RollStarted: {fileID: 11400000, guid: 6fdca34b7bd458346aa6ac2fdcdca406, type: 2}
+  RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
 --- !u!1001 &1899371005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3561,19 +3572,33 @@ MonoBehaviour:
   characterDiePrefab: {fileID: -60624326624102291, guid: 81bd7d4b36ac40e4da4ac96ff9b653c8, type: 3}
   chapterDie: {fileID: 0}
   characterDie: {fileID: 0}
+  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
+  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
+  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
+  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
+  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
+  side_2: {fileID: -1837591823509370267, guid: b7a686f7d2f7ebb449258db5ee400f6a, type: 3}
+  side_3: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
+  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
+  side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  hasRolled: 0
+  initialRollValue: 
+  reRollValue: 
+  selectedValue: 
   name: TANNER
   healthText: {fileID: 0}
   nameBattleText: {fileID: 0}
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  rollCharacterDieButton: {fileID: 0}
-  rollChapterDieButton: {fileID: 0}
   restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
+  rollCharacterDieButton: {fileID: 0}
+  rollChapterDieButton: {fileID: 0}
   InventorySlot1: {fileID: 0}
   InventorySlot2: {fileID: 0}
   TwoHandedSlot: {fileID: 0}
+  panel: {fileID: 0}
   InventoryPlaceholder: {fileID: 1089392734}
   InventoryArray:
   - {fileID: 0}
@@ -3581,20 +3606,8 @@ MonoBehaviour:
   ih: {fileID: 0}
   InventoryUpdate: {fileID: 11400000, guid: ce038d7278278ee48b578a4b3b1ec840, type: 2}
   PlayerDead: {fileID: 11400000, guid: 251d2a5cc1e0d17488525478da6dfba0, type: 2}
-  initialRollValue: 
-  reRollValue: 
-  selectedValue: 
-  panel: {fileID: 0}
-  mightSprite: {fileID: 7038466545433146477, guid: 97a3929d27e7e6f4ab63d0365e4be8bc, type: 3}
-  cunningSprite: {fileID: -6564487261146080053, guid: 92d863418ef87a5408cc8a81e21b3569, type: 3}
-  wisdomSprite: {fileID: 4949763047356962968, guid: 938f2bcc62a7d9641b61f3c316441a13, type: 3}
-  hasRolled: 0
-  side_0: {fileID: -7639424097492638820, guid: bcbd734ce92ea254ebe4714b58709ea1, type: 3}
-  side_1: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
-  side_2: {fileID: -1837591823509370267, guid: b7a686f7d2f7ebb449258db5ee400f6a, type: 3}
-  side_3: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
-  side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
-  side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
+  RollStarted: {fileID: 11400000, guid: 6fdca34b7bd458346aa6ac2fdcdca406, type: 2}
+  RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
 --- !u!1 &2067802269
 GameObject:
   m_ObjectHideFlags: 0
