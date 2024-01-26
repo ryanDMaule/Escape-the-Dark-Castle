@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Skeleton : EnemyBase
 {
+    [Header("Option panels")]
     [SerializeField] GameObject option1_object;
     [SerializeField] GameObject option2_object;
 
@@ -11,6 +12,7 @@ public class Skeleton : EnemyBase
         setPlayerRollTotal();
     }
 
+    //for the combat option cards, update the value that shows how many players need to roll for enemy health with the total players stored in Main manager
     private void setPlayerRollTotal()
     {
         var textFields = option1_object.GetComponentsInChildren<Text>();
@@ -50,7 +52,8 @@ public class Skeleton : EnemyBase
         option2_object.gameObject.SetActive(false);
     }
 
-    public void option1New(ChapterLogicNew cl)
+    //the button on click logic for option 1
+    public void option1(ChapterLogicNew cl)
     {
         setDamage(2);
         enemy_damage_image.sprite = damage2;
@@ -58,7 +61,8 @@ public class Skeleton : EnemyBase
         cl.setEnemyHealthPhase();
     }
 
-    public void option2New(ChapterLogicNew cl)
+    //the button on click logic for option 2
+    public void option2(ChapterLogicNew cl)
     {
         setEnemyMight(2);
         setDamage(1);

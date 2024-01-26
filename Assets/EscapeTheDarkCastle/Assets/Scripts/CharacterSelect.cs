@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class CharacterSelect : MonoBehaviour
 {
-
+    [Header("Player images")]
     [SerializeField] public RawImage Abbot; 
     [SerializeField] public RawImage Miller;
     [SerializeField] public RawImage Cook;
@@ -12,14 +12,18 @@ public class CharacterSelect : MonoBehaviour
     [SerializeField] public RawImage Tanner;
     [SerializeField] public RawImage Tailor;
 
+    [Header("Selection colours")]
     public Color disabledColour; 
     public Color enabledColour;
 
-    public Button continueButton;
-
+    [Header("Players")]
     public List<PlayerBase> selectedCharacters = new();
+
+    [Header("Game objects")]
+    public Button continueButton;
     [SerializeField] public Placeholder InventoryPlaceholder;
 
+    [Header("Other")]
     public Scenes scenes;
 
     public void selectCharacter(PlayerBase player)
@@ -107,15 +111,7 @@ public class CharacterSelect : MonoBehaviour
         MainManager.Instance.addPlayers(selectedCharacters);
 
         //load the pre game screen
-        Loader.Load(scenes.preGame);
+        scenes.loadPreGameExperimentChapter();
     }
 
-    public void loadExperiment()
-    {
-        //ASSIGN THE SELECTED PLAYERS TO PERSISTENT STORAGE (MainManager)
-        MainManager.Instance.addPlayers(selectedCharacters);
-
-        //load the pre game screen
-        Loader.Load(scenes.preGameExperiment);
-    }
 }

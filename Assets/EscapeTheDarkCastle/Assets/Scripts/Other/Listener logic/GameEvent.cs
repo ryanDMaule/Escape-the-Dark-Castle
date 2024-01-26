@@ -10,7 +10,6 @@ public class GameEvent : ScriptableObject
     public List<GameEventListener> listeners = new List<GameEventListener>();
 
     //Raise event through different method signatures
-
     public void Raise()
     {
         Debug.Log("Raise");
@@ -22,7 +21,6 @@ public class GameEvent : ScriptableObject
     }
 
     //Manage listeners
-
     public void RegisterListener(GameEventListener listener)
     {
         if (!listeners.Contains(listener))

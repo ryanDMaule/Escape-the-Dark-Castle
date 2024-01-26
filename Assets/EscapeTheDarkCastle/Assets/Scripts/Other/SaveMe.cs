@@ -8,9 +8,6 @@ public class SaveMe : MonoBehaviour
     {
         Debug.Log("SaveMe!");
         DontDestroyOnLoad(gameObject);
-
-        Debug.Log("gameObject:" + gameObject.name);
-
     }
 
     /*

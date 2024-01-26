@@ -2,29 +2,50 @@ using InnerDriveStudios.DiceCreator;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public enum ChapterDieOptions { MIGHT, CUNNING, WISDOM, FAIL }
 
 public abstract class PlayerBase : MonoBehaviour
 {
+    #region globalVariables
+
+    [Header("Health values")]
+    public int currentHealth = 18;
     private const int MAX_HEALTH = 18;
     private const int MIN_HEALTH = 0;
-    public int currentHealth = 18;
 
+    [Header("HUDs")]
     [SerializeField] public GameObject hud;
     [SerializeField] public GameObject roundHud;
 
+    [Header("Dice")]
     [SerializeField] public Die chapterDiePrefab;
     [SerializeField] public Die characterDiePrefab;
 
     [SerializeField] public Die chapterDie;
     [SerializeField] public Die characterDie;
 
+    [Header("Die side sprites")]
+    [SerializeField] public Sprite mightSprite;
+    [SerializeField] public Sprite cunningSprite;
+    [SerializeField] public Sprite wisdomSprite;
+
+    [SerializeField] public Sprite side_0;
+    [SerializeField] public Sprite side_1;
+    [SerializeField] public Sprite side_2;
+    [SerializeField] public Sprite side_3;
+    [SerializeField] public Sprite side_4;
+    [SerializeField] public Sprite side_5;
+
+    [Header("Roll values")]
+    public bool hasRolled = false;
+    public string initialRollValue = "";
+    public string reRollValue = "";
+    public string selectedValue = "";
+
+    [Header("Name values")]
     [SerializeField] private new string name;
     [SerializeField] public Text healthText;
     [SerializeField] private Text nameBattleText;
@@ -33,18 +54,23 @@ public abstract class PlayerBase : MonoBehaviour
     private bool isResting = false;
     private bool potionProtection = false;
 
+    [Header("Combat state assets")]
     [SerializeField] public Image combatState;
     [SerializeField] public Button restButton;
     [SerializeField] public Button fightButton;
-    [SerializeField] public Button rollCharacterDieButton;
-    [SerializeField] public Button rollChapterDieButton;
-
     [SerializeField] public Sprite restSprite;
     [SerializeField] public Sprite fightSprite;
 
+    [Header("Roll buttons")]
+    [SerializeField] public Button rollCharacterDieButton;
+    [SerializeField] public Button rollChapterDieButton;
+
+    [Header("Inventory")]
     [SerializeField] public Image InventorySlot1;
     [SerializeField] public Image InventorySlot2;
     [SerializeField] public Image TwoHandedSlot;
+
+    public GameObject panel;
 
     [SerializeField] public Placeholder InventoryPlaceholder;
     public Card[] InventoryArray = new Card[2];
@@ -55,95 +81,29 @@ public abstract class PlayerBase : MonoBehaviour
     public GameEvent InventoryUpdate;
     public GameEvent PlayerDead;
 
+    #endregion
+
     public void Start()
     {
         InventoryArray[0] = InventoryPlaceholder;
         InventoryArray[1] = InventoryPlaceholder;
     }
+
+    #region abstractMethods
     public abstract int getPlayerMight();
     public abstract int getPlayerCunning();
     public abstract int getPlayerWisdom();
     public abstract void getPlayerDieValue(string rollValue, EnemyBase enemy);
     public abstract ChapterDieOptions getCharacterRollResult(string rollValue);
-    
-    public void rollLogic(EnemyBase enemy)
-    {
-        StartCoroutine(rollDelay(enemy));
-    }
 
-    IEnumerator rollDelay(EnemyBase enemy)
-    {
-        Die characterDie = getCharacterDie();
-        if (!characterDie.isRolling)
-        {
-            //show the dice and spawn it rolling in the air above the camera
-            //characterDie.transform.position = new Vector3(0, 15, 0);
-            characterDie.gameObject.SetActive(true);
-            characterDie.Roll();
+    #endregion
 
-            while (characterDie.isRolling)
-            {
-                yield return null;
-            }
-
-            //when rolling is false hide the die itself
-            characterDie.gameObject.SetActive(false);
-            getCharacterDieButton().gameObject.SetActive(false);
-
-            string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            getPlayerDieValue(dieValue, enemy);
-        }
-    }
-
-    public void rollLogicNew(EnemyBase enemy, Button roll, Button next)
-    {
-        StartCoroutine(rollDelayNew(enemy, roll, next));
-    }
+    #region rollLogic
 
     public void standardTurn(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
     {
         StartCoroutine(standardTurnIE(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
     }
-
-    public void reRoll(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
-    {
-        StartCoroutine(reRollIE(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
-    }
-
-    IEnumerator rollDelayNew(EnemyBase enemy, Button roll, Button next)
-    {
-        Die characterDie = getCharacterDie();
-
-        if (!characterDie.isRolling)
-        {
-            //show the dice and spawn it rolling in the air above the camera
-            //characterDie.transform.position = new Vector3(0, 15, 0);
-            characterDie.gameObject.SetActive(true);
-            roll.interactable = false;
-
-            characterDie.Roll();
-
-            while (characterDie.isRolling)
-            {
-                yield return null;
-            }
-
-            next.interactable = true;
-
-            //when rolling is false hide the die itself
-            characterDie.gameObject.SetActive(false);
-
-            string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            getPlayerDieValue(dieValue, enemy);
-
-            enemy.enemyDead();
-        }
-    }
-
-    //stores the rolled value so that it can be applied at the end of the turn
-    public string initialRollValue = "";
-    public string reRollValue = "";
-    public string selectedValue = "";
 
     IEnumerator standardTurnIE(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
     {
@@ -184,7 +144,7 @@ public abstract class PlayerBase : MonoBehaviour
 
     private bool reRollEligilble(string rollResult)
     {
-        if(this.getCharacterRollResult(rollResult) == ChapterDieOptions.WISDOM && this.inventoryContainsCard("decayed blade_0"))
+        if (this.getCharacterRollResult(rollResult) == ChapterDieOptions.WISDOM && this.inventoryContainsCard("decayed blade_0"))
         {
             return true;
         }
@@ -193,6 +153,11 @@ public abstract class PlayerBase : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void reRoll(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    {
+        StartCoroutine(reRollIE(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
     }
 
     IEnumerator reRollIE(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
@@ -330,27 +295,85 @@ public abstract class PlayerBase : MonoBehaviour
         }
     }
 
-    public GameObject panel;
+    public void chapterDieDamage(string rollValue, EnemyBase enemy)
+    {
+        switch (rollValue)
+        {
+            case "2" or "3":
+                enemy.reduceEnemyCunning(1);
+                break;
+
+            case "6" or "5":
+                enemy.reduceEnemyMight(1);
+                break;
+
+            case "1" or "4":
+                enemy.reduceEnemyWisdom(1);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void rollEnemyHealthNew(EnemyBase enemy, Button button)
+    {
+        StartCoroutine(rollEnemyHealthIE(enemy, button));
+    }
+
+    IEnumerator rollEnemyHealthIE(EnemyBase enemy, Button button)
+    {
+        Debug.Log("rollEnemyHealthIE!");
+
+        if (!chapterDie.isRolling)
+        {
+            button.interactable = false;
+
+            chapterDie.gameObject.SetActive(true);
+            chapterDie.Roll();
+
+            while (chapterDie.isRolling)
+            {
+                yield return null;
+            }
+
+            string dieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
+            ChapterDieOptions rollResult = getChapterRolResult(dieValue);
+
+            switch (rollResult)
+            {
+                case ChapterDieOptions.MIGHT:
+                    enemy.setEnemyMight(1);
+                    break;
+
+                case ChapterDieOptions.CUNNING:
+                    enemy.setEnemyCunning(1);
+                    break;
+
+                case ChapterDieOptions.WISDOM:
+                    enemy.setEnemyWisdom(1);
+                    break;
+
+                default:
+                    break;
+            }
+
+            chapterDie.gameObject.SetActive(false);
+            hasRolled = true;
+            MainManager.Instance.playersRolled();
+        }
+    }
+
+    #endregion
+
+    #region inventoryLogic
+
     private bool InventoryOpen = false;
 
     public void printInventory()
     {
         Debug.Log("SLOT 1 : " + InventoryArray[0].name);
         Debug.Log("SLOT 2 : " + InventoryArray[1].name);
-    }
-
-    public void openInventory()
-    {
-        Animator animator = panel.GetComponent<Animator>();
-        if (!InventoryOpen)
-        {
-            animator.SetTrigger("Open");
-            InventoryOpen = true;
-        }
-        else
-        {
-            closeInventory();
-        }
     }
 
     public void openInventory(List<PlayerBase> Players)
@@ -475,7 +498,8 @@ public abstract class PlayerBase : MonoBehaviour
             {
                 Debug.Log("ERROR");
             }
-        } else if (card.size == 2)
+        }
+        else if (card.size == 2)
         {
             Debug.Log("MORP");
 
@@ -517,7 +541,8 @@ public abstract class PlayerBase : MonoBehaviour
             {
                 Debug.Log("Card not in inventory");
             }
-        } else if (card.size == 2)
+        }
+        else if (card.size == 2)
         {
             if (InventoryArray[0] == card && InventoryArray[1] == card)
             {
@@ -534,7 +559,7 @@ public abstract class PlayerBase : MonoBehaviour
             }
 
         }
-    
+
     }
 
     public void tradeInventoryCard(Card card)
@@ -588,6 +613,10 @@ public abstract class PlayerBase : MonoBehaviour
         return false;
     }
 
+    #endregion
+
+    #region dieGetters
+
     public Die getChapterDie()
     {
         return chapterDie;
@@ -598,15 +627,46 @@ public abstract class PlayerBase : MonoBehaviour
         return characterDie;
     }
 
-    public Button getChapterDieButton()
+    //returns the face a chapter die lands on
+    public ChapterDieOptions getChapterRolResult(string rollValue)
     {
-        return rollChapterDieButton;
+        return rollValue switch
+        {
+            "2" or "3" => ChapterDieOptions.CUNNING,
+            "6" or "5" => ChapterDieOptions.MIGHT,
+            "1" or "4" => ChapterDieOptions.WISDOM,
+            _ => ChapterDieOptions.FAIL,
+        };
     }
 
-    public Button getCharacterDieButton()
+    public Sprite GetChapterDieFace(string rollValue)
     {
-        return rollCharacterDieButton;
+        return rollValue switch
+        {
+            "2" or "3" => cunningSprite,
+            "6" or "5" => mightSprite,
+            "1" or "4" => wisdomSprite,
+            _ => throw new Exception(),
+        };
     }
+
+    public Sprite GetCharacterDieFace(string rollValue)
+    {
+        return rollValue switch
+        {
+            "0" => side_0,
+            "1" => side_1,
+            "2" => side_2,
+            "3" => side_3,
+            "4" => side_4,
+            "5" => side_5,
+            _ => throw new System.Exception(),
+        };
+    }
+
+    #endregion
+
+    #region playerState
 
     //Increase health by passed amount
     public void IncreaseHealth(int heal)
@@ -706,208 +766,24 @@ public abstract class PlayerBase : MonoBehaviour
         combatState.sprite = fightSprite;
     }
 
-    [SerializeField] public Sprite mightSprite;
-    [SerializeField] public Sprite cunningSprite;
-    [SerializeField] public Sprite wisdomSprite;
-
-    //returns the face a chapter die lands on
-    public ChapterDieOptions getChapterRolResult(string rollValue)
-    {
-        return rollValue switch
-        {
-            "2" or "3" => ChapterDieOptions.CUNNING,
-            "6" or "5" => ChapterDieOptions.MIGHT,
-            "1" or "4" => ChapterDieOptions.WISDOM,
-            _ => ChapterDieOptions.FAIL,
-        };
-    }
-
-    public Sprite GetChapterDieFace(string rollValue)
-    {
-        return rollValue switch
-        {
-            "2" or "3" => cunningSprite,
-            "6" or "5" => mightSprite,
-            "1" or "4" => wisdomSprite,
-            _ => throw new Exception(),
-        };
-    }
-
-
-    public void chapterDieDamage(string rollValue, EnemyBase enemy)
-    {
-        switch (rollValue)
-        {
-            case "2" or "3":
-                enemy.reduceEnemyCunning(1);
-                break;
-
-            case "6" or "5":
-                enemy.reduceEnemyMight(1);
-                break;
-
-            case "1" or "4":
-                enemy.reduceEnemyWisdom(1);
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    public void rollEnemyHealth(EnemyBase enemy)
-    {
-        StartCoroutine(rollEnemyHealthIEOld(enemy));
-    }
-
-    
-    public void rollEnemyHealthNew(EnemyBase enemy, Button button)
-    {
-        StartCoroutine(rollEnemyHealthIE(enemy, button));
-    }
-    
-
-    IEnumerator rollEnemyHealthIEOld(EnemyBase enemy)
-    {
-        Debug.Log("rollEnemyHealthIE!");
-
-        if (!chapterDie.isRolling)
-        {
-            chapterDie.gameObject.SetActive(true);
-            chapterDie.Roll();
-
-            while (chapterDie.isRolling)
-            {
-                yield return null;
-            }
-
-            chapterDie.gameObject.SetActive(false);
-            rollChapterDieButton.gameObject.SetActive(false);
-
-            string dieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            ChapterDieOptions rollResult = getChapterRolResult(dieValue);
-
-            switch (rollResult)
-            {
-                case ChapterDieOptions.MIGHT:
-                    enemy.setEnemyMight(1);
-                    break;
-
-                case ChapterDieOptions.CUNNING:
-                    enemy.setEnemyCunning(1);
-                    break;
-
-                case ChapterDieOptions.WISDOM:
-                    enemy.setEnemyWisdom(1);
-                    break;
-
-                default:
-                    break;
-            }
-
-            chapterDie.gameObject.SetActive(false);
-        }
-    }
-
-    public bool hasRolled = false;
-
-    IEnumerator rollEnemyHealthIE(EnemyBase enemy, Button button)
-    {
-        Debug.Log("rollEnemyHealthIE!");
-
-        if (!chapterDie.isRolling)
-        {
-            button.interactable = false;
-
-            chapterDie.gameObject.SetActive(true);
-            chapterDie.Roll();
-
-            while (chapterDie.isRolling)
-            {
-                yield return null;
-            }
-
-            string dieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
-            ChapterDieOptions rollResult = getChapterRolResult(dieValue);
-
-            switch (rollResult)
-            {
-                case ChapterDieOptions.MIGHT:
-                    enemy.setEnemyMight(1);
-                    break;
-
-                case ChapterDieOptions.CUNNING:
-                    enemy.setEnemyCunning(1);
-                    break;
-
-                case ChapterDieOptions.WISDOM:
-                    enemy.setEnemyWisdom(1);
-                    break;
-
-                default:
-                    break;
-            }
-
-            chapterDie.gameObject.SetActive(false);
-            hasRolled = true;
-            MainManager.Instance.playersRolled();
-        }
-    }
-
-    public void rest(PlayerBase player)
-    {
-        if (player.getIsRestingState())
-        {
-            player.setIsRestingState(false);
-        }
-        setIsRestingState(true);
-    }
-
     public void restNew()
     {
         foreach (var player in MainManager.Instance.Players)
         {
-            if(player == this)
+            if (player == this)
             {
                 setIsRestingState(true);
-            } else
+            }
+            else
             {
                 player.setIsRestingState(false);
             }
         }
     }
 
+    #endregion
+
     #region HUD_methods
-
-    public void SET_DESCRIPTION_HUD()
-    {
-        rollChapterDieButton.gameObject.SetActive(false);
-        rollCharacterDieButton.gameObject.SetActive(false);
-        combatState.gameObject.SetActive(false);
-        restButton.gameObject.SetActive(false);
-        fightButton.gameObject.SetActive(false);
-        nameBattleText.gameObject.SetActive(false);
-    }
-    public void SET_ENEMY_HEALTH_HUD()
-    {
-        rollChapterDieButton.gameObject.SetActive(true);
-        rollCharacterDieButton.gameObject.SetActive(false);
-        combatState.gameObject.SetActive(false);
-        restButton.gameObject.SetActive(false);
-        fightButton.gameObject.SetActive(false);
-        nameBattleText.gameObject.SetActive(true);
-    }
-
-    public void PREPERATION_HUD()
-    {
-        rollChapterDieButton.gameObject.SetActive(false);
-        rollCharacterDieButton.gameObject.SetActive(false);
-        combatState.gameObject.SetActive(true);
-        restButton.gameObject.SetActive(true);
-        fightButton.gameObject.SetActive(true);
-        nameBattleText.gameObject.SetActive(true);
-    }
-
     public void PREPERATION_HUD_NEW()
     {
         roundHud.gameObject.SetActive(true);
@@ -917,64 +793,51 @@ public abstract class PlayerBase : MonoBehaviour
         fightButton.gameObject.SetActive(true);
     }
 
-    public void PLAYER_TURN_HUD()
-    {
-        rollChapterDieButton.gameObject.SetActive(false);
-        rollCharacterDieButton.gameObject.SetActive(true);
-        combatState.gameObject.SetActive(true);
-        restButton.gameObject.SetActive(false);
-        fightButton.gameObject.SetActive(false);
-        nameBattleText.gameObject.SetActive(true);
-    }
-
-    public void ENENMY_TURN_WON_LOST_HUD()
-    {
-        rollChapterDieButton.gameObject.SetActive(false);
-        rollCharacterDieButton.gameObject.SetActive(false);
-        combatState.gameObject.SetActive(true);
-        restButton.gameObject.SetActive(false);
-        fightButton.gameObject.SetActive(false);
-        nameBattleText.gameObject.SetActive(true);
-    }
-
     #endregion
 
-    public void HIDE_CHAPTER_DICE_BUTTON()
+    #region helperMethods
+
+    public void determineEnemyDamage(ChapterDieOptions damageType, EnemyBase enemy, PlayerBase player)
     {
-        rollChapterDieButton.gameObject.SetActive(false);
-    }
-
-    public void HIDE_CHARACTER_DICE_BUTTON()
-    {
-        rollCharacterDieButton.gameObject.SetActive(false);
-    }
-
-    public void SHOW_CHARACTER_DICE_BUTTON()
-    {
-        rollCharacterDieButton.gameObject.SetActive(true);
-    }
-
-    #region characterDieSprites
-
-    [SerializeField] public Sprite side_0;
-    [SerializeField] public Sprite side_1;
-    [SerializeField] public Sprite side_2;
-    [SerializeField] public Sprite side_3;
-    [SerializeField] public Sprite side_4;
-    [SerializeField] public Sprite side_5;
-
-    public Sprite GetCharacterDieFace(string rollValue)
-    {
-        return rollValue switch
+        bool doubleDamage = player.inventoryContainsCard("the replication stones_0");
+        switch (damageType)
         {
-            "0" => side_0,
-            "1" => side_1,
-            "2" => side_2,
-            "3" => side_3,
-            "4" => side_4,
-            "5" => side_5,
-            _ => throw new System.Exception(),
-        };
+            case ChapterDieOptions.MIGHT:
+                if (doubleDamage)
+                {
+                    enemy.reduceEnemyMight(2);
+                }
+                else
+                {
+                    enemy.reduceEnemyMight(1);
+                }
+                break;
+
+            case ChapterDieOptions.CUNNING:
+                if (doubleDamage)
+                {
+                    enemy.reduceEnemyCunning(2);
+                }
+                else
+                {
+                    enemy.reduceEnemyCunning(1);
+                }
+                break;
+
+            case ChapterDieOptions.WISDOM:
+                if (doubleDamage)
+                {
+                    enemy.reduceEnemyWisdom(2);
+                }
+                else
+                {
+                    enemy.reduceEnemyWisdom(1);
+                }
+                break;
+
+            default:
+                break;
+        }
     }
 
     #endregion

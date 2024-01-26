@@ -8,37 +8,12 @@ public class Tailor : PlayerBase
     {
         switch (rollValue)
         {
-            case "0":
-                if (this.inventoryContainsCard("the replication stones_0"))
-                {
-                    enemy.reduceEnemyCunning(2);
-                }
-                else
-                {
-                    enemy.reduceEnemyCunning(1);
-                }
+            case "0" or "2":
+                determineEnemyDamage(ChapterDieOptions.CUNNING, enemy, this);
                 break;
 
             case "1":
-                if (this.inventoryContainsCard("the replication stones_0"))
-                {
-                    enemy.reduceEnemyWisdom(2);
-                }
-                else
-                {
-                    enemy.reduceEnemyWisdom(1);
-                }
-                break;
-
-            case "2":
-                if (this.inventoryContainsCard("the replication stones_0"))
-                {
-                    enemy.reduceEnemyCunning(2);
-                }
-                else
-                {
-                    enemy.reduceEnemyCunning(1);
-                }
+                determineEnemyDamage(ChapterDieOptions.WISDOM, enemy, this);
                 break;
 
             case "3":
@@ -47,14 +22,7 @@ public class Tailor : PlayerBase
                 break;
 
             case "4":
-                if (this.inventoryContainsCard("the replication stones_0"))
-                {
-                    enemy.reduceEnemyMight(2);
-                }
-                else
-                {
-                    enemy.reduceEnemyMight(1);
-                }
+                determineEnemyDamage(ChapterDieOptions.MIGHT, enemy, this);
                 break;
 
             case "5":

@@ -5862,13 +5862,12 @@ MonoBehaviour:
   placeholderMid: {fileID: 749722723}
   placeholder3: {fileID: 1949987910}
   placeholder4: {fileID: 1260534978}
-  player1: {fileID: 61018305}
-  player2: {fileID: 1480481025}
-  player3: {fileID: 1579640842}
-  player4: {fileID: 1256645046}
+  player1_inventory: {fileID: 61018305}
+  player2_inventory: {fileID: 1480481025}
+  player3_inventory: {fileID: 1579640842}
+  player4_inventory: {fileID: 1256645046}
   ih: {fileID: 1316991962}
   dieCollection: {fileID: 906524359}
-  fgo: {fileID: 995413247}
 --- !u!4 &1919166541
 Transform:
   m_ObjectHideFlags: 0
@@ -6425,7 +6424,6 @@ MonoBehaviour:
   Players: []
   cl: {fileID: 0}
   dl: {fileID: 0}
-  fgo: {fileID: 995413247}
   drawCards: 1
   GameStateUpdate: {fileID: 0}
 --- !u!4 &2116706572

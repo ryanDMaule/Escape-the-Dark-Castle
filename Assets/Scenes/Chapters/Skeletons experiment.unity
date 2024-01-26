@@ -2621,7 +2621,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2135890024}
         m_TargetAssemblyTypeName: Skeleton, Assembly-CSharp
-        m_MethodName: option1New
+        m_MethodName: option1
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 916605180}
@@ -4491,7 +4491,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2135890024}
         m_TargetAssemblyTypeName: Skeleton, Assembly-CSharp
-        m_MethodName: option2New
+        m_MethodName: option2
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 916605180}
@@ -7316,9 +7316,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 916605180}
-        m_TargetAssemblyTypeName: ChapterLogicNew, Assembly-CSharp
-        m_MethodName: setLoseHUD
+      - m_Target: {fileID: 498463828}
+        m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
+        m_MethodName: loadItemsExperimentChapter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7687,7 +7687,6 @@ MonoBehaviour:
   Players: []
   cl: {fileID: 0}
   dl: {fileID: 0}
-  fgo: {fileID: 0}
   drawCards: 1
   GameStateUpdate: {fileID: 0}
 --- !u!4 &1405022886

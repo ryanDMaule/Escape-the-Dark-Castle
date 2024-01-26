@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class FormatGameOver : MonoBehaviour
 {
-
+    [Header("Overrides")]
     [SerializeField] public AudioSource musicSource;
     [SerializeField] public TextMeshProUGUI bio;
 
     //TODO: find a way to set these active just using "this"
+    [Header("Game objects")]
     [SerializeField] public GameObject gradient;
     [SerializeField] public GameObject frame;
     [SerializeField] public GameObject audioPlayer;

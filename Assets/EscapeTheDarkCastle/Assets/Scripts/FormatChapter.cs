@@ -3,19 +3,27 @@ using UnityEngine.UI;
 
 public class FormatChapter : MonoBehaviour
 {
+    [Header("Other")]
     [SerializeField] public EnemyBase enemy;
+    [SerializeField] public ChapterLogicNew cl;
 
+    //control blocks = the rest, fight and roll UI sections for the players
+    [Header("Player control blocks")]
     [SerializeField] public GameObject player1ControlBlock;
     [SerializeField] public GameObject player2ControlBlock;
     [SerializeField] public GameObject player3ControlBlock;
     [SerializeField] public GameObject player4ControlBlock;
 
-    [SerializeField] public ChapterLogicNew cl;
 
     public void Start()
     {
         clearUnusedObjects();
         assignCl();
+    }
+
+    private void assignCl()
+    {
+        MainManager.Instance.cl = cl;
     }
 
     private void clearUnusedObjects()
@@ -55,11 +63,6 @@ public class FormatChapter : MonoBehaviour
                 break;
         }
 
-    }
-
-    private void assignCl()
-    {
-        MainManager.Instance.cl = cl;
     }
 
     private void formatPlayerControlBlock(GameObject controlBlock, PlayerBase player)

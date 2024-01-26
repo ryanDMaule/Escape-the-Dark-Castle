@@ -3,17 +3,20 @@ using UnityEngine.UI;
 
 public class FormatHud : MonoBehaviour
 {
+    [Header("HUD position locations")]
     [SerializeField] public GameObject placeholder1;
     [SerializeField] public GameObject placeholder2;
     [SerializeField] public GameObject placeholderMid;
     [SerializeField] public GameObject placeholder3;
     [SerializeField] public GameObject placeholder4;
 
-    [SerializeField] public GameObject player1;
-    [SerializeField] public GameObject player2;
-    [SerializeField] public GameObject player3;
-    [SerializeField] public GameObject player4;   
+    [Header("Inventory objects")]
+    [SerializeField] public GameObject player1_inventory;
+    [SerializeField] public GameObject player2_inventory;
+    [SerializeField] public GameObject player3_inventory;
+    [SerializeField] public GameObject player4_inventory;
 
+    [Header("Other")]
     [SerializeField] public InventoryHandler ih;   
     [SerializeField] public GameObject dieCollection;
 
@@ -26,6 +29,7 @@ public class FormatHud : MonoBehaviour
         clearUnusedObjects();
     }
 
+    //Deletes the placeholder locations and player inventories that arent used
     private void clearUnusedObjects()
     {
         int playerCount = MainManager.Instance.Players.Count;
@@ -34,8 +38,8 @@ public class FormatHud : MonoBehaviour
         {
             case 2:
                 //players section
-                Destroy(player3);
-                Destroy(player4);
+                Destroy(player3_inventory);
+                Destroy(player4_inventory);
 
                 //inventory HUD section
                 Destroy(placeholder2);
@@ -45,7 +49,7 @@ public class FormatHud : MonoBehaviour
                 break;
 
             case 3:
-                Destroy(player4);
+                Destroy(player4_inventory);
 
                 Destroy(placeholder2);
                 Destroy(placeholder3);
@@ -74,35 +78,35 @@ public class FormatHud : MonoBehaviour
         {
             case 2:
                 placeholder1.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[0], player1, placeholder1);
+                setHudDetails(MainManager.Instance.Players[0], player1_inventory, placeholder1);
 
                 placeholder4.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[1], player2, placeholder4);
+                setHudDetails(MainManager.Instance.Players[1], player2_inventory, placeholder4);
                 break;
 
             case 3:
                 placeholder1.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[0], player1, placeholder1);
+                setHudDetails(MainManager.Instance.Players[0], player1_inventory, placeholder1);
 
                 placeholderMid.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[1], player2, placeholderMid);
+                setHudDetails(MainManager.Instance.Players[1], player2_inventory, placeholderMid);
 
                 placeholder4.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[2], player3, placeholder4);
+                setHudDetails(MainManager.Instance.Players[2], player3_inventory, placeholder4);
                 break;
 
             case 4:
                 placeholder1.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[0], player1, placeholder1);
+                setHudDetails(MainManager.Instance.Players[0], player1_inventory, placeholder1);
 
                 placeholder2.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[1], player2, placeholder2);
+                setHudDetails(MainManager.Instance.Players[1], player2_inventory, placeholder2);
 
                 placeholder3.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[2], player3, placeholder3);
+                setHudDetails(MainManager.Instance.Players[2], player3_inventory, placeholder3);
 
                 placeholder4.SetActive(true);
-                setHudDetails(MainManager.Instance.Players[3], player4, placeholder4);
+                setHudDetails(MainManager.Instance.Players[3], player4_inventory, placeholder4);
                 break;
 
             default:

@@ -6,15 +6,20 @@ public abstract class EnemyBase : MonoBehaviour
     [Header("Events")]
     public GameEvent EnemyDead;
 
+    [Header("Damage total sprites")]
     [SerializeField] public Sprite damage1;
     [SerializeField] public Sprite damage2;
     [SerializeField] public Sprite damage3;
 
+    [Header("Description phase assets")]
     [SerializeField] public ScrollRect description;
     [SerializeField] public Button description_button;
     [SerializeField] public Button audioButton;
+    [SerializeField] Image background;
+    [SerializeField] Button backButton;
+    [SerializeField] Button forwardButton;
 
-
+    [Header("Enemy assets")]
     [SerializeField] public Image enemyImage;
     [SerializeField] public Image enemy_might;
     [SerializeField] public Image enemy_cunning;
@@ -24,17 +29,13 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] public Text enemy_wisdom_text;
     [SerializeField] public Image enemy_damage_image;
 
+    [Header("Enemy values")]
     private int enemy_might_int = 0;
     private int enemy_cunning_int = 0;
     private int enemy_wisdom_int = 0;
-
     private int damage = 1;
 
     #region combat_options_stuffs
-
-    [SerializeField] Image background;
-    [SerializeField] Button backButton;
-    [SerializeField] Button forwardButton;
 
     public virtual void showOptionsHUD()
     {
@@ -121,8 +122,6 @@ public abstract class EnemyBase : MonoBehaviour
 
     public bool enemyDead()
     {
-        Debug.Log("enemyDead");
-
         if (enemy_might_int == 0 && enemy_cunning_int == 0 && enemy_wisdom_int == 0)
         {
             Debug.Log("enemyDead: TRUE");

@@ -9,14 +9,16 @@ public enum BattleState { DESCRIPTION, COMBAT_OPTIONS, SET_ENEMY_HEALTH, PREPERA
 public class ChapterLogicNew : MonoBehaviour
 {
     #region globalVariables
+
+    [Header("Death stuffs")]
     [SerializeField] public string deathBio = "";
     [SerializeField] public AudioClip deathClip;
 
+    [Header("Game objects")]
     [SerializeField] public GameObject playersCombinedHUD;
     [SerializeField] public GameObject playerTurnHUD;
     [SerializeField] public Text playerTurnName;
     [SerializeField] public Button playerTurnRoll;
-    //[SerializeField] public Button playerTurnInventory;
     [SerializeField] public Button playerTurnEndTurn;
 
     [SerializeField] public Image playerTurnInitialDieImage;
@@ -27,6 +29,7 @@ public class ChapterLogicNew : MonoBehaviour
     [SerializeField] public Text win_lose_text;
     [SerializeField] public Button Continue_button;
 
+    [Header("Other")]
     [SerializeField] public EnemyBase enemyBase;
 
     public BattleState state;
@@ -44,7 +47,6 @@ public class ChapterLogicNew : MonoBehaviour
 
     void Start()
     {
-        MainManager.Instance.printPlayers();
         MainManager.Instance.updateGameState(GameState.CHAPTER);
 
         setDescriptionPhase();
@@ -75,6 +77,7 @@ public class ChapterLogicNew : MonoBehaviour
         setPreperationHUD();
     }
 
+    //this is called first as it just starts the process with the first character in the players list
     public void startPlayerTurnPhase()
     {
         foreach(var p in MainManager.Instance.Players)
@@ -102,11 +105,11 @@ public class ChapterLogicNew : MonoBehaviour
         } else
         {
             setPlayerTurnHUD();
-            //formatPlayerTurnHUD(MainManager.Instance.Players[0]);
             formatPlayerTurnHUDNew(MainManager.Instance.Players[0]);
         }
     }
 
+    //this is called after the above duplicate function but this takes the previous player as a paramter to get the next player 
     public void setPlayerTurnPhase(PlayerBase player)
     {
         if (player.getIsRestingState())
@@ -174,8 +177,7 @@ public class ChapterLogicNew : MonoBehaviour
         Debug.Log("YOU WIN!");
         //setWinHUD();
 
-        //Loader.Load(scenes.itemScreen);
-        Loader.Load(scenes.itemScreenExperiment);
+        scenes.loadItemsExperimentChapter();
     }
 
     #region HUD_methods
@@ -258,55 +260,6 @@ public class ChapterLogicNew : MonoBehaviour
         Continue_button.gameObject.SetActive(false);
     }
 
-    private void formatPlayerTurnHUD(PlayerBase player)
-    {
-        var textFields = playerTurnHUD.GetComponentsInChildren<Text>();
-        foreach (var item in textFields)
-        {
-            if (item.tag == "HUD-name")
-            {
-                item.text = player.name;
-                break;
-            }
-        }
-
-        var buttons = playerTurnHUD.GetComponentsInChildren<Button>();
-        foreach (var button in buttons)
-        {
-            //ROLL
-            if (button.tag == "CharacterDie")
-            {
-                button.onClick.RemoveAllListeners();
-                //button.onClick.AddListener(() => player.rollLogicNew(enemyBase));
-                button.onClick.AddListener(() => player.rollLogicNew(enemyBase, playerTurnRoll, playerTurnEndTurn));
-                continue;
-            }
-
-            //INVENTORY
-            if (button.tag == "Inventory")
-            {
-                button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
-                continue;
-            }
-
-            //END TURN
-            if (button.tag == "Finish")
-            {
-                button.onClick.RemoveAllListeners();
-                PlayerBase result = MainManager.Instance.getNextPlayer(player);
-                if(result == null)
-                {
-                    button.onClick.AddListener(() => startEnemyTurnPhase());
-                } else
-                {
-                    button.onClick.AddListener(() => setPlayerTurnPhase(result));
-                }
-                continue;
-            }
-        }
-    }
-
     private void formatPlayerTurnHUDNew(PlayerBase player)
     {
         //SET NAME
@@ -322,10 +275,6 @@ public class ChapterLogicNew : MonoBehaviour
         {
             playerTurnRoll.onClick.AddListener(() => player.standardTurn(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, initialRollButton, rerollRollButton, this));
         }
-
-        //INVENTORY BUTTON
-        //playerTurnInventory.onClick.RemoveAllListeners();
-        //playerTurnInventory.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
 
         //END TURN BUTTON
         playerTurnEndTurn.onClick.RemoveAllListeners();

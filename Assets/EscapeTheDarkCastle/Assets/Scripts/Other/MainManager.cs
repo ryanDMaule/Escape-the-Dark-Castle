@@ -5,16 +5,17 @@ public enum GameState { CHARACTER_SELECT, PRE_GAME, CHAPTER, ITEMS_PHASE }
 
 public class MainManager : MonoBehaviour
 {
-
     public static MainManager Instance;
 
+    [Header("Players")]
     public List<PlayerBase> Players = new();
 
+    [Header("Global accessors")]
     [SerializeField] public ChapterLogicNew cl;
     [SerializeField] public DeckLogic dl;
-
     private GameState currentGameState;
 
+    [Header("Other")]
     public int drawCards = 1;
 
     [Header("Events")]
@@ -23,8 +24,6 @@ public class MainManager : MonoBehaviour
     public void updateGameState(GameState gs)
     {
         currentGameState = gs;
-
-        //update radio to inidicate the state has changed
         GameStateUpdate.Raise();
     }
 
@@ -49,11 +48,6 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    public void setChapters()
-    {
-
-    }
-
     private void Awake()
     {
         if (Instance != null)
@@ -66,6 +60,7 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    //used to determine the next player for a turn during chapter combat
     public PlayerBase getNextPlayer(PlayerBase passedPlayer)
     {
         for (int i = 0; i < Players.Count; i++)
@@ -84,6 +79,8 @@ public class MainManager : MonoBehaviour
         return null;
     }
 
+    //checks all players in the game to see if they have rolled and whern true move onto the next phase of a chapter (prep phase)
+    //TODO: use a radio listener for this
     public void playersRolled()
     {
         bool allPlayersRolled = true;
@@ -103,6 +100,7 @@ public class MainManager : MonoBehaviour
             {
                 player.hasRolled = false;
             }
+            //raise allPlayersRolled
             cl.preperationPhase();
         } else
         {

@@ -44,6 +44,7 @@ public class itemsPhaseHandler : MonoBehaviour
         allowContinue();
     }
 
+    //checks if the continue button on the items phase is interactable and formats the options accordingly
     private void allowContinue()
     {
         Debug.Log("drawTotal: " + drawTotal);
@@ -111,7 +112,6 @@ public class itemsPhaseHandler : MonoBehaviour
                 }
 
                 formatAssignButton(button, index);
-                // reformat playerInventoryUpdate to be called here
                 index++;
             }
             playerList.SetActive(false);
@@ -136,8 +136,6 @@ public class itemsPhaseHandler : MonoBehaviour
         }
     }
 
-    //make a function to check and disable a button if neccessary which will be called when the player removes, trades or uses an item form their inventory via the listener
-
     public void togglePlayerListVisibility()
     {
         if (playerList.gameObject.activeInHierarchy)
@@ -149,7 +147,7 @@ public class itemsPhaseHandler : MonoBehaviour
         }
     }
 
-    //call this on card flipped or broadcat listeners for players using, trading or dioscarding cards in their inventory.
+    //call this on card flipped or broadcat listeners for players using, trading or discarding cards in their inventory.
     //make a new version of this where we can pass the player whose inventory has chaanged and do the check only on that player.
     public void playerInventoryUpdate()
     {

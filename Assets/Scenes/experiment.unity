@@ -229,7 +229,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 532554282}
         m_TargetAssemblyTypeName: CharacterSelect, Assembly-CSharp
-        m_MethodName: loadExperiment
+        m_MethodName: loadNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -619,12 +619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6dfb01192bfe99498bb6836a1a2fff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSelect: Character select
-  itemScreen: Items
-  itemScreenExperiment: Items experiment
-  preGame: Pre game
-  preGameExperiment: Pre game Experiment
-  skeletonExperiment: Skeletons experiment
   chapterList:
   - Skeletons
   - Bone beast
@@ -1151,7 +1145,6 @@ MonoBehaviour:
   Players: []
   cl: {fileID: 0}
   dl: {fileID: 762769793}
-  fgo: {fileID: 0}
   drawCards: 6
   GameStateUpdate: {fileID: 11400000, guid: 5238d1304d945c447af2518e07ae6e66, type: 2}
 --- !u!4 &471234888

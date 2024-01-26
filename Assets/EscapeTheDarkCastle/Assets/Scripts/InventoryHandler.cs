@@ -7,23 +7,26 @@ using UnityEngine.UI;
 
 public class InventoryHandler : MonoBehaviour
 {
-
+    [Header("General Assets")]
     [SerializeField] public GameObject optionsOverlay;
     [SerializeField] public Image cardImage;
 
+    [Header("Usage buttons")]
     [SerializeField] public Button useButton;
     [SerializeField] public Button tradeButton;
     [SerializeField] public Button discardButton;
 
+    [Header("Trade assets")]
     [SerializeField] public GameObject tradeButtonList;
     [SerializeField] public Button trade_Player1;
     [SerializeField] public Button trade_Player2;
     [SerializeField] public Button trade_Player3;
 
+    [Header("Other")]
+    [SerializeField] public DeckLogic dl;
+
     private PlayerBase Player;
     private Card Card;
-
-    [SerializeField] public DeckLogic dl;
 
     public void toggleTradePlayersList()
     {
@@ -88,7 +91,6 @@ public class InventoryHandler : MonoBehaviour
             } 
         }
     }
-
 
     private void formatTradeButton(PlayerBase player, int index)
     {
