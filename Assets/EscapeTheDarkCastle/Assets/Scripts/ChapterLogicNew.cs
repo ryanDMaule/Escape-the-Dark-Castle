@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class ChapterLogicNew : MonoBehaviour
     [Header("Game objects")]
     [SerializeField] public GameObject playersCombinedHUD;
     [SerializeField] public GameObject playerTurnHUD;
-    [SerializeField] public Text playerTurnName;
+    [SerializeField] public TextMeshProUGUI playerTurnName;
     [SerializeField] public Button playerTurnRoll;
     [SerializeField] public Button playerTurnEndTurn;
 
@@ -26,7 +27,7 @@ public class ChapterLogicNew : MonoBehaviour
     [SerializeField] public Button initialRollButton;
     [SerializeField] public Button rerollRollButton;
 
-    [SerializeField] public Text win_lose_text;
+    [SerializeField] public GameObject winHUD;
     [SerializeField] public Button Continue_button;
 
     [Header("Other")]
@@ -169,9 +170,9 @@ public class ChapterLogicNew : MonoBehaviour
     public void win()
     {
         Debug.Log("YOU WIN!");
-        //setWinHUD();
+        setWinHUD();
 
-        scenes.loadItemsExperimentChapter();
+        //scenes.loadItemsExperimentChapter();
     }
 
     #region HUD_methods
@@ -186,7 +187,7 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
 
-        win_lose_text.gameObject.SetActive(false);
+        winHUD.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
 
@@ -201,7 +202,7 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
 
-        win_lose_text.gameObject.SetActive(false);
+        winHUD.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
 
@@ -216,7 +217,7 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(true);
         playerTurnHUD.SetActive(false);
 
-        win_lose_text.gameObject.SetActive(false);
+        winHUD.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
 
@@ -236,7 +237,7 @@ public class ChapterLogicNew : MonoBehaviour
         }
         playerTurnHUD.SetActive(false);
 
-        win_lose_text.gameObject.SetActive(false);
+        winHUD.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(true);
     }
     void setPlayerTurnHUD()
@@ -250,7 +251,7 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(true);
 
-        win_lose_text.gameObject.SetActive(false);
+        winHUD.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
 
@@ -315,16 +316,13 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
 
-        win_lose_text.gameObject.SetActive(false);
+        winHUD.gameObject.SetActive(false);
         Continue_button.gameObject.SetActive(false);
     }
 
     public void setWinHUD()
     {
         Debug.Log("setWinHUD");
-
-        //remove down the line, just testing stuffs
-        scenes.loadItemsExperimentChapter();
 
         enemyBase.HIDE_DESCRIPTION();
         enemyBase.hideOptionsHUD();
@@ -333,8 +331,7 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
 
-        win_lose_text.gameObject.SetActive(true);
-        win_lose_text.text = "YOU WIN!";
+        winHUD.gameObject.SetActive(true);
         Continue_button.gameObject.SetActive(false);
     }
 
@@ -349,8 +346,6 @@ public class ChapterLogicNew : MonoBehaviour
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
 
-        win_lose_text.gameObject.SetActive(true);
-        win_lose_text.text = "YOU LOSE!";
         Continue_button.gameObject.SetActive(false);
     }
 

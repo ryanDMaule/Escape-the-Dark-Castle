@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -80,7 +81,7 @@ public class FormatChapter : MonoBehaviour
             }
         }
 
-        var textFields = controlBlock.GetComponentsInChildren<Text>();
+        var textFields = controlBlock.GetComponentsInChildren<TextMeshProUGUI>();
         foreach (var item in textFields)
         {
             if (item.tag == "HUD-name")
