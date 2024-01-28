@@ -57,6 +57,16 @@ public class MusicPlayer : MonoBehaviour
         musicLoop = StartCoroutine(musicQueue.LoopMusic(this, 0, PlayMusicClip));
     }
 
+    public void pauseMusic()
+    {
+        musicSource.Pause();
+    }
+
+    public void resumeMusic()
+    {
+        musicSource.UnPause();
+    }
+
 }
 
 public class MusicQueue

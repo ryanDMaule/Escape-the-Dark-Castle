@@ -162,13 +162,7 @@ public class ChapterLogicNew : MonoBehaviour
             player.setPotionProtectionState(false);
         }
 
-        if (!playerDead)
-        {
-            setPreperationHUD();
-        } else
-        {
-            //setLoseHUD();
-        }
+        setPreperationHUD();
     }
 
 

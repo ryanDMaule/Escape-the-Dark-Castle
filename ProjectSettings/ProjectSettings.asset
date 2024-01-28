@@ -870,7 +870,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -890,10 +896,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6550c6fe-caea-4d87-af15-84db47dd03a4
+  cloudProjectId: ec4ea09a-53a2-4a10-a5af-fadee55825b3
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Escape the Dark Castle
+  projectName: Escape the Dark Castle (1)
   organizationId: ryboi
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0

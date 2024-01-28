@@ -2,19 +2,25 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: D12_WoodDarkMaterial
   m_Shader: {fileID: 4800000, guid: e6da05097d047594997fc9f6c7a83c0a, type: 3}
-  m_ShaderKeywords: _NORMALMAP
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -63,9 +69,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WhiteTex:
-        m_Texture: {fileID: 2800000, guid: df5cab8f4140d23458981e8b899e2c5a, type: 3}
+        m_Texture: {fileID: 2800000, guid: c61420889f1048c42bf2c09403a51c55, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _BlackGlossiness: 0.697
     - _BlackMetallic: 0
@@ -92,3 +99,4 @@ Material:
     - _Color: {r: 0.8897059, g: 0.8897059, b: 0.8897059, a: 1}
     - _EmissionColor: {r: 0, g: 1.6689653, b: 2, a: 1}
     - _WhiteColor: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
