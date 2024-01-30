@@ -30,6 +30,7 @@ TagManager:
   - player2
   - player3
   - player4
+  - Destroy
   layers:
   - Default
   - TransparentFX

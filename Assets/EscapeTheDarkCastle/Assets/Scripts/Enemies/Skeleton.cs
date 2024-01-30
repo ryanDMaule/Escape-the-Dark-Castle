@@ -55,7 +55,8 @@ public class Skeleton : EnemyBase
     //the button on click logic for option 1
     public void option1(ChapterLogicNew cl)
     {
-        setDamage(2);
+        setEnemyMight(20);
+        setDamage(10);
         enemy_damage_image.sprite = damage2;
 
         cl.setEnemyHealthPhase();

@@ -111,7 +111,8 @@ public class CharacterSelect : MonoBehaviour
         MainManager.Instance.addPlayers(selectedCharacters);
 
         //load the pre game screen
-        scenes.loadPreGameExperimentChapter();
+        //scenes.loadPreGameExperimentChapter();
+        scenes.loadPreGameChapter();
     }
 
 }

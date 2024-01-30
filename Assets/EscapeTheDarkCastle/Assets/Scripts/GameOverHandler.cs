@@ -13,6 +13,9 @@ public class GameOverHandler : MonoBehaviour
     public GameObject endGameScreen;
     public GameObject adButton;
 
+    [Header("Events")]
+    public GameEvent GameEnd;
+
     void hideAdButton()
     {
         print("hideAdButton");
@@ -61,13 +64,15 @@ public class GameOverHandler : MonoBehaviour
 
     public void endGameButton()
     {
+        GameEnd.Raise();
+
         //TODO: return to the main menu
-        #if UNITY_STANDALONE
-                Application.Quit();
-        #endif
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+        //#if UNITY_STANDALONE
+        //                Application.Quit();
+        //#endif
+        //#if UNITY_EDITOR
+        //        UnityEditor.EditorApplication.isPlaying = false;
+        //        #endif
     }
 
 }
