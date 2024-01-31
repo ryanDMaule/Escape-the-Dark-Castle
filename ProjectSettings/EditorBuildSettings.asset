@@ -6,20 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/experiment.unity
-    guid: 68a27d5dd13727646ab301f5b4f1e1e3
-  - enabled: 1
     path: Assets/Scenes/Chapters/Bone beast.unity
     guid: d8fd68b74f8f24a46a344442de09cb66
-  - enabled: 1
-    path: Assets/Scenes/Items experiment.unity
-    guid: 02d290b41cef44945bd57316e788ed14
-  - enabled: 1
-    path: Assets/Scenes/Chapters/Skeletons experiment.unity
-    guid: 8cd08a234e3210a4aacee7f1287e1980
-  - enabled: 1
-    path: Assets/Scenes/Pre game Experiment.unity
-    guid: 6bb86c1b682edf045a505958c7146206
   - enabled: 1
     path: Assets/Scenes/Character select.unity
     guid: 0b415aa461296c147aa7e24ce977cb55

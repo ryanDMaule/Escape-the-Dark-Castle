@@ -12,7 +12,7 @@ public abstract class PlayerBase : MonoBehaviour
     #region globalVariables
 
     [Header("Health values")]
-    public int currentHealth = 18;
+    public int currentHealth = 9;
     private const int MAX_HEALTH = 18;
     private const int MIN_HEALTH = 0;
 

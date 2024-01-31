@@ -2904,7 +2904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625de4dccf2fc5a4a97856babb90a14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 18
+  currentHealth: 9
   hud: {fileID: 5358500774035940945, guid: e5ee78c3b9eb9074fb152ae8a0771649, type: 3}
   roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}

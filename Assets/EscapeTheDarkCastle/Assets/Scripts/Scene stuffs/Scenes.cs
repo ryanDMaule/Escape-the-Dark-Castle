@@ -8,10 +8,6 @@ public class Scenes : MonoBehaviour
     //https://stackoverflow.com/questions/71680080/can-i-create-array-of-scenes-unity
 
     [Header("Scenes")]
-    private string itemScreenExperiment = "Items experiment";
-    private string preGameExperiment = "Pre game Experiment";
-    private string skeletonExperiment = "Skeletons experiment";
-
     private string charctersSelect = "Character select";
     private string preGame = "Pre game";
     private string skeletons = "Skeletons HUD CHANGES";
@@ -30,21 +26,6 @@ public class Scenes : MonoBehaviour
     public void loadRandomChapter()
     {
         Loader.Load(chapterList[Random.Range(0, chapterList.Count)]);
-    }
-
-    public void loadExperimentChapter()
-    {
-        Loader.Load(skeletonExperiment);
-    }
-
-    public void loadItemsExperimentChapter()
-    {
-        Loader.Load(itemScreenExperiment);
-    }
-
-    public void loadPreGameExperimentChapter()
-    {
-        Loader.Load(preGameExperiment);
     }
 
     public void loadCharacterSelect()

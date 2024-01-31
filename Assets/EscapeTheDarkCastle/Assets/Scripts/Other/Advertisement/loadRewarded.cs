@@ -94,7 +94,7 @@ public class loadRewarded : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowL
         //throw new System.NotImplementedException();
 
         //SHOULDNT BE DONE HERE BUT AD SHOWN COMPLETE DOES NOT TRIGGER ON TEST BUILDS
-        ResumeMusic.Raise();
-        GOHandler.adComplete();
+        //ResumeMusic.Raise();
+        //GOHandler.adComplete();
     }
 }
