@@ -137,6 +137,9 @@ public class ChapterLogicNew : MonoBehaviour
 
     public void startEnemyTurnPhase()
     {
+        SoundFXPlayer soundFX = FindFirstObjectByType<SoundFXPlayer>();
+        soundFX.PlayDamageTaken();
+
         bool playerDead = false;
 
         setEnemyTurnHUD();

@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 3615828472133393829}
   - component: {fileID: 7672918892805179597}
   - component: {fileID: 5108137692424917350}
+  - component: {fileID: 687831173370589623}
   m_Layer: 5
   m_Name: slot 2
   m_TagString: InventorySlot2
@@ -347,6 +348,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &687831173370589623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2445677531471037538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb200fb45ff96c4b99bdb3104194349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 5108137692424917350}
 --- !u!1 &2517147942859882783
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +527,7 @@ GameObject:
   - component: {fileID: 411724689415113839}
   - component: {fileID: 2466303405460862312}
   - component: {fileID: 7365987949054749791}
+  - component: {fileID: 1902869783491272344}
   m_Layer: 5
   m_Name: slot 1
   m_TagString: InventorySlot1
@@ -633,6 +648,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1902869783491272344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932058516411833246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb200fb45ff96c4b99bdb3104194349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 7365987949054749791}
 --- !u!1 &4195385676827013840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1061,7 @@ GameObject:
   - component: {fileID: 8846698291008799123}
   - component: {fileID: 8166171222459607297}
   - component: {fileID: 4458696733862709560}
+  - component: {fileID: 1341260216277222434}
   m_Layer: 5
   m_Name: 2 handed slot
   m_TagString: InventorySlotMid
@@ -1153,3 +1182,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1341260216277222434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8930995287287149686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb200fb45ff96c4b99bdb3104194349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 4458696733862709560}

@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 21164419}
   - component: {fileID: 21164418}
   - component: {fileID: 21164417}
+  - component: {fileID: 21164420}
   m_Layer: 5
   m_Name: Continue button
   m_TagString: Untagged
@@ -258,6 +259,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21164415}
   m_CullTransparentMesh: 1
+--- !u!114 &21164420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21164415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb200fb45ff96c4b99bdb3104194349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 21164417}
 --- !u!1 &27823937
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +284,7 @@ GameObject:
   - component: {fileID: 27823942}
   - component: {fileID: 27823941}
   - component: {fileID: 27823939}
+  - component: {fileID: 27823943}
   m_Layer: 5
   m_Name: Miller
   m_TagString: Untagged
@@ -387,6 +402,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 27823937}
   m_CullTransparentMesh: 1
+--- !u!114 &27823943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27823937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30289843dfba6454e974b668b5a8b94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 27823941}
 --- !u!4 &100475148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1036976132612662720, guid: 62ea7737eaabb884681645151a69e337, type: 3}
@@ -704,6 +732,7 @@ GameObject:
   - component: {fileID: 395084687}
   - component: {fileID: 395084686}
   - component: {fileID: 395084684}
+  - component: {fileID: 395084688}
   m_Layer: 5
   m_Name: Tanner
   m_TagString: Untagged
@@ -821,6 +850,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 395084682}
   m_CullTransparentMesh: 1
+--- !u!114 &395084688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395084682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30289843dfba6454e974b668b5a8b94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 395084686}
 --- !u!1 &402083273
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +875,7 @@ GameObject:
   - component: {fileID: 402083278}
   - component: {fileID: 402083277}
   - component: {fileID: 402083275}
+  - component: {fileID: 402083279}
   m_Layer: 5
   m_Name: Tailor
   m_TagString: Untagged
@@ -950,6 +993,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402083273}
   m_CullTransparentMesh: 1
+--- !u!114 &402083279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402083273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30289843dfba6454e974b668b5a8b94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 402083277}
 --- !u!1 &421604584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1233,7 @@ GameObject:
   - component: {fileID: 552339462}
   - component: {fileID: 552339461}
   - component: {fileID: 552339459}
+  - component: {fileID: 552339463}
   m_Layer: 5
   m_Name: Cook
   m_TagString: Untagged
@@ -1294,6 +1351,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 552339457}
   m_CullTransparentMesh: 1
+--- !u!114 &552339463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 552339457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30289843dfba6454e974b668b5a8b94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 552339461}
 --- !u!1001 &728817016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2470,6 +2540,7 @@ GameObject:
   - component: {fileID: 1401900874}
   - component: {fileID: 1401900873}
   - component: {fileID: 1401900871}
+  - component: {fileID: 1401900875}
   m_Layer: 5
   m_Name: Smith
   m_TagString: Untagged
@@ -2587,6 +2658,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401900869}
   m_CullTransparentMesh: 1
+--- !u!114 &1401900875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401900869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30289843dfba6454e974b668b5a8b94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 1401900873}
 --- !u!850595691 &1439519131
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -3574,6 +3658,7 @@ GameObject:
   - component: {fileID: 2126236157}
   - component: {fileID: 2126236156}
   - component: {fileID: 2126236154}
+  - component: {fileID: 2126236158}
   m_Layer: 5
   m_Name: Abbot
   m_TagString: Untagged
@@ -3691,6 +3776,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126236152}
   m_CullTransparentMesh: 1
+--- !u!114 &2126236158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126236152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30289843dfba6454e974b668b5a8b94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 2126236156}
 --- !u!1001 &1822542825310565182
 PrefabInstance:
   m_ObjectHideFlags: 0

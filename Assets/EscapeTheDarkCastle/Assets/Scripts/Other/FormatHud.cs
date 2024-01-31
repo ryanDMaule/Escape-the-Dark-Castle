@@ -207,19 +207,16 @@ public class FormatHud : MonoBehaviour
 
             if (button.tag == "InventorySlot1")
             {
-                Debug.Log("POP");
                 button.onClick.AddListener(() => player.slot1Pressed());
                 continue;
             }
             if (button.tag == "InventorySlot2")
             {
-                Debug.Log("POW");
                 button.onClick.AddListener(() => player.slot2Pressed());
                 continue;
             }
             if (button.tag == "InventorySlotMid")
             {
-                Debug.Log("ZOOM");
                 button.onClick.AddListener(() => player.TwoHandedSlotPressed());
                 continue;
             }
@@ -235,6 +232,9 @@ public class FormatHud : MonoBehaviour
     {
         var button = playerHud.GetComponentInChildren<Button>();
         button.onClick.AddListener(() => player.openInventory(MainManager.Instance.Players));
+
+        SoundFXPlayer soundFX = FindFirstObjectByType<SoundFXPlayer>();
+        button.onClick.AddListener(() => soundFX.PlayOpenInventory());
     }
 
 }

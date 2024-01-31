@@ -92,6 +92,7 @@ public class FormatChapter : MonoBehaviour
         }
 
         var buttons = controlBlock.GetComponentsInChildren<Button>();
+        SoundFXPlayer soundFX = FindFirstObjectByType<SoundFXPlayer>();
         foreach (var button in buttons)
         {
             //ROLL
@@ -100,6 +101,8 @@ public class FormatChapter : MonoBehaviour
                 player.rollChapterDieButton = button;
 
                 button.onClick.AddListener(() => player.rollEnemyHealthNew(enemy, button));
+                button.onClick.AddListener(() => soundFX.PlayButtonClick());
+
                 continue;
             }
 
@@ -109,6 +112,8 @@ public class FormatChapter : MonoBehaviour
                 player.fightButton = button;
 
                 button.onClick.AddListener(() => player.fightState());
+                button.onClick.AddListener(() => soundFX.PlayAttack());
+
                 button.gameObject.SetActive(false);
                 continue;
             }
@@ -119,6 +124,8 @@ public class FormatChapter : MonoBehaviour
                 player.restButton = button;
 
                 button.onClick.AddListener(() => player.restNew());
+                button.onClick.AddListener(() => soundFX.PlayRestSound());
+
                 button.gameObject.SetActive(false);
                 continue;
             }
