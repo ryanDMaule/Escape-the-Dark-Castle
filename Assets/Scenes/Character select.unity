@@ -490,7 +490,7 @@ MonoBehaviour:
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  restSprite: {fileID: 21300000, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  restSprite: {fileID: 21300000, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
@@ -2087,7 +2087,7 @@ MonoBehaviour:
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  restSprite: {fileID: 21300000, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
@@ -2930,7 +2930,7 @@ MonoBehaviour:
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  restSprite: {fileID: 21300000, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
@@ -3194,7 +3194,7 @@ MonoBehaviour:
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  restSprite: {fileID: 21300000, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
@@ -3449,7 +3449,7 @@ MonoBehaviour:
   combatState: {fileID: 0}
   restButton: {fileID: 0}
   fightButton: {fileID: 0}
-  restSprite: {fileID: 7569018475463350235, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
+  restSprite: {fileID: 21300000, guid: 04205f908841d6b4fafd228ea2c9a60c, type: 3}
   fightSprite: {fileID: -8347827506529626791, guid: 98d30068483af244eabfb3d0ea5e8605, type: 3}
   rollCharacterDieButton: {fileID: 0}
   rollChapterDieButton: {fileID: 0}
