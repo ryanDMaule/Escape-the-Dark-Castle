@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+//TUTORIAL : https://www.youtube.com/watch?v=rjFgThTjLso
+
 public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     private Vector3 panelLocation;
@@ -51,25 +53,24 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
     public void OnDrag(PointerEventData data)
     {
         float difference = data.pressPosition.x - data.position.x;
-        //Screen.width not working??
         transform.position = panelLocation - new Vector3(difference, 0, 0);
     }
 
     public void OnEndDrag(PointerEventData data)
     {
-        float percentage = (data.pressPosition.x - data.position.x) / 70f;
+        float percentage = (data.pressPosition.x - data.position.x) / 55f;
         if (Mathf.Abs(percentage) >= percentThreshold)
         {
             Vector3 newLocation = panelLocation;
             if (percentage > 0 && currentPage < totalpages)
             {
                 currentPage++;
-                newLocation += new Vector3(-70f, 0, 0);
+                newLocation += new Vector3(-55f, 0, 0);
             }
             else if (percentage < 0 && currentPage > 1)
             {
                 currentPage--;
-                newLocation += new Vector3(70f, 0, 0);
+                newLocation += new Vector3(55f, 0, 0);
             }
             StartCoroutine(SmoothMove(transform.position, newLocation, easing));
             panelLocation = newLocation;
@@ -86,7 +87,9 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
         if (currentPage >= totalpages)
         {
             currentPage--;
-            newLocation += new Vector3(70f, 0, 0);
+            newLocation += new Vector3(55f, 0, 0);
+            //newLocation += new Vector3(Screen.width, 0, 0);
+
             StartCoroutine(SmoothMove(transform.position, newLocation, easing));
             panelLocation = newLocation;
         }
@@ -98,7 +101,9 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
         if (currentPage < totalpages)
         {
             currentPage++;
-            newLocation += new Vector3(-70f, 0, 0);
+            newLocation += new Vector3(-55f, 0, 0);
+            //newLocation += new Vector3(-Screen.width, 0, 0);
+
             StartCoroutine(SmoothMove(transform.position, newLocation, easing));
             panelLocation = newLocation;
         }
