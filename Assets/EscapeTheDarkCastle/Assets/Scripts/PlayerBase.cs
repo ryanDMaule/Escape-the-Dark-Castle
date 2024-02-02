@@ -215,23 +215,55 @@ public abstract class PlayerBase : MonoBehaviour
 
     private void rerollOnClickFormatting(Button face1, Button face2, Button next)
     {
-        face1.onClick.AddListener(() => dieOption1Selected(next));
-        face2.onClick.AddListener(() => dieOption2Selected(next));
+        face1.onClick.AddListener(() => dieOption1Selected(face1, face2, next));
+        face2.onClick.AddListener(() => dieOption2Selected(face1, face2, next));
     }
 
-    private void dieOption1Selected(Button next)
+    private void dieOption1Selected(Button face1, Button face2, Button next)
     {
         Debug.Log("dieOption1Selected");
-        selectedValue = initialRollValue;
 
-        next.interactable = true;
+        if(selectedValue != initialRollValue)
+        {
+            Animator animator1 = face1.GetComponent<Animator>();
+            Animator animator2 = face2.GetComponent<Animator>();
+
+            print("expand 1");
+            animator1.SetTrigger("Expand");
+            if (selectedValue == reRollValue)
+            {
+                print("contract 2");
+                animator2.SetTrigger("Contract");
+            }
+
+            selectedValue = initialRollValue;
+            print("selectedValue: " + selectedValue);
+
+            next.interactable = true;
+        }
     }
-    private void dieOption2Selected(Button next)
+    private void dieOption2Selected(Button face1, Button face2, Button next)
     {
         Debug.Log("dieOption2Selected");
-        selectedValue = reRollValue;
 
-        next.interactable = true;
+        if(selectedValue != reRollValue)
+        {
+            Animator animator1 = face1.GetComponent<Animator>();
+            Animator animator2 = face2.GetComponent<Animator>();
+
+            print("expand 2");
+            animator2.SetTrigger("Expand");
+            if (selectedValue == initialRollValue)
+            {
+                print("contract 1");
+                animator1.SetTrigger("Contract");
+            }
+
+            selectedValue = reRollValue;
+            print("selectedValue: " + selectedValue);
+
+            next.interactable = true;
+        }
     }
 
     public void CrackedAxeRoll(EnemyBase enemy, Button roll, Button next, Image face1, Image face2, ChapterLogicNew cl)
