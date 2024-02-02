@@ -137,36 +137,39 @@ public class ChapterLogicNew : MonoBehaviour
 
     public void startEnemyTurnPhase()
     {
-        SoundFXPlayer soundFX = FindFirstObjectByType<SoundFXPlayer>();
-        soundFX.PlayDamageTaken();
-
-        bool playerDead = false;
-
-        setEnemyTurnHUD();
-        foreach (var player in MainManager.Instance.Players)
+        if (!enemyBase.enemyDead())
         {
-            if (!player.getShieldActiveState() && !player.getIsRestingState() && !player.getPotionProtectionState())
-            {
-                //TODO : update cards to have an ENUM title
-                if(player.inventoryContainsCard("rotten shield_0"))
-                {
-                    int damage = enemyBase.getDamage();
-                    if(damage > 1)
-                    {
-                        damage--;
-                    }
-                    playerDead = player.RedcuceHealth(damage);
-                }
-                else
-                {
-                    playerDead = player.RedcuceHealth(enemyBase.getDamage());
-                }
-            }
-            player.setShieldActiveState(false);
-            player.setPotionProtectionState(false);
-        }
+            SoundFXPlayer soundFX = FindFirstObjectByType<SoundFXPlayer>();
+            soundFX.PlayDamageTaken();
 
-        setPreperationHUD();
+            bool playerDead = false;
+
+            setEnemyTurnHUD();
+            foreach (var player in MainManager.Instance.Players)
+            {
+                if (!player.getShieldActiveState() && !player.getIsRestingState() && !player.getPotionProtectionState())
+                {
+                    //TODO : update cards to have an ENUM title
+                    if (player.inventoryContainsCard("rotten shield_0"))
+                    {
+                        int damage = enemyBase.getDamage();
+                        if (damage > 1)
+                        {
+                            damage--;
+                        }
+                        playerDead = player.RedcuceHealth(damage);
+                    }
+                    else
+                    {
+                        playerDead = player.RedcuceHealth(enemyBase.getDamage());
+                    }
+                }
+                player.setShieldActiveState(false);
+                player.setPotionProtectionState(false);
+            }
+
+            setPreperationHUD();
+        }
     }
 
 
@@ -174,8 +177,6 @@ public class ChapterLogicNew : MonoBehaviour
     {
         Debug.Log("YOU WIN!");
         setWinHUD();
-
-        //scenes.loadItemsExperimentChapter();
     }
 
     #region HUD_methods
@@ -292,7 +293,6 @@ public class ChapterLogicNew : MonoBehaviour
         }
         //checks if the enemy is dead
         playerTurnEndTurn.onClick.AddListener(() => enemyBase.enemyDead());
-
 
         //CLEAN UP
         playerTurnInitialDieImage.gameObject.SetActive(false);
