@@ -67,6 +67,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 0
     m_BakeBackend: 0
@@ -2497,6 +2500,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1929998003}
+  PauseMusic: {fileID: 11400000, guid: 15af72f0635aeb54db029cd30fccb6cd, type: 2}
+  ResumeMusic: {fileID: 11400000, guid: a64ae7c50de5296408bf51fb473e6183, type: 2}
 --- !u!114 &687345221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2543,7 +2548,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1929998004}
         m_TargetAssemblyTypeName: PauseScreen, Assembly-CSharp
-        m_MethodName: openPauseScren
+        m_MethodName: togglePauseScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5948,7 +5953,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Settings.lighting
-  serializedVersion: 7
+  serializedVersion: 6
   m_GIWorkflowMode: 0
   m_EnableBakedLightmaps: 0
   m_EnableRealtimeLightmaps: 0
@@ -5959,7 +5964,6 @@ LightingSettings:
   m_UsingShadowmask: 0
   m_BakeBackend: 1
   m_LightmapMaxSize: 1024
-  m_LightmapSizeFixed: 0
   m_BakeResolution: 40
   m_Padding: 2
   m_LightmapCompression: 3
@@ -5977,6 +5981,9 @@ LightingSettings:
   m_RealtimeResolution: 2
   m_ForceWhiteAlbedo: 0
   m_ForceUpdates: 0
+  m_FinalGather: 0
+  m_FinalGatherRayCount: 256
+  m_FinalGatherFiltering: 1
   m_PVRCulling: 1
   m_PVRSampling: 1
   m_PVRDirectSampleCount: 32
@@ -6001,6 +6008,7 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+  m_NumRaysToShootPerTexel: -1
   m_RespectSceneVisibilityWhenBakingGI: 0
 --- !u!1 &1480481025
 GameObject:
@@ -7606,6 +7614,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 1929998003}
+  PauseMusic: {fileID: 11400000, guid: 15af72f0635aeb54db029cd30fccb6cd, type: 2}
+  ResumeMusic: {fileID: 11400000, guid: a64ae7c50de5296408bf51fb473e6183, type: 2}
 --- !u!224 &1929998005
 RectTransform:
   m_ObjectHideFlags: 0
