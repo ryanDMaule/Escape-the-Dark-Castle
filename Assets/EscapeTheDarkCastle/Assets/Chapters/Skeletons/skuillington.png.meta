@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      skuillington_0: -7318203396080342215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

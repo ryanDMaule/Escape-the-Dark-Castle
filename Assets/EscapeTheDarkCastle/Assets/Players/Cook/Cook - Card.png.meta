@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Cook - Card_0: -6378057816929635049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

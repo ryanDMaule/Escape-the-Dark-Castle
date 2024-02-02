@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tailorHudIcon_0: -8444868892978599246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

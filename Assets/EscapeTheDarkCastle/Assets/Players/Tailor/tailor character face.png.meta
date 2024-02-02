@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tailor character face_0: 8247560783862177409
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      stale loaf of bread_0: -4810229683738934096
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

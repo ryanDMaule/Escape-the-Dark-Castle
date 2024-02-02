@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chapter die - CUNNING_0: -6564487261146080053
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

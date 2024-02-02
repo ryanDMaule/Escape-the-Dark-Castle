@@ -23,10 +23,12 @@ public class itemsPhaseHandler : MonoBehaviour
     [SerializeField] public Button assignPlayer3;
     [SerializeField] public Button assignPlayer4;
 
-    private int drawTotal = MainManager.Instance.drawCards;
+    private int drawTotal;
 
     void Start()
     {
+        drawTotal = MainManager.Instance.drawCards;
+
         MainManager.Instance.updateGameState(GameState.ITEMS_PHASE);
         Debug.Log("SET dl");
 

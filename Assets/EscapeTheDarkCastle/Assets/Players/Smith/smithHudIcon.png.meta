@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      smithHudIcon_0: -1940509859283103052
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Effervescent potion_0: 6872596576912872589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

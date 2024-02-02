@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tannerHudIcon_0: 2333958319023490028
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

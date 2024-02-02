@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Abbot - Card_0: 6296544982314302490
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

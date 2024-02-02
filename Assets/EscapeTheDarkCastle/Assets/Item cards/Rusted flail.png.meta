@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Rusted flail_0: 3301399120887999959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

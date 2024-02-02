@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tannerDice_0: -7604320256407345446
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

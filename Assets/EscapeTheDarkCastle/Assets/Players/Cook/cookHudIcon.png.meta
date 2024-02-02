@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cookHudIcon_0: 1126439665709206839
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

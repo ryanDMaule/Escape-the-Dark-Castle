@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Tanner - Card_0: -6513911858329790264
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

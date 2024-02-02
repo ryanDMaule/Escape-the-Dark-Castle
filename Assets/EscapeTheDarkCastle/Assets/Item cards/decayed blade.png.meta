@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      decayed blade_0: 3255583617947448981
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

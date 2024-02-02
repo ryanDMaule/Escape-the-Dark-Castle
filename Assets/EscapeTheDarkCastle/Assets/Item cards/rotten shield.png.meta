@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      rotten shield_0: -7149411297864598387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

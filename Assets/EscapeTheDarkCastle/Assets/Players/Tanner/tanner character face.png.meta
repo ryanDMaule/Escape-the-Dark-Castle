@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tanner character face_0: -1837591823509370267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Chapter die - WISDOM_0: 4949763047356962968
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

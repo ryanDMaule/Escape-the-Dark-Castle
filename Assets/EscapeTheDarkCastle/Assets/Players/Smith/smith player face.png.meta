@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      smith player face_0: 5617245196893214943
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

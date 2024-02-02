@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      the replication stones_0: -3584946710362351332
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

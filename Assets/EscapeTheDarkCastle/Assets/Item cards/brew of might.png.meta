@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      brew of might_0: 8292199846669342450
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

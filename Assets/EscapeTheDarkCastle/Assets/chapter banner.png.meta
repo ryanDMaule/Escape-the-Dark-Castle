@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      chapter banner_0: -706776694341983928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
