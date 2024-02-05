@@ -18,36 +18,34 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] public Button back_button;
     [SerializeField] public Button forward_button;
 
-    [SerializeField] ChapterLogicNew cl;
+    [SerializeField] ChapterLogicBase clBase;
+
+    //Screen.width seems to think the width is larger than a phone
+    private float screenWidth = 55f;
 
     void Start()
     {
         panelLocation = transform.position;
+        arrowFormatting();
     }
 
-    void Update()
+    public void arrowFormatting()
     {
-        if (cl.getState() == BattleState.COMBAT_OPTIONS)
+        if (currentPage == 1)
         {
-            if (currentPage == totalpages)
-            {
-                forward_button.gameObject.SetActive(false);
-            }
-            else
-            {
-                forward_button.gameObject.SetActive(true);
-            }
-
-            if (currentPage == 1)
-            {
-                back_button.gameObject.SetActive(false);
-            }
-            else
-            {
-                back_button.gameObject.SetActive(true);
-            }
+            back_button.gameObject.SetActive(false);
+            forward_button.gameObject.SetActive(true);
         }
-
+        else if (currentPage > 1 && currentPage < totalpages)
+        {
+            back_button.gameObject.SetActive(true);
+            forward_button.gameObject.SetActive(true);
+        }
+        else if (currentPage == totalpages)
+        {
+            back_button.gameObject.SetActive(true);
+            forward_button.gameObject.SetActive(false);
+        }
     }
 
     public void OnDrag(PointerEventData data)
@@ -58,19 +56,21 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData data)
     {
-        float percentage = (data.pressPosition.x - data.position.x) / 55f;
+        float percentage = (data.pressPosition.x - data.position.x) / screenWidth;
         if (Mathf.Abs(percentage) >= percentThreshold)
         {
             Vector3 newLocation = panelLocation;
             if (percentage > 0 && currentPage < totalpages)
             {
                 currentPage++;
-                newLocation += new Vector3(-55f, 0, 0);
+                newLocation += new Vector3(-screenWidth, 0, 0);
+
             }
             else if (percentage < 0 && currentPage > 1)
             {
                 currentPage--;
-                newLocation += new Vector3(55f, 0, 0);
+                newLocation += new Vector3(screenWidth, 0, 0);
+
             }
             StartCoroutine(SmoothMove(transform.position, newLocation, easing));
             panelLocation = newLocation;
@@ -87,8 +87,7 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
         if (currentPage >= totalpages)
         {
             currentPage--;
-            newLocation += new Vector3(55f, 0, 0);
-            //newLocation += new Vector3(Screen.width, 0, 0);
+            newLocation += new Vector3(screenWidth, 0, 0);
 
             StartCoroutine(SmoothMove(transform.position, newLocation, easing));
             panelLocation = newLocation;
@@ -101,8 +100,7 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
         if (currentPage < totalpages)
         {
             currentPage++;
-            newLocation += new Vector3(-55f, 0, 0);
-            //newLocation += new Vector3(-Screen.width, 0, 0);
+            newLocation += new Vector3(-screenWidth, 0, 0);
 
             StartCoroutine(SmoothMove(transform.position, newLocation, easing));
             panelLocation = newLocation;
@@ -111,6 +109,8 @@ public class PageSwiperNew : MonoBehaviour, IDragHandler, IEndDragHandler
 
     IEnumerator SmoothMove(Vector3 startpos, Vector3 endpos, float seconds)
     {
+        arrowFormatting();
+
         float t = 0f;
         while (t <= 1.0)
         {

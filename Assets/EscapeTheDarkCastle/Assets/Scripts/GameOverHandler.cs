@@ -53,26 +53,20 @@ public class GameOverHandler : MonoBehaviour
 
     public void formatDeathScreen()
     {
-        //trigger this as game event 
         Debug.Log("formatDeathScreen");
 
         showGameOverOverlay();
 
-        musicSource.clip = MainManager.Instance.cl.deathClip;
-        bio.text = MainManager.Instance.cl.deathBio;
+        //musicSource.clip = MainManager.Instance.cl.deathClip;
+        //bio.text = MainManager.Instance.cl.deathBio;
+
+        musicSource.clip = MainManager.Instance.clBase.deathClip;
+        bio.text = MainManager.Instance.clBase.deathBio;
     }
 
     public void endGameButton()
     {
         GameEnd.Raise();
-
-        //TODO: return to the main menu
-        //#if UNITY_STANDALONE
-        //                Application.Quit();
-        //#endif
-        //#if UNITY_EDITOR
-        //        UnityEditor.EditorApplication.isPlaying = false;
-        //        #endif
     }
 
 }

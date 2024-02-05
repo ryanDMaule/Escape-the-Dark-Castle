@@ -1,20 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum BattleState { DESCRIPTION, COMBAT_OPTIONS, SET_ENEMY_HEALTH, PREPERATION, PLAYER_TURN, ENEMY_TURN, WON, LOST }
-
-public class ChapterLogicNew : MonoBehaviour
+public class SkeletonChapterLogic : ChapterLogicBase
 {
+
     #region globalVariables
-
-    [Header("Death stuffs")]
-    [SerializeField] public string deathBio = "";
-    [SerializeField] public AudioClip deathClip;
-
     [Header("Game objects")]
     [SerializeField] public GameObject playersCombinedHUD;
     [SerializeField] public GameObject playerTurnHUD;
@@ -31,38 +24,17 @@ public class ChapterLogicNew : MonoBehaviour
     [SerializeField] public Button Continue_button;
 
     [Header("Other")]
-    [SerializeField] public EnemyBase enemyBase;
-
-    public BattleState state;
-
     public Scenes scenes;
 
     public FormatChapter fc;
 
     #endregion
 
-    public BattleState getState()
-    {
-        return state;
-    }
-
     void Start()
     {
         MainManager.Instance.updateGameState(GameState.CHAPTER);
 
         setDescriptionPhase();
-    }
-
-    public void setDescriptionPhase()
-    {
-        state = BattleState.DESCRIPTION;
-        setDescriptionHUD();
-    }
-
-    public void setCombatOptionsPhase()
-    {
-        state = BattleState.COMBAT_OPTIONS;
-        setCombatOptionsHUD();
     }
 
     public void setEnemyHealthPhase()
@@ -81,7 +53,7 @@ public class ChapterLogicNew : MonoBehaviour
     //this is called first as it just starts the process with the first character in the players list
     public void startPlayerTurnPhase()
     {
-        foreach(var p in MainManager.Instance.Players)
+        foreach (var p in MainManager.Instance.Players)
         {
             if (p.getIsRestingState())
             {
@@ -103,7 +75,8 @@ public class ChapterLogicNew : MonoBehaviour
             {
                 setPlayerTurnPhase(result);
             }
-        } else
+        }
+        else
         {
             setPlayerTurnHUD();
             formatPlayerTurnHUDNew(MainManager.Instance.Players[0]);
@@ -130,7 +103,6 @@ public class ChapterLogicNew : MonoBehaviour
         else
         {
             setPlayerTurnHUD();
-            //formatPlayerTurnHUD(player);
             formatPlayerTurnHUDNew(player);
         }
     }
@@ -139,6 +111,8 @@ public class ChapterLogicNew : MonoBehaviour
     {
         if (!enemyBase.enemyDead())
         {
+            state = BattleState.ENEMY_TURN;
+
             SoundFXPlayer soundFX = FindFirstObjectByType<SoundFXPlayer>();
             soundFX.PlayDamageTaken();
 
@@ -180,13 +154,9 @@ public class ChapterLogicNew : MonoBehaviour
     }
 
     #region HUD_methods
-    void setDescriptionHUD()
+    public override void setDescriptionHUD()
     {
-        Debug.Log("setDescriptionHUD");
-
-        enemyBase.SHOW_DESCRIPTION();
-        enemyBase.hideOptionsHUD();
-        enemyBase.SET_ENEMY_IMAGE_ONLY();
+        base.setDescriptionHUD();
 
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
@@ -195,13 +165,9 @@ public class ChapterLogicNew : MonoBehaviour
         Continue_button.gameObject.SetActive(false);
     }
 
-    void setCombatOptionsHUD()
+    public override void setCombatOptionsHUD()
     {
-        Debug.Log("setCombatOptionsHUD");
-
-        enemyBase.SHOW_DESCRIPTION();
-        enemyBase.showOptionsHUD();
-        enemyBase.SET_ENEMY_IMAGE_ONLY();
+        base.setCombatOptionsHUD();
 
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
@@ -235,7 +201,7 @@ public class ChapterLogicNew : MonoBehaviour
 
         //set the rest and fight buttons to active
         playersCombinedHUD.SetActive(true);
-        foreach(var player in MainManager.Instance.Players)
+        foreach (var player in MainManager.Instance.Players)
         {
             player.PREPERATION_HUD_NEW();
         }
@@ -261,18 +227,25 @@ public class ChapterLogicNew : MonoBehaviour
 
     private void formatPlayerTurnHUDNew(PlayerBase player)
     {
+        print("POP formatPlayerTurnHUDNew");
+
+        MainManager.Instance.playerTurn = player;
+        state = BattleState.PLAYER_TURN;
+
         //SET NAME
         playerTurnName.text = player.name;
-    
+
         //ROLL BUTTON
         playerTurnRoll.onClick.RemoveAllListeners();
         if (player.inventoryContainsCard("Cracked axe"))
         {
-            playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRoll(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, this));
+            //playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRoll(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, this));
+            playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRollSimplified(playerTurnRoll));
         }
         else
         {
-            playerTurnRoll.onClick.AddListener(() => player.standardTurn(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, initialRollButton, rerollRollButton, this));
+            //playerTurnRoll.onClick.AddListener(() => player.standardTurn(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, initialRollButton, rerollRollButton, this));
+            playerTurnRoll.onClick.AddListener(() => player.standardTurnSimplified(playerTurnRoll));
         }
 
         //END TURN BUTTON
@@ -302,6 +275,8 @@ public class ChapterLogicNew : MonoBehaviour
         player.reRollValue = "";
         player.selectedValue = "";
 
+        player.hasReRolled = false;
+
         playerTurnRoll.interactable = true;
         playerTurnEndTurn.interactable = false;
     }
@@ -323,13 +298,9 @@ public class ChapterLogicNew : MonoBehaviour
         Continue_button.gameObject.SetActive(false);
     }
 
-    public void setWinHUD()
+    public override void setWinHUD()
     {
-        Debug.Log("setWinHUD");
-
-        enemyBase.HIDE_DESCRIPTION();
-        enemyBase.hideOptionsHUD();
-        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
+        base.setWinHUD();
 
         playersCombinedHUD.SetActive(false);
         playerTurnHUD.SetActive(false);
@@ -338,19 +309,117 @@ public class ChapterLogicNew : MonoBehaviour
         Continue_button.gameObject.SetActive(false);
     }
 
-    public void setLoseHUD()
+    #endregion
+
+    public void formatNextTurn(PlayerBase player, Button nextButton)
     {
-        Debug.Log("setLoseHUD");
-
-        enemyBase.HIDE_DESCRIPTION();
-        enemyBase.hideOptionsHUD();
-        enemyBase.SET_ENEMY_ASSETS_VISIBLE();
-
-        playersCombinedHUD.SetActive(false);
-        playerTurnHUD.SetActive(false);
-
-        Continue_button.gameObject.SetActive(false);
+        //check if there are more players to roll, format the next button dependant on the result
+        PlayerBase result = MainManager.Instance.getNextPlayer(player);
+        if (result == null)
+        {
+            nextButton.onClick.AddListener(() => startEnemyTurnPhase());
+        }
+        else
+        {
+            nextButton.onClick.AddListener(() => setPlayerTurnPhase(result));
+        }
     }
 
-    #endregion
+    public void standardTurnChapterHander() {
+        var player = MainManager.Instance.playerTurn;
+
+        playerTurnEndTurn.interactable = true;
+        playerTurnInitialDieImage.gameObject.SetActive(true);
+        playerTurnInitialDieImage.sprite = player.GetCharacterDieFace(player.initialRollValue);
+    }
+
+    public void reRollChapterHandler() {
+        print("reRollChapterHandler");
+        var player = MainManager.Instance.playerTurn;
+
+        playerTurnEndTurn.onClick.RemoveAllListeners();
+        playerTurnEndTurn.onClick.AddListener(() => player.getPlayerDieValue(player.selectedValue, enemyBase));
+
+        PlayerBase result = MainManager.Instance.getNextPlayer(player);
+        if (result == null)
+        {
+            playerTurnEndTurn.onClick.AddListener(() => startEnemyTurnPhase());
+        }
+        else
+        {
+            playerTurnEndTurn.onClick.AddListener(() => setPlayerTurnPhase(result));
+        }
+        playerTurnEndTurn.onClick.AddListener(() => enemyBase.enemyDead());
+
+        print("POP : playerTurnEndTurn.interactable = false;");
+        playerTurnEndTurn.interactable = false;
+
+        player.rerollOnClickFormatting(initialRollButton, rerollRollButton, playerTurnEndTurn);
+
+        playerTurnSecondDieImage.gameObject.SetActive(true);
+        playerTurnSecondDieImage.sprite = player.GetCharacterDieFace(player.reRollValue);
+    }
+
+    public void disableNextButton()
+    {
+        playerTurnEndTurn.interactable = false;
+    }
+
+    public void crackedAxeChapterHandler()
+    {
+        var player = MainManager.Instance.playerTurn;
+
+        playerTurnEndTurn.onClick.RemoveAllListeners();
+        playerTurnEndTurn.onClick.AddListener(() => player.getPlayerDieValue(player.initialRollValue, enemyBase));
+        playerTurnEndTurn.onClick.AddListener(() => player.chapterDieDamage(player.reRollValue, enemyBase));
+
+        PlayerBase result = MainManager.Instance.getNextPlayer(player);
+        if (result == null)
+        {
+            playerTurnEndTurn.onClick.AddListener(() => startEnemyTurnPhase());
+        }
+        else
+        {
+            playerTurnEndTurn.onClick.AddListener(() => setPlayerTurnPhase(result));
+        }
+        playerTurnEndTurn.onClick.AddListener(() => enemyBase.enemyDead());
+
+        playerTurnEndTurn.interactable = true;
+
+        playerTurnInitialDieImage.gameObject.SetActive(true);
+        playerTurnSecondDieImage.gameObject.SetActive(true);
+
+        playerTurnInitialDieImage.sprite = player.GetCharacterDieFace(player.initialRollValue);
+        playerTurnSecondDieImage.sprite = player.GetChapterDieFace(player.reRollValue);
+
+        enemyBase.enemyDead();
+    }
+
+    public void rollTypeHandler()
+    {
+        var player = MainManager.Instance.playerTurn;
+
+        if (state == BattleState.SET_ENEMY_HEALTH)
+        {
+            preperationPhase();
+        } else if (state == BattleState.PLAYER_TURN)
+        {
+            if (player.inventoryContainsCard("Cracked axe"))
+            {
+                crackedAxeChapterHandler();
+            }
+            else if (player.hasReRolled)
+            {
+                reRollChapterHandler();
+            }
+            else
+            {
+                standardTurnChapterHander();
+            }
+        } else
+        {
+            print("rollTypeHandler: ISSUE ENCOUNTERED");
+        }
+    }
+
 }

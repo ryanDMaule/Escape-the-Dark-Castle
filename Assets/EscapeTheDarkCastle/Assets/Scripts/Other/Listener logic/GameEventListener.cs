@@ -12,9 +12,6 @@ public class GameEventListener : MonoBehaviour
 
     private void OnEnable()
     {
-        //may lead to issues in other areas
-        gameEvent.ClearListeners();
-
         gameEvent.RegisterListener(this);
     }
 

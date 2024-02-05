@@ -10,7 +10,7 @@ public class Scenes : MonoBehaviour
     [Header("Scenes")]
     private string charctersSelect = "Character select";
     private string preGame = "Pre game";
-    private string skeletons = "Skeletons HUD CHANGES";
+    private string skeletonsTest = "Skeletons abstract chapter";
     private string items = "Items scene";
     private string mainMenu = "Main menu";
 
@@ -22,6 +22,11 @@ public class Scenes : MonoBehaviour
 
     public List<string> startRoomList = new();
     public List<string> bossList = new();
+
+    public void loadTesctChapter()
+    {
+        Loader.Load(skeletonsTest);
+    }
 
     public void loadRandomChapter()
     {
@@ -36,11 +41,6 @@ public class Scenes : MonoBehaviour
     public void loadPreGameChapter()
     {
         Loader.Load(preGame);
-    }
-
-    public void loadSkeletonsChapter()
-    {
-        Loader.Load(skeletons);
     }
 
     public void loadItemsChapter()

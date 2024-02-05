@@ -9,9 +9,11 @@ public class MainManager : MonoBehaviour
 
     [Header("Players")]
     public List<PlayerBase> Players = new();
+    public PlayerBase playerTurn;
 
     [Header("Global accessors")]
-    [SerializeField] public ChapterLogicNew cl;
+    [SerializeField] public ChapterLogicBase clBase;
+
     [SerializeField] public DeckLogic dl;
     private GameState currentGameState;
 
@@ -81,7 +83,6 @@ public class MainManager : MonoBehaviour
     }
 
     //checks all players in the game to see if they have rolled and whern true move onto the next phase of a chapter (prep phase)
-    //TODO: use a radio listener for this
     public void playersRolled()
     {
         bool allPlayersRolled = true;
@@ -103,9 +104,8 @@ public class MainManager : MonoBehaviour
             foreach (var player in Players)
             {
                 player.hasRolled = false;
+                player.hasReRolled = false;
             }
-            //raise allPlayersRolled
-            cl.preperationPhase();
         } else
         {
             Debug.Log("ALL PLAYERS HAVE NOT ROLLED");

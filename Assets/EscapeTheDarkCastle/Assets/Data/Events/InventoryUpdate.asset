@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 381ac8cbe0c063c469604d78b17c3a11, type: 3}
   m_Name: InventoryUpdate
   m_EditorClassIdentifier: 
-  listeners: []
+  listeners:
+  - {fileID: 0}

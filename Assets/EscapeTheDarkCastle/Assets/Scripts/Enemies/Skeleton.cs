@@ -53,7 +53,7 @@ public class Skeleton : EnemyBase
     }
 
     //the button on click logic for option 1
-    public void option1(ChapterLogicNew cl)
+    public void option1New(SkeletonChapterLogic cl)
     {
         setDamage(2);
         enemy_damage_image.sprite = damage2;
@@ -62,7 +62,7 @@ public class Skeleton : EnemyBase
     }
 
     //the button on click logic for option 2
-    public void option2(ChapterLogicNew cl)
+    public void option2New(SkeletonChapterLogic cl)
     {
         setEnemyMight(2);
         setDamage(1);

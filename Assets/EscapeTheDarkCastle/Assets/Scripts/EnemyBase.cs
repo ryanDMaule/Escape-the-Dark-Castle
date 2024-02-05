@@ -40,7 +40,7 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void showOptionsHUD()
     {
         background.gameObject.SetActive(true);
-        backButton.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(false);
         forwardButton.gameObject.SetActive(true);
     }
 

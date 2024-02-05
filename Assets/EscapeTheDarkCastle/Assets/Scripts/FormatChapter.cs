@@ -6,7 +6,7 @@ public class FormatChapter : MonoBehaviour
 {
     [Header("Other")]
     [SerializeField] public EnemyBase enemy;
-    [SerializeField] public ChapterLogicNew cl;
+    [SerializeField] public ChapterLogicBase clBase;
 
     //control blocks = the rest, fight and roll UI sections for the players
     [Header("Player control blocks")]
@@ -24,7 +24,7 @@ public class FormatChapter : MonoBehaviour
 
     private void assignCl()
     {
-        MainManager.Instance.cl = cl;
+        MainManager.Instance.clBase = clBase;
     }
 
     private void clearUnusedObjects()

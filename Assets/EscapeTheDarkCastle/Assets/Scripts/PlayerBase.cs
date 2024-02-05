@@ -41,6 +41,7 @@ public abstract class PlayerBase : MonoBehaviour
 
     [Header("Roll values")]
     public bool hasRolled = false;
+    public bool hasReRolled = false;
     public string initialRollValue = "";
     public string reRollValue = "";
     public string selectedValue = "";
@@ -101,13 +102,12 @@ public abstract class PlayerBase : MonoBehaviour
     #endregion
 
     #region rollLogic
-
-    public void standardTurn(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    public void standardTurnSimplified(Button roll)
     {
-        StartCoroutine(standardTurnIE(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
+        StartCoroutine(standardTurnSimplifiedIE(roll));
     }
 
-    IEnumerator standardTurnIE(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    IEnumerator standardTurnSimplifiedIE(Button roll)
     {
         Die characterDie = getCharacterDie();
 
@@ -126,23 +126,20 @@ public abstract class PlayerBase : MonoBehaviour
                 yield return null;
             }
 
-            RollFinished.Raise();
-            next.interactable = true;
-
             //when rolling is false hide the die itself
             characterDie.gameObject.SetActive(false);
-            rolledFace.gameObject.SetActive(true);
 
             string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
             initialRollValue = dieValue;
-            rolledFace.sprite = GetCharacterDieFace(dieValue);
 
             if (reRollEligilble(dieValue))
             {
                 roll.onClick.RemoveAllListeners();
-                roll.onClick.AddListener(() => reRoll(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
+                roll.onClick.AddListener(() => reRollSimplified(roll));
                 roll.interactable = true;
             }
+
+            RollFinished.Raise();
         }
     }
 
@@ -158,37 +155,23 @@ public abstract class PlayerBase : MonoBehaviour
         }
         return false;
     }
-
-    public void reRoll(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    public void reRollSimplified(Button roll)
     {
-        StartCoroutine(reRollIE(enemy, roll, next, rolledFace, secondRolledFace, face1, face2, cl));
+        StartCoroutine(reRollIESimplified(roll));
     }
 
-    IEnumerator reRollIE(EnemyBase enemy, Button roll, Button next, Image rolledFace, Image secondRolledFace, Button face1, Button face2, ChapterLogicNew cl)
+    IEnumerator reRollIESimplified(Button roll)
     {
         Die characterDie = getCharacterDie();
 
         if (!characterDie.isRolling)
         {
-            next.onClick.RemoveAllListeners();
-            next.onClick.AddListener(() => getPlayerDieValue(selectedValue, enemy));
-
-            PlayerBase result = MainManager.Instance.getNextPlayer(this);
-            if (result == null)
-            {
-                next.onClick.AddListener(() => cl.startEnemyTurnPhase());
-            }
-            else
-            {
-                next.onClick.AddListener(() => cl.setPlayerTurnPhase(result));
-            }
-            next.onClick.AddListener(() => enemy.enemyDead());
+            hasReRolled = true;
 
             //show the dice and spawn it rolling in the air above the camera
             //characterDie.transform.position = new Vector3(0, 15, 0);
             characterDie.gameObject.SetActive(true);
             roll.interactable = false;
-            next.interactable = false;
 
             characterDie.Roll();
             RollStarted.Raise();
@@ -197,23 +180,17 @@ public abstract class PlayerBase : MonoBehaviour
             {
                 yield return null;
             }
-
-            RollFinished.Raise();
-
-            rerollOnClickFormatting(face1, face2, next);
-
-            secondRolledFace.gameObject.SetActive(true);
-
             //when rolling is false hide the die itself
             characterDie.gameObject.SetActive(false);
 
             string dieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
             reRollValue = dieValue;
-            secondRolledFace.sprite = GetCharacterDieFace(dieValue);
+
+            RollFinished.Raise();
         }
     }
 
-    private void rerollOnClickFormatting(Button face1, Button face2, Button next)
+    public void rerollOnClickFormatting(Button face1, Button face2, Button next)
     {
         face1.onClick.AddListener(() => dieOption1Selected(face1, face2, next));
         face2.onClick.AddListener(() => dieOption2Selected(face1, face2, next));
@@ -228,16 +205,13 @@ public abstract class PlayerBase : MonoBehaviour
             Animator animator1 = face1.GetComponent<Animator>();
             Animator animator2 = face2.GetComponent<Animator>();
 
-            print("expand 1");
             animator1.SetTrigger("Expand");
             if (selectedValue == reRollValue)
             {
-                print("contract 2");
                 animator2.SetTrigger("Contract");
             }
 
             selectedValue = initialRollValue;
-            print("selectedValue: " + selectedValue);
 
             next.interactable = true;
         }
@@ -251,59 +225,46 @@ public abstract class PlayerBase : MonoBehaviour
             Animator animator1 = face1.GetComponent<Animator>();
             Animator animator2 = face2.GetComponent<Animator>();
 
-            print("expand 2");
             animator2.SetTrigger("Expand");
             if (selectedValue == initialRollValue)
             {
-                print("contract 1");
                 animator1.SetTrigger("Contract");
             }
 
             selectedValue = reRollValue;
-            print("selectedValue: " + selectedValue);
 
             next.interactable = true;
         }
     }
 
-    public void CrackedAxeRoll(EnemyBase enemy, Button roll, Button next, Image face1, Image face2, ChapterLogicNew cl)
+    public void CrackedAxeRollSimplified(Button roll)
     {
-        StartCoroutine(CrackedAxeRollIE(enemy, roll, next, face1, face2, cl));
+        StartCoroutine(CrackedAxeRollIESimplified(roll));
     }
 
-    IEnumerator CrackedAxeRollIE(EnemyBase enemy, Button roll, Button next, Image face1, Image face2, ChapterLogicNew cl)
+    IEnumerator CrackedAxeRollIESimplified(Button roll)
     {
         Die characterDie = getCharacterDie();
         Die chapterDie = getChapterDie();
 
         if (!characterDie.isRolling && !chapterDie.isRolling)
         {
-            next.onClick.RemoveAllListeners();
-            next.onClick.AddListener(() => getPlayerDieValue(initialRollValue, enemy));
-            next.onClick.AddListener(() => chapterDieDamage(reRollValue, enemy));
-
-            PlayerBase result = MainManager.Instance.getNextPlayer(this);
-            if (result == null)
-            {
-                next.onClick.AddListener(() => cl.startEnemyTurnPhase());
-            }
-            else
-            {
-                next.onClick.AddListener(() => cl.setPlayerTurnPhase(result));
-            }
-            next.onClick.AddListener(() => enemy.enemyDead());
-
             //show the dice and spawn it rolling in the air above the camera
             //characterDie.transform.position = new Vector3(0, 15, 0);
             characterDie.gameObject.SetActive(true);
             chapterDie.gameObject.SetActive(true);
 
+            //set the roll button uninteractable while its rolling
             roll.interactable = false;
 
+            //roll both dice
             characterDie.Roll();
             chapterDie.Roll();
+
+            //raise roll started, this is to show the fast forward button
             RollStarted.Raise();
 
+            //WAIT FOR BOTH DICE TO STOP ROLLING
             while (characterDie.isRolling)
             {
                 yield return null;
@@ -314,25 +275,18 @@ public abstract class PlayerBase : MonoBehaviour
                 yield return null;
             }
 
-            RollFinished.Raise();
-            next.interactable = true;
-
             //when rolling is false hide the die itself
             characterDie.gameObject.SetActive(false);
             chapterDie.gameObject.SetActive(false);
 
-            face1.gameObject.SetActive(true);
-            face2.gameObject.SetActive(true);
-
             string characterDieValue = characterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
             initialRollValue = characterDieValue;
-            face1.sprite = GetCharacterDieFace(characterDieValue);
 
             string chapterDieValue = chapterDie.dieSides.GetDieSideMatchInfo().closestMatch.ValuesAsString();
             reRollValue = chapterDieValue;
-            face2.sprite = GetChapterDieFace(chapterDieValue);
 
-            enemy.enemyDead();
+            //Roll finished, hide the fast forward button
+            RollFinished.Raise();
         }
     }
 
