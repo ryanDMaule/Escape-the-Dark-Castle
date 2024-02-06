@@ -16,6 +16,11 @@ public abstract class PlayerBase : MonoBehaviour
     private const int MAX_HEALTH = 18;
     private const int MIN_HEALTH = 0;
 
+    [Header("YOU stuffs")]
+    public bool YOU = false;
+    [SerializeField] public GameObject YOUHudIcon;
+    [SerializeField] public GameObject YOUSelectorItem;
+
     [Header("HUDs")]
     [SerializeField] public GameObject hud;
     [SerializeField] public GameObject roundHud;
@@ -774,6 +779,61 @@ public abstract class PlayerBase : MonoBehaviour
             {
                 player.setIsRestingState(false);
             }
+        }
+    }
+
+    public void setYouTrue(Button button)
+    {
+        if (!YOU)
+        {
+            //Set You to true
+            YOU = true;
+
+            button.interactable = true;
+
+            //apply YOU icon
+            YOUHudIcon.gameObject.SetActive(true);
+
+            //sort out animation stuff
+            Animator animator = YOUSelectorItem.GetComponent<Animator>();
+            animator.SetTrigger("Expand");
+
+            //revoke YOU status from any other players
+            foreach (var player in MainManager.Instance.Players)
+            {
+                if(player != this)
+                {
+                    player.setYouFalseAnim();
+                }
+            }
+        }
+    }
+
+    public void setYouFalseAnim()
+    {
+        if (YOU)
+        {
+            //Set You to false
+            YOU = false;
+
+            //remove YOU icon
+            YOUHudIcon.gameObject.SetActive(false);
+
+            //sort out animation stuff
+            Animator animator = YOUSelectorItem.GetComponent<Animator>();
+            animator.SetTrigger("Contract");
+        }
+    }
+
+    public void setYouFalse()
+    {
+        if (YOU)
+        {
+            //Set You to false
+            YOU = false;
+
+            //remove YOU icon
+            YOUHudIcon.gameObject.SetActive(false);
         }
     }
 

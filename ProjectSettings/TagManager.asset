@@ -32,6 +32,7 @@ TagManager:
   - player4
   - Destroy
   - SoundFX
+  - YOU
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class FormatHud : MonoBehaviour
 {
@@ -154,6 +155,17 @@ public class FormatHud : MonoBehaviour
                 player.GetComponent<PlayerBase>().healthText = text;
                 text.text = player.currentHealth.ToString();
 
+                break;
+            }
+        }
+
+        var hudImageComponenets = hud.GetComponentsInChildren<Image>();
+        foreach (var image in hudImageComponenets)
+        {
+            if (image.tag == "YOU")
+            {
+                player.GetComponent<PlayerBase>().YOUHudIcon = image.gameObject;
+                image.gameObject.SetActive(false);
                 break;
             }
         }

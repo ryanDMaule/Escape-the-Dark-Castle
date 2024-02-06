@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,8 @@ public class itemsPhaseHandler : MonoBehaviour
     [SerializeField] public Button assignPlayer3;
     [SerializeField] public Button assignPlayer4;
 
+    [SerializeField] public GameObject YouSelection;
+
     private int drawTotal;
 
     void Start()
@@ -44,6 +47,12 @@ public class itemsPhaseHandler : MonoBehaviour
         cardOptionsOverlay.SetActive(false);
 
         allowContinue();
+
+        //Revoke YOU from any players
+        foreach(var player in MainManager.Instance.Players)
+        {
+            player.setYouFalse();
+        }
     }
 
     //checks if the continue button on the items phase is interactable and formats the options accordingly
@@ -208,5 +217,9 @@ public class itemsPhaseHandler : MonoBehaviour
         playerList.gameObject.SetActive(false);
     }
 
+    public void showYouSelectionPanel()
+    {
+        YouSelection.gameObject.SetActive(true);
+    }
 
 }
