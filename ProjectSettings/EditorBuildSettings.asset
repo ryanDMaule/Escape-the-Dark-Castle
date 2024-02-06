@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/Bone beast NEW.unity
     guid: b075622a4f3d6a34d935b2b9e20e4915
+  - enabled: 1
+    path: Assets/Scenes/Start rooms/Hidden passage.unity
+    guid: 414dc5431131a8b4fa54f92e0007d54a
   m_configObjects: {}

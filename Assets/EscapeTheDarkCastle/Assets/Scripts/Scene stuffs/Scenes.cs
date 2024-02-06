@@ -7,24 +7,35 @@ public class Scenes : MonoBehaviour
 
     //https://stackoverflow.com/questions/71680080/can-i-create-array-of-scenes-unity
 
-    [Header("Scenes")]
+    //SCENES
     private string mainMenu = "Main menu";
     private string charctersSelect = "Character select";
     private string preGame = "Pre game";
     private string items = "Items scene";
 
+    //CHAPTERS
     [Header("Chapter")]
     private string skeletonsTest = "Skeletons abstract chapter";
     private string boneBeast = "Bone beast NEW";
 
-    [Header("Lists")]
-    public List<string> chapterList = new List<string>
+    //START ROOMS
+    private string hiddenPassage = "Hidden passage";
+
+    //LISTS
+    private List<string> chapterList = new List<string>
     {
-      
+        "Skeletons abstract chapter",
+        "Bone beast NEW"
     };
 
     public List<string> startRoomList = new();
     public List<string> bossList = new();
+
+
+    public void loadHiddenPassage()
+    {
+        Loader.Load(hiddenPassage);
+    }
 
     public void loadTesctChapter()
     {

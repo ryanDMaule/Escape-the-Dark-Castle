@@ -6381,7 +6381,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2052621673}
         m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
-        m_MethodName: loadSkeletonsChapter
+        m_MethodName: loadHiddenPassage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7968,7 +7968,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2052621673}
         m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
-        m_MethodName: loadTesctChapter
+        m_MethodName: loadHiddenPassage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

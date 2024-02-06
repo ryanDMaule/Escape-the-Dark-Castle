@@ -1503,9 +1503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6dfb01192bfe99498bb6836a1a2fff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapterList:
-  - Skeletons
-  - Bone beast
   startRoomList: []
   bossList: []
 --- !u!4 &2052621674
