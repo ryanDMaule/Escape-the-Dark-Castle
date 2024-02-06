@@ -597,7 +597,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00036621094}
-  m_SizeDelta: {x: 0, y: -532.29004}
+  m_SizeDelta: {x: 0, y: -533.39}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &190302435
 MonoBehaviour:
@@ -2912,10 +2912,10 @@ RectTransform:
   - {fileID: 1133665857}
   m_Father: {fileID: 995413246}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -6.9470215, y: -173.32501}
-  m_SizeDelta: {x: -226.888, y: -773.35}
+  m_SizeDelta: {x: 573.112, y: 650.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &704294934
 MonoBehaviour:
@@ -8368,7 +8368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players: []
   playerTurn: {fileID: 0}
-  cl: {fileID: 0}
   clBase: {fileID: 0}
   dl: {fileID: 0}
   drawCards: 1

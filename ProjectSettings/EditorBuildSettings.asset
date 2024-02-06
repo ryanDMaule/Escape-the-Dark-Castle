@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Pre game.unity
     guid: d018f1652432491478197421a16bf90f
   - enabled: 1
-    path: Assets/Scenes/Chapters/Skeletons HUD CHANGES.unity
-    guid: 602b8dff57a9d9f4db9c869d1a87cb89
-  - enabled: 1
     path: Assets/Scenes/Items scene.unity
     guid: 14e4466b6808db146a08aa37961789e4
   - enabled: 1
