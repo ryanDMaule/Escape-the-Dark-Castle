@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start rooms/Hidden passage.unity
     guid: 414dc5431131a8b4fa54f92e0007d54a
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Barrels.unity
+    guid: c4852a4363c8ab54c902882acfeee60f
   m_configObjects: {}

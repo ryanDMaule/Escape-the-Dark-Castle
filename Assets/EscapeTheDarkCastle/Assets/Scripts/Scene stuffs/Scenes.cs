@@ -17,6 +17,8 @@ public class Scenes : MonoBehaviour
     [Header("Chapter")]
     private string skeletonsTest = "Skeletons abstract chapter";
     private string boneBeast = "Bone beast NEW";
+    private string barrels = "Barrels";
+
 
     //START ROOMS
     private string hiddenPassage = "Hidden passage";
@@ -25,7 +27,8 @@ public class Scenes : MonoBehaviour
     private List<string> chapterList = new List<string>
     {
         "Skeletons abstract chapter",
-        "Bone beast NEW"
+        "Bone beast NEW",
+        "Barrels"
     };
 
     public List<string> startRoomList = new();
@@ -39,15 +42,13 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        //Loader.Load(skeletonsTest);
-        Loader.Load(boneBeast);
+        Loader.Load(barrels);
     }
 
     public void loadRandomChapter()
     {
         Loader.Load(chapterList[Random.Range(0, chapterList.Count)]);
     }
-
     public void loadCharacterSelect()
     {
         Loader.Load(charctersSelect);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -110,6 +111,19 @@ public class MainManager : MonoBehaviour
         {
             Debug.Log("ALL PLAYERS HAVE NOT ROLLED");
         }
+    }
+
+    public PlayerBase getYou()
+    {
+        foreach(var player in Players)
+        {
+            if (player.YOU)
+            {
+                return player;
+            }
+        }
+
+        throw new Exception();
     }
 
 }
