@@ -4,9 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SkeletonChapterLogic : ChapterLogicBase
+public class PutridCaptainChapterLogic : ChapterLogicBase
 {
-
     #region globalVariables
     [Header("Game objects")]
     [SerializeField] public GameObject playersCombinedHUD;
@@ -227,8 +226,6 @@ public class SkeletonChapterLogic : ChapterLogicBase
 
     private void formatPlayerTurnHUDNew(PlayerBase player)
     {
-        print("POP formatPlayerTurnHUDNew");
-
         MainManager.Instance.playerTurn = player;
         state = BattleState.PLAYER_TURN;
 
@@ -239,12 +236,10 @@ public class SkeletonChapterLogic : ChapterLogicBase
         playerTurnRoll.onClick.RemoveAllListeners();
         if (player.inventoryContainsCard("Cracked axe"))
         {
-            //playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRoll(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, this));
             playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRollSimplified(playerTurnRoll));
         }
         else
         {
-            //playerTurnRoll.onClick.AddListener(() => player.standardTurn(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, initialRollButton, rerollRollButton, this));
             playerTurnRoll.onClick.AddListener(() => player.standardTurnSimplified(playerTurnRoll));
         }
 
@@ -325,7 +320,8 @@ public class SkeletonChapterLogic : ChapterLogicBase
         }
     }
 
-    public void standardTurnChapterHander() {
+    public void standardTurnChapterHander()
+    {
         var player = MainManager.Instance.playerTurn;
 
         playerTurnEndTurn.interactable = true;
@@ -333,7 +329,8 @@ public class SkeletonChapterLogic : ChapterLogicBase
         playerTurnInitialDieImage.sprite = player.GetCharacterDieFace(player.initialRollValue);
     }
 
-    public void reRollChapterHandler() {
+    public void reRollChapterHandler()
+    {
         print("reRollChapterHandler");
         var player = MainManager.Instance.playerTurn;
 
@@ -351,6 +348,7 @@ public class SkeletonChapterLogic : ChapterLogicBase
         }
         playerTurnEndTurn.onClick.AddListener(() => enemyBase.enemyDead());
 
+        print("POP : playerTurnEndTurn.interactable = false;");
         playerTurnEndTurn.interactable = false;
 
         player.rerollOnClickFormatting(initialRollButton, rerollRollButton, playerTurnEndTurn);
@@ -401,7 +399,8 @@ public class SkeletonChapterLogic : ChapterLogicBase
         if (state == BattleState.SET_ENEMY_HEALTH)
         {
             preperationPhase();
-        } else if (state == BattleState.PLAYER_TURN)
+        }
+        else if (state == BattleState.PLAYER_TURN)
         {
             if (player.inventoryContainsCard("Cracked axe"))
             {
@@ -415,7 +414,8 @@ public class SkeletonChapterLogic : ChapterLogicBase
             {
                 standardTurnChapterHander();
             }
-        } else
+        }
+        else
         {
             print("rollTypeHandler: ISSUE ENCOUNTERED");
         }

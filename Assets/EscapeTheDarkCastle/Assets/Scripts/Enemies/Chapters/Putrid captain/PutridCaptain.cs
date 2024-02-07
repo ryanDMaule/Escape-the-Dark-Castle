@@ -1,7 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Skeleton : EnemyBase
+public class PutridCaptain : EnemyBase
 {
     [Header("Option panels")]
     [SerializeField] GameObject option1_object;
@@ -15,17 +17,7 @@ public class Skeleton : EnemyBase
     //for the combat option cards, update the value that shows how many players need to roll for enemy health with the total players stored in Main manager
     private void setPlayerRollTotal()
     {
-        var textFields = option1_object.GetComponentsInChildren<Text>();
-        foreach (var textField in textFields)
-        {
-            if (textField.tag == "healthCounter")
-            {
-                textField.text = MainManager.Instance.Players.Count.ToString();
-                break;
-            }
-        }
-
-        textFields = option2_object.GetComponentsInChildren<Text>();
+        var textFields = option2_object.GetComponentsInChildren<Text>();
         foreach (var textField in textFields)
         {
             if (textField.tag == "healthCounter")
@@ -53,26 +45,33 @@ public class Skeleton : EnemyBase
     }
 
     //the button on click logic for option 1
-    public void option1New(SkeletonChapterLogic cl)
+    public void option1(PutridCaptainChapterLogic cl)
     {
+        //set won item cards
         MainManager.Instance.drawCards = 1;
 
-        setDamage(2);
-        enemy_damage_image.sprite = damage2;
+        //hide description and show Win hud
+        cl.setWinHUD();
 
-        cl.setEnemyHealthPhase();
+        //apply damage to YOU
+        PlayerBase player = MainManager.Instance.getYou();
+        player.RedcuceHealth(3);
     }
 
     //the button on click logic for option 2
-    public void option2New(SkeletonChapterLogic cl)
+    public void option2(PutridCaptainChapterLogic cl)
     {
+        //set won item cards
         MainManager.Instance.drawCards = 1;
 
-        setEnemyMight(2);
+        //set enemy health and damage
+        setEnemyMight(1);
+        setEnemyWisdom(1);
+
         setDamage(1);
         enemy_damage_image.sprite = damage1;
 
+        //enter the next game phase
         cl.setEnemyHealthPhase();
     }
-
 }

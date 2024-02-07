@@ -18,6 +18,7 @@ public class Scenes : MonoBehaviour
     private string skeletonsTest = "Skeletons abstract chapter";
     private string boneBeast = "Bone beast NEW";
     private string barrels = "Barrels";
+    private string putridCaptain = "Putrid captain";
 
 
     //START ROOMS
@@ -28,7 +29,8 @@ public class Scenes : MonoBehaviour
     {
         "Skeletons abstract chapter",
         "Bone beast NEW",
-        "Barrels"
+        "Barrels",
+        "Putrid captain"
     };
 
     public List<string> startRoomList = new();
@@ -42,7 +44,7 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        Loader.Load(barrels);
+        Loader.Load(putridCaptain);
     }
 
     public void loadRandomChapter()
