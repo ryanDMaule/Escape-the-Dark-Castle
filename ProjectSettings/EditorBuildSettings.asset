@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/Putrid captain.unity
     guid: adc739516cbcc0341839bb38cf61a97c
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Fire demon.unity
+    guid: 66ae98671c994384f8f5c85b6610898c
   m_configObjects: {}

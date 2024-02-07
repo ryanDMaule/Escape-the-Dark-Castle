@@ -686,9 +686,12 @@ public abstract class PlayerBase : MonoBehaviour
     //Return true if player dead, false otherwise
     public bool RedcuceHealth(int damage)
     {
+        print("REDUCE HEALTH: " + damage);
+        print("OG HEALTH: " + currentHealth);
         if (currentHealth - damage > MIN_HEALTH)
         {
             SetCurrentHealth(currentHealth - damage);
+            print("POST HEALTH: " + currentHealth);
             return false;
         }
         else

@@ -3632,7 +3632,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1428685509}
         m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
-        m_MethodName: loadRandomChapter
+        m_MethodName: loadTesctChapter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
