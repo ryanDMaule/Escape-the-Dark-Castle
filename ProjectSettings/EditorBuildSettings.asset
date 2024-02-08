@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/Fire demon.unity
     guid: 66ae98671c994384f8f5c85b6610898c
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Blacksmith.unity
+    guid: c09cf370b09bb9b40b8b5c712ef87eb1
   m_configObjects: {}
