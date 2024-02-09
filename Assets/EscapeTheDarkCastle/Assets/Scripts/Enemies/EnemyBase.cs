@@ -15,7 +15,7 @@ public abstract class EnemyBase : MonoBehaviour
     [SerializeField] public ScrollRect description;
     [SerializeField] public Button description_button;
     [SerializeField] public Button audioButton;
-    [SerializeField] Image background;
+    [SerializeField] public Image background;
     [SerializeField] Button backButton;
     [SerializeField] Button forwardButton;
 
