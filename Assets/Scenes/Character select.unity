@@ -468,6 +468,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 18
+  YOU: 0
+  YOUHudIcon: {fileID: 0}
+  YOUSelectorItem: {fileID: 0}
   hud: {fileID: 1139763875233492027, guid: 452bef3ab3f05dd4c920e3b48d8929e6, type: 3}
   roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
@@ -484,6 +487,7 @@ MonoBehaviour:
   side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
   side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
   hasRolled: 0
+  hasReRolled: 0
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -633,11 +637,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6dfb01192bfe99498bb6836a1a2fff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chapterList:
-  - Skeletons
-  - Bone beast
-  startRoomList: []
-  bossList: []
 --- !u!4 &301428659
 Transform:
   m_ObjectHideFlags: 0
@@ -1148,11 +1147,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Players: []
-  cl: {fileID: 0}
+  playerTurn: {fileID: 0}
+  clBase: {fileID: 0}
   dl: {fileID: 762769793}
   drawCards: 2
   GameStateUpdate: {fileID: 11400000, guid: 5238d1304d945c447af2518e07ae6e66, type: 2}
   RollFinished: {fileID: 11400000, guid: 31ece5b72b417084ebb9f584e853317c, type: 2}
+  scenes: {fileID: 301428658}
 --- !u!4 &471234888
 Transform:
   m_ObjectHideFlags: 0
@@ -1833,6 +1834,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 18
+  YOU: 0
+  YOUHudIcon: {fileID: 0}
+  YOUSelectorItem: {fileID: 0}
   hud: {fileID: 1768632710775314378, guid: 264d8a9de7b521043b75b27846a41822, type: 3}
   roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
@@ -1849,6 +1853,7 @@ MonoBehaviour:
   side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
   side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
   hasRolled: 0
+  hasReRolled: 0
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -2065,6 +2070,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 18
+  YOU: 0
+  YOUHudIcon: {fileID: 0}
+  YOUSelectorItem: {fileID: 0}
   hud: {fileID: 9158057336077593613, guid: 5f158763a69e9ce49ab7c3c0cb21c7e1, type: 3}
   roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
@@ -2081,6 +2089,7 @@ MonoBehaviour:
   side_4: {fileID: 6366644696645559101, guid: 1271cc932901332479d4c9048fb0613f, type: 3}
   side_5: {fileID: -6758508737661712070, guid: d1f78d2f5372c674f943b79c5ad620a0, type: 3}
   hasRolled: 0
+  hasReRolled: 0
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -2911,6 +2920,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 9
+  YOU: 0
+  YOUHudIcon: {fileID: 0}
+  YOUSelectorItem: {fileID: 0}
   hud: {fileID: 5358500774035940945, guid: e5ee78c3b9eb9074fb152ae8a0771649, type: 3}
   roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
@@ -2927,6 +2939,7 @@ MonoBehaviour:
   side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
   side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
   hasRolled: 0
+  hasReRolled: 0
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3175,6 +3188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 18
+  YOU: 0
+  YOUHudIcon: {fileID: 0}
+  YOUSelectorItem: {fileID: 0}
   hud: {fileID: 7269512455417262215, guid: 7b993a1691bf02a48bc6ed3736610b69, type: 3}
   roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
@@ -3191,6 +3207,7 @@ MonoBehaviour:
   side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
   side_5: {fileID: 3809692752954073952, guid: a353f3922a4ddf1429856c32553f2eae, type: 3}
   hasRolled: 0
+  hasReRolled: 0
   initialRollValue: 
   reRollValue: 
   selectedValue: 
@@ -3430,6 +3447,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 18
+  YOU: 0
+  YOUHudIcon: {fileID: 0}
+  YOUSelectorItem: {fileID: 0}
   hud: {fileID: 1408029724453074794, guid: 4cfe4afcb46abde4da404ee04deb46a3, type: 3}
   roundHud: {fileID: 0}
   chapterDiePrefab: {fileID: 114748886687954542, guid: 551ade891169744419374d37188acb1b, type: 3}
@@ -3446,6 +3466,7 @@ MonoBehaviour:
   side_4: {fileID: 4385804318794990924, guid: 0a271c842f128134792ad40f271d1239, type: 3}
   side_5: {fileID: -6962471095410976850, guid: 4e6fb0bed8450f641bbc8eabe0883db3, type: 3}
   hasRolled: 0
+  hasReRolled: 0
   initialRollValue: 
   reRollValue: 
   selectedValue: 

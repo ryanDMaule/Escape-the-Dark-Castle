@@ -1503,7 +1503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6dfb01192bfe99498bb6836a1a2fff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRoomList: []
   bossList: []
 --- !u!4 &2052621674
 Transform:
@@ -1627,9 +1626,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameEventListener, Assembly-CSharp
-        m_MethodName: clearListeners
+      - m_Target: {fileID: 2052621673}
+        m_TargetAssemblyTypeName: Scenes, Assembly-CSharp
+        m_MethodName: printChapterList
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

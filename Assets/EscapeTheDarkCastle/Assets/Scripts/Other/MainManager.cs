@@ -25,6 +25,9 @@ public class MainManager : MonoBehaviour
     public GameEvent GameStateUpdate;
     public GameEvent RollFinished;
 
+    [Header("Chapter stuffs")]
+    [SerializeField] public Scenes scenes;
+    private List<string> gameChapters = new List<string>();
     public void updateGameState(GameState gs)
     {
         currentGameState = gs;
@@ -62,6 +65,7 @@ public class MainManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        GenerateChapterList();
     }
 
     //used to determine the next player for a turn during chapter combat
@@ -124,6 +128,32 @@ public class MainManager : MonoBehaviour
         }
 
         throw new Exception();
+    }
+
+    private void GenerateChapterList()
+    {
+        gameChapters.Add(scenes.getStartRoom());
+
+        //SET TO 15 WHEN AVAILABLE
+        for(int i = 0 ; i < 7 ; i++)
+        {
+            gameChapters.Add(scenes.getChapter());
+        }
+
+        gameChapters.Add(scenes.getBoss());
+
+        foreach(var chapter in gameChapters)
+        {
+            print("CHAPTER: " + chapter);
+        }
+    }
+
+    public void LoadNextChapter()
+    {
+        print("LoadNextChapter: " + gameChapters[0]);
+
+        Loader.Load(gameChapters[0]);
+        gameChapters.RemoveAt(0);
     }
 
 }

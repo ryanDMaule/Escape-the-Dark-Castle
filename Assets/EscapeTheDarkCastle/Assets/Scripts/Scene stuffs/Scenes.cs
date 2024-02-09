@@ -28,19 +28,77 @@ public class Scenes : MonoBehaviour
     private string hiddenPassage = "Hidden passage";
 
     //LISTS
-    private List<string> chapterList = new List<string>
+    private List<string> chapterList = new List<string>()
     {
         "Skeletons abstract chapter",
         "Bone beast NEW",
         "Barrels",
         "Putrid captain",
         "Fire demon",
-        "Blacksmith"
+        "Blacksmith",
+        "Strongman"
     };
 
-    public List<string> startRoomList = new();
-    public List<string> bossList = new();
+    private List<string> startRoomList = new List<string>()
+    {
+        "Hidden passage"
+    };
 
+    private List<string> bossList = new List<string>()
+    {
+
+    };
+
+    public string getStartRoom()
+    {
+        if(startRoomList.Count > 0)
+        {
+            int pos = Random.Range(0, startRoomList.Count);
+            string chapter = startRoomList[pos];
+
+            startRoomList.RemoveAt(pos);
+
+            return chapter;
+        } else
+        {
+            //HANDLE PROPERLY
+            return "NO MORE START ROOMS";
+        }
+    }
+
+    public string getChapter()
+    {
+        if (chapterList.Count > 0)
+        {
+            int pos = Random.Range(0, chapterList.Count);
+            string chapter = chapterList[pos];
+
+            chapterList.RemoveAt(pos);
+
+            return chapter;
+        } else
+        {
+            //HANDLE PROPERLY
+            return "NO MORE CHAPTERS";
+        }
+    }
+
+    public string getBoss()
+    {
+        if (bossList.Count > 0)
+        {
+            int pos = Random.Range(0, bossList.Count);
+            string chapter = bossList[pos];
+
+            bossList.RemoveAt(pos);
+
+            return chapter;
+        } else
+        {
+            //HANDLE PROPERLY
+            return "NO MORE BOSSES";
+        }
+    }
 
     public void loadHiddenPassage()
     {

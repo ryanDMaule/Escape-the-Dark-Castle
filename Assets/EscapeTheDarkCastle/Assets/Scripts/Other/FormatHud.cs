@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class FormatHud : MonoBehaviour
 {
@@ -21,6 +20,9 @@ public class FormatHud : MonoBehaviour
     [SerializeField] public InventoryHandler ih;   
     [SerializeField] public GameObject dieCollection;
 
+    [SerializeField] public Button image;
+    [SerializeField] public Button background;
+
     public void Start()
     {
         ih.dl = MainManager.Instance.dl;
@@ -28,6 +30,8 @@ public class FormatHud : MonoBehaviour
 
         formatHud();
         clearUnusedObjects();
+
+        setButtonClickLogic();
     }
 
     //Deletes the placeholder locations and player inventories that arent used
@@ -248,5 +252,13 @@ public class FormatHud : MonoBehaviour
         SoundFXPlayer soundFX = FindFirstObjectByType<SoundFXPlayer>();
         button.onClick.AddListener(() => soundFX.PlayOpenInventory());
     }
+    private void setButtonClickLogic()
+    {
+        print("setButtonClickLogic");
+
+        image.onClick.AddListener(() => MainManager.Instance.LoadNextChapter());
+        background.onClick.AddListener(() => MainManager.Instance.LoadNextChapter());
+    }
+
 
 }

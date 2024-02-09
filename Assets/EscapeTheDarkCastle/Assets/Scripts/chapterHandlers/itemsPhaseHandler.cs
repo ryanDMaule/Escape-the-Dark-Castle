@@ -25,6 +25,7 @@ public class itemsPhaseHandler : MonoBehaviour
     [SerializeField] public Button assignPlayer4;
 
     [SerializeField] public GameObject YouSelection;
+    [SerializeField] public Button YouContinueButton;
 
     private int drawTotal;
 
@@ -53,6 +54,8 @@ public class itemsPhaseHandler : MonoBehaviour
         {
             player.setYouFalse();
         }
+
+        loadNextChapter();
     }
 
     //checks if the continue button on the items phase is interactable and formats the options accordingly
@@ -220,6 +223,12 @@ public class itemsPhaseHandler : MonoBehaviour
     public void showYouSelectionPanel()
     {
         YouSelection.gameObject.SetActive(true);
+    }
+
+    private void loadNextChapter()
+    {
+        print("loadNextChapter");
+        YouContinueButton.onClick.AddListener(() => MainManager.Instance.LoadNextChapter());
     }
 
 }
