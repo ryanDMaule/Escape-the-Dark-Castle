@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/Strongman.unity
     guid: 6443309c75d6a8a44a9c0e3dc446d9a9
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Arena champion.unity
+    guid: acda593d0548aea4c8801140bc4e6d6c
   m_configObjects: {}

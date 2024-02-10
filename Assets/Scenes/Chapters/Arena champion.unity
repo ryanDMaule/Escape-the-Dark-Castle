@@ -970,7 +970,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 916605185}
-        m_TargetAssemblyTypeName: StrongmanChapterLogic, Assembly-CSharp
+        m_TargetAssemblyTypeName: ArenaChampionChapterLogic, Assembly-CSharp
         m_MethodName: setPlayerTurnPhase
         m_Mode: 1
         m_Arguments:
@@ -1262,7 +1262,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1
 --- !u!222 &245790848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1583,7 +1583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 1
 --- !u!222 &248154214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2086,7 +2086,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3ece7689a66aa8c469e37701e6eb2ac8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 968ae734254d3374195c5c681b7d127c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.8
   m_Pitch: 1
@@ -2319,7 +2319,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: -0.00024414062}
-  m_SizeDelta: {x: 0, y: 75.550995}
+  m_SizeDelta: {x: 0, y: 160.85098}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &312250405
 MonoBehaviour:
@@ -2869,7 +2869,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 916605185}
-        m_TargetAssemblyTypeName: StrongmanChapterLogic, Assembly-CSharp
+        m_TargetAssemblyTypeName: ArenaChampionChapterLogic, Assembly-CSharp
         m_MethodName: setCombatOptionsHUD
         m_Mode: 1
         m_Arguments:
@@ -3016,12 +3016,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2135890023}
-        m_TargetAssemblyTypeName: Strongman, Assembly-CSharp
+        m_TargetAssemblyTypeName: ArenaChampion, Assembly-CSharp
         m_MethodName: option1
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 916605185}
-          m_ObjectArgumentAssemblyTypeName: StrongmanChapterLogic, Assembly-CSharp
+          m_ObjectArgumentAssemblyTypeName: ArenaChampionChapterLogic, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4011,9 +4011,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A thick-set man walks boldly towards you and adopts a pugilist\u2019s
-    stance. His speech is primitive, but you deduce he is calling out your mightiest
-    fighter for a test of strength."
+  m_text: "You emerge into a small sandy arena. In the center, a woman far taller
+    and more muscular than yourself raises her well-worn blade and calls out: \u201CChallengers,
+    prepare to die!\u201D"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
   m_sharedMaterial: {fileID: 8549429200997056990, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
@@ -5224,7 +5224,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 916605185}
-        m_TargetAssemblyTypeName: StrongmanChapterLogic, Assembly-CSharp
+        m_TargetAssemblyTypeName: ArenaChampionChapterLogic, Assembly-CSharp
         m_MethodName: setWinHUD
         m_Mode: 1
         m_Arguments:
@@ -5252,7 +5252,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 916605185}
-        m_TargetAssemblyTypeName: StrongmanChapterLogic, Assembly-CSharp
+        m_TargetAssemblyTypeName: ArenaChampionChapterLogic, Assembly-CSharp
         m_MethodName: rollTypeHandler
         m_Mode: 1
         m_Arguments:
@@ -5280,7 +5280,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 916605185}
-        m_TargetAssemblyTypeName: StrongmanChapterLogic, Assembly-CSharp
+        m_TargetAssemblyTypeName: ArenaChampionChapterLogic, Assembly-CSharp
         m_MethodName: disableNextButton
         m_Mode: 1
         m_Arguments:
@@ -5300,16 +5300,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 916605177}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f42459867e2f8042bc80012c6c3603f, type: 3}
+  m_Script: {fileID: 11500000, guid: a2844dbd85a53434cb055b026c06e3ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathBio: A brutal body punch slams into your side and you collapse to the ground.
-    The strongman nods and strides off into the darkness.Something inside you has
-    ruptured, and your next breath is the last you are able to draw.  With one of
-    their number fallen, your fellow prisoners are unable to withstand the ensuing
-    onslaught of evil. They are soon rounded up, enslaved, and damned to an eternity
-    of torture.  Your adventure ends here.
-  deathClip: {fileID: 8300000, guid: 2ea30a1cc424fc041acce038ddd36a83, type: 3}
+  deathBio: You fight well, but simply dont have the skill to parry so many expert
+    strikes. First one, then another gets past your guard. As the sand begins to
+    turn dark with blood beneath you, your last sensation is the blade of the arena
+    champion plunging deep into your belly.  You slump to the arena floor, and as
+    you fade from consciousness the last thing you hear is the furious demise of
+    your fellow prisoners. In time your carcasses are dragged away - your only legacy
+    a smear of blood upon the flagstones.  Your adventure ends here.
+  deathClip: {fileID: 8300000, guid: 2be936d7a36ae334bbceb87bf7393dde, type: 3}
   state: 0
   enemyBase: {fileID: 2135890023}
   playersCombinedHUD: {fileID: 881592391}
@@ -7950,8 +7951,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1336564510}
   m_HandleRect: {fileID: 1336564509}
   m_Direction: 2
-  m_Value: 1.0000032
-  m_Size: 0.7852564
+  m_Value: 1.0000015
+  m_Size: 0.63202083
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -8026,7 +8027,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1733475529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.21474361}
+  m_AnchorMin: {x: 0, y: 0.36797917}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -9295,7 +9296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You survived the strongman!
+  m_text: You survived the arena champion!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
   m_sharedMaterial: {fileID: 8549429200997056990, guid: fa39539db4baaa348b6a878d0c794a0f, type: 2}
@@ -10777,7 +10778,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1897625558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74c8db2b02e87f644aae42df360798cc, type: 3}
+  m_Script: {fileID: 11500000, guid: a7d9e2d3c5517bb41adf72b100844fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2135890023}
@@ -11850,7 +11851,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4afbb5009487e7240b4818c84bb41761, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ea319cead7f7a545ae89a489bc229ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11877,7 +11878,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2135890019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd5be63c23294e84a9ff5222b5ebcae1, type: 3}
+  m_Script: {fileID: 11500000, guid: ab1a2a6156812ba409a5347c64635b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyDead: {fileID: 11400000, guid: 9ebe98fbe75604e4f8a182ad4f12d2d6, type: 2}

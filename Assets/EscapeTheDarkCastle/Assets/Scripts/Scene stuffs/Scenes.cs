@@ -22,6 +22,7 @@ public class Scenes : MonoBehaviour
     private string fireDemon = "Fire demon";
     private string blacksmith = "Blacksmith";
     private string strongman = "Strongman";
+    private string arenaChampion = "Arena champion";
 
 
     //START ROOMS
@@ -36,7 +37,8 @@ public class Scenes : MonoBehaviour
         "Putrid captain",
         "Fire demon",
         "Blacksmith",
-        "Strongman"
+        "Strongman",
+        "Arena champion"
     };
 
     private List<string> startRoomList = new List<string>()
@@ -107,7 +109,7 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        Loader.Load(strongman);
+        Loader.Load(arenaChampion);
     }
 
     public void loadRandomChapter()
