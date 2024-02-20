@@ -227,7 +227,7 @@ public class SkeletonChapterLogic : ChapterLogicBase
 
     private void formatPlayerTurnHUDNew(PlayerBase player)
     {
-        print("POP formatPlayerTurnHUDNew");
+        print("formatPlayerTurnHUDNew");
 
         MainManager.Instance.playerTurn = player;
         state = BattleState.PLAYER_TURN;
@@ -239,12 +239,10 @@ public class SkeletonChapterLogic : ChapterLogicBase
         playerTurnRoll.onClick.RemoveAllListeners();
         if (player.inventoryContainsCard("Cracked axe"))
         {
-            //playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRoll(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, this));
             playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRollSimplified(playerTurnRoll));
         }
         else
         {
-            //playerTurnRoll.onClick.AddListener(() => player.standardTurn(enemyBase, playerTurnRoll, playerTurnEndTurn, playerTurnInitialDieImage, playerTurnSecondDieImage, initialRollButton, rerollRollButton, this));
             playerTurnRoll.onClick.AddListener(() => player.standardTurnSimplified(playerTurnRoll));
         }
 

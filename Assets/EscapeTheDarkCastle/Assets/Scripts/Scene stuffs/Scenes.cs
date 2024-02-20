@@ -24,6 +24,7 @@ public class Scenes : MonoBehaviour
     private string strongman = "Strongman";
     private string arenaChampion = "Arena champion";
     private string skeletalBeast = "Skeletal beast";
+    private string castleMaze = "Castle maze";
 
     //START ROOMS
     private string hiddenPassage = "Hidden passage";
@@ -39,7 +40,8 @@ public class Scenes : MonoBehaviour
         "Blacksmith",
         "Strongman",
         "Arena champion",
-        "Skeletal beast"
+        "Skeletal beast",
+        "Castle maze"
     };
 
     private List<string> startRoomList = new List<string>()
@@ -110,7 +112,7 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        Loader.Load(skeletalBeast);
+        Loader.Load(castleMaze);
     }
 
     public void loadRandomChapter()
