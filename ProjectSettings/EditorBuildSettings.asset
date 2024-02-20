@@ -44,4 +44,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/Arena champion.unity
     guid: acda593d0548aea4c8801140bc4e6d6c
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Skeletal beast.unity
+    guid: 7e34377f057acce40b0fbc50a7ba89fc
   m_configObjects: {}

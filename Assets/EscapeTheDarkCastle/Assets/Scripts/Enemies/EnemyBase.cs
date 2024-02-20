@@ -81,6 +81,21 @@ public abstract class EnemyBase : MonoBehaviour
         enemy_wisdom_text.text = enemy_wisdom_int.ToString();
     }
 
+    public int getEnemyMight()
+    {
+        return enemy_might_int;
+    }
+
+    public int getEnemyCunning()
+    {
+        return enemy_cunning_int;
+    }
+
+    public int getEnemyWisdom()
+    {
+        return enemy_wisdom_int;
+    }
+
     public void reduceEnemyMight(int value)
     {
         if (enemy_might_int - value <= 0)

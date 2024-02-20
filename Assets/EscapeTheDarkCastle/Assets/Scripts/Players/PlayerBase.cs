@@ -148,7 +148,7 @@ public abstract class PlayerBase : MonoBehaviour
         }
     }
 
-    private bool reRollEligilble(string rollResult)
+    public bool reRollEligilble(string rollResult)
     {
         if (this.getCharacterRollResult(rollResult) == ChapterDieOptions.WISDOM && this.inventoryContainsCard("decayed blade_0"))
         {
