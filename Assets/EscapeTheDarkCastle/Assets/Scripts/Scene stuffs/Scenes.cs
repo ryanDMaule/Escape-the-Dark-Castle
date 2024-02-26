@@ -29,6 +29,9 @@ public class Scenes : MonoBehaviour
     //START ROOMS
     private string hiddenPassage = "Hidden passage";
 
+    //VICTORY SCREEN
+    private string victory = "Victory screen";
+
     //LISTS
     private List<string> chapterList = new List<string>()
     {
@@ -105,6 +108,12 @@ public class Scenes : MonoBehaviour
         }
     }
 
+    public string getVictory()
+    {
+        return "Victory screen";
+    }
+
+
     public void loadHiddenPassage()
     {
         Loader.Load(hiddenPassage);
@@ -112,7 +121,7 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        Loader.Load(castleMaze);
+        Loader.Load(victory);
     }
 
     public void loadRandomChapter()

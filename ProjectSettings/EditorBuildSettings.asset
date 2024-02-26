@@ -50,4 +50,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/Castle maze.unity
     guid: f97dade4ac742584882ca1a3f813e22c
+  - enabled: 1
+    path: Assets/Scenes/Victory screen.unity
+    guid: abdc6326ba3ae614ea6b4598497170b5
   m_configObjects: {}

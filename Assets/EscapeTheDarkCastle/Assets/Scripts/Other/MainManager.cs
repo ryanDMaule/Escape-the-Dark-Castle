@@ -142,6 +142,8 @@ public class MainManager : MonoBehaviour
 
         gameChapters.Add(scenes.getBoss());
 
+        gameChapters.Add(scenes.getVictory());
+
         foreach(var chapter in gameChapters)
         {
             print("CHAPTER: " + chapter);
