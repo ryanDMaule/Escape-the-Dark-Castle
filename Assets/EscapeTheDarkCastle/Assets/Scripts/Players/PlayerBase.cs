@@ -18,6 +18,7 @@ public abstract class PlayerBase : MonoBehaviour
 
     [Header("YOU stuffs")]
     public bool YOU = false;
+    public bool nominatedPlayer = false;
     [SerializeField] public GameObject YOUHudIcon;
     [SerializeField] public GameObject YOUSelectorItem;
 
@@ -782,6 +783,43 @@ public abstract class PlayerBase : MonoBehaviour
             {
                 player.setIsRestingState(false);
             }
+        }
+    }
+
+    public void setNominatedPlayer(Button button)
+    {
+        if (!nominatedPlayer)
+        {
+            //Set nominatedPlayer to true
+            nominatedPlayer = true;
+
+            button.interactable = true;
+
+            //sort out animation stuff
+            Animator animator = YOUSelectorItem.GetComponent<Animator>();
+            animator.SetTrigger("Expand");
+
+            //revoke nominatedPlayer status from any other players
+            foreach (var player in MainManager.Instance.Players)
+            {
+                if (player != this)
+                {
+                    player.setNominatedFalseAnim();
+                }
+            }
+        }
+    }
+
+    public void setNominatedFalseAnim()
+    {
+        if (nominatedPlayer)
+        {
+            //Set nominatedPlayer to false
+            nominatedPlayer = false;
+
+            //sort out animation stuff
+            Animator animator = YOUSelectorItem.GetComponent<Animator>();
+            animator.SetTrigger("Contract");
         }
     }
 
