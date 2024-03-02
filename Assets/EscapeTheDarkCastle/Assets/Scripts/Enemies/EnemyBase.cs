@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,15 +41,31 @@ public abstract class EnemyBase : MonoBehaviour
     public virtual void showOptionsHUD()
     {
         background.gameObject.SetActive(true);
-        backButton.gameObject.SetActive(false);
-        forwardButton.gameObject.SetActive(true);
+        try
+        {
+            backButton.gameObject.SetActive(false);
+            forwardButton.gameObject.SetActive(true);
+        }
+        catch (NullReferenceException ex)
+        {
+            print("DIE");
+            //Debug.LogException(ex, this);
+        }
     }
 
     public virtual void hideOptionsHUD()
     {
         background.gameObject.SetActive(false);
-        backButton.gameObject.SetActive(false);
-        forwardButton.gameObject.SetActive(false);
+        try
+        {
+            backButton.gameObject.SetActive(false);
+            forwardButton.gameObject.SetActive(false);
+        }
+        catch (NullReferenceException ex)
+        {
+            print("DIE");
+            //Debug.LogException(ex, this);
+        }
     }
 
     #endregion

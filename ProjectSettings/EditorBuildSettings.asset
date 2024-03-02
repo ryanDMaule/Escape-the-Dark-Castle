@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/Hideous creature.unity
     guid: 2ea91c7fd69cbc243a9514598acce372
+  - enabled: 1
+    path: Assets/Scenes/Chapters/Bloodthirster.unity
+    guid: 8360aa41f15962146a6e0e63af907c9f
   m_configObjects: {}

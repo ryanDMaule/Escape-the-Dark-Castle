@@ -27,6 +27,7 @@ public class Scenes : MonoBehaviour
     private string castleMaze = "Castle maze";
     private string sewers = "Sewers";
     private string hideousCreature = "Hideous creature";
+    private string bloodthirster = "Bloodthirster";
 
     //START ROOMS
     private string hiddenPassage = "Hidden passage";
@@ -48,7 +49,8 @@ public class Scenes : MonoBehaviour
         "Skeletal beast",
         "Castle maze",
         "Sewers",
-        "Hideous creature"
+        "Hideous creature",
+        "Bloodthirster"
     };
 
     private List<string> startRoomList = new List<string>()
@@ -125,7 +127,7 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        Loader.Load(hideousCreature);
+        Loader.Load(bloodthirster);
     }
 
     public void loadRandomChapter()
