@@ -28,6 +28,8 @@ public class Scenes : MonoBehaviour
     private string sewers = "Sewers";
     private string hideousCreature = "Hideous creature";
     private string bloodthirster = "Bloodthirster";
+    private string theArrow = "The arrow";
+
 
     //START ROOMS
     private string hiddenPassage = "Hidden passage";
@@ -50,7 +52,8 @@ public class Scenes : MonoBehaviour
         "Castle maze",
         "Sewers",
         "Hideous creature",
-        "Bloodthirster"
+        "Bloodthirster",
+        "The arrow"
     };
 
     private List<string> startRoomList = new List<string>()
@@ -127,7 +130,7 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        Loader.Load(bloodthirster);
+        Loader.Load(theArrow);
     }
 
     public void loadRandomChapter()
