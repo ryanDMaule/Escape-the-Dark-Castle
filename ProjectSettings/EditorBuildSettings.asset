@@ -65,4 +65,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/The arrow.unity
     guid: 19582c116ef369e4faf410f2386c645a
+  - enabled: 1
+    path: Assets/Scenes/Chapters/The curse.unity
+    guid: 1355269afac47df4ca2c9a11f1232ade
   m_configObjects: {}

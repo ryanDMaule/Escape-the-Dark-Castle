@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TheCurseChapterLogic : ChapterLogicBase
+public class CaveInChapterLogic : ChapterLogicBase
 {
     #region globalVariables
     [Header("Game objects")]
@@ -17,7 +17,7 @@ public class TheCurseChapterLogic : ChapterLogicBase
     [Header("Other")]
     public Scenes scenes;
 
-    public TheCurseFormatChapter fc;
+    public CaveInFormatChapter fc;
 
     #endregion
 
