@@ -104,14 +104,15 @@ public class MainManager : MonoBehaviour
         {
             Debug.Log("ALL PLAYERS ROLLED");
 
-            RollFinished.Raise();
-
             foreach (var player in Players)
             {
                 player.hasRolled = false;
                 player.hasReRolled = false;
             }
-        } else
+
+            RollFinished.Raise();
+        }
+        else
         {
             Debug.Log("ALL PLAYERS HAVE NOT ROLLED");
         }
