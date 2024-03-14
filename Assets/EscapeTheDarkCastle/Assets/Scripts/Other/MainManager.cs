@@ -136,7 +136,7 @@ public class MainManager : MonoBehaviour
         gameChapters.Add(scenes.getStartRoom());
 
         //SET TO 15 WHEN AVAILABLE
-        for(int i = 0 ; i < 7 ; i++)
+        for(int i = 0 ; i < 15 ; i++)
         {
             gameChapters.Add(scenes.getChapter());
         }

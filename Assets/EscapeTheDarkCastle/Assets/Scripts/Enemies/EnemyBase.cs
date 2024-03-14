@@ -48,7 +48,6 @@ public abstract class EnemyBase : MonoBehaviour
         }
         catch (NullReferenceException ex)
         {
-            print("DIE");
             //Debug.LogException(ex, this);
         }
     }
@@ -63,7 +62,6 @@ public abstract class EnemyBase : MonoBehaviour
         }
         catch (NullReferenceException ex)
         {
-            print("DIE");
             //Debug.LogException(ex, this);
         }
     }

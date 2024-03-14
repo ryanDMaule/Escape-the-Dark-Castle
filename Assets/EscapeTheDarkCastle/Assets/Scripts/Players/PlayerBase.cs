@@ -470,16 +470,35 @@ public abstract class PlayerBase : MonoBehaviour
         }
     }
 
+    public bool addInventoryItem(Card card)
+    {
+        switch (card.size)
+        {
+            case 1:
+                if (InventorySlotsFree() >= 1)
+                {
+                    assignInventoryCard(card);
+                    return true;
+                }
+                break;
+
+            case 2:
+                if (InventorySlotsFree() >= 2)
+                {
+                    assignInventoryCard(card);
+                    return true;
+                }
+                break;
+        }
+        return false;
+    }
+
     public void assignInventoryCard(Card card)
     {
-        Debug.Log("KARD SIZE: " + card.size);
-
         if (card.size == 1)
         {
             if (InventoryArray[0] == InventoryPlaceholder)
             {
-                Debug.Log("MEEP");
-
                 InventoryArray[0] = card;
                 InventorySlot1.sprite = card.cardFace;
                 InventorySlot1.gameObject.SetActive(true);
@@ -488,8 +507,6 @@ public abstract class PlayerBase : MonoBehaviour
             }
             else if (InventoryArray[1] == InventoryPlaceholder)
             {
-                Debug.Log("MOOP");
-
                 InventoryArray[1] = card;
                 InventorySlot2.sprite = card.cardFace;
                 InventorySlot2.gameObject.SetActive(true);
@@ -503,8 +520,6 @@ public abstract class PlayerBase : MonoBehaviour
         }
         else if (card.size == 2)
         {
-            Debug.Log("MORP");
-
             InventoryArray[0] = card;
             InventoryArray[1] = card;
             TwoHandedSlot.sprite = card.cardFace;
@@ -604,6 +619,53 @@ public abstract class PlayerBase : MonoBehaviour
 
         }
 
+    }
+
+    //Used to shuffle the players items on the player of games boss
+    public void AddItemsToList(List<Card> list)
+    {
+        if(InventoryArray[0] != InventoryPlaceholder && InventoryArray[1] != InventoryPlaceholder)
+        {
+            //both slots are filled
+            if(InventoryArray[0] == InventoryArray[1])
+            {
+                //two handed item
+
+                list.Add(InventoryArray[0]);
+                TwoHandedSlot.gameObject.SetActive(false);
+                InventoryArray[0] = InventoryPlaceholder;
+                InventoryArray[1] = InventoryPlaceholder;
+            }
+            else
+            {
+                //two individual items
+
+                list.Add(InventoryArray[0]);
+                InventorySlot1.gameObject.SetActive(false);
+                InventoryArray[0] = InventoryPlaceholder;
+
+                list.Add(InventoryArray[1]);
+                InventorySlot2.gameObject.SetActive(false);
+                InventoryArray[1] = InventoryPlaceholder;
+            }
+        } else if(InventoryArray[0] != InventoryPlaceholder)
+        {
+            //only slot 1 is filled
+
+            list.Add(InventoryArray[0]);
+            InventorySlot1.gameObject.SetActive(false);
+            InventoryArray[0] = InventoryPlaceholder;
+        } else if(InventoryArray[1] != InventoryPlaceholder)
+        {
+            //only slot 2 is filled
+
+            list.Add(InventoryArray[1]);
+            InventorySlot2.gameObject.SetActive(false);
+            InventoryArray[1] = InventoryPlaceholder;
+        } else
+        {
+            //No items
+        }
     }
 
     public bool inventoryContainsCard(string cardName)

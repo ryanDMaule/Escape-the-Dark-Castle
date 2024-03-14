@@ -32,6 +32,8 @@ public class Scenes : MonoBehaviour
     private string theCurse = "The curse";
     private string theCaveIn = "The cave in";
 
+    //BOSSES
+    private string thePlayerOfGames = "The player of games";
 
     //START ROOMS
     private string hiddenPassage = "Hidden passage";
@@ -67,7 +69,7 @@ public class Scenes : MonoBehaviour
 
     private List<string> bossList = new List<string>()
     {
-
+        "The player of games"
     };
 
     public string getStartRoom()
@@ -126,6 +128,10 @@ public class Scenes : MonoBehaviour
         return "Victory screen";
     }
 
+    public void loadVictory()
+    {
+        Loader.Load(victory);
+    }
 
     public void loadHiddenPassage()
     {
@@ -134,7 +140,7 @@ public class Scenes : MonoBehaviour
 
     public void loadTesctChapter()
     {
-        Loader.Load(theCaveIn);
+        Loader.Load(thePlayerOfGames);
     }
 
     public void loadRandomChapter()
