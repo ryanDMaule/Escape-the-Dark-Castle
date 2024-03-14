@@ -71,4 +71,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapters/The cave in.unity
     guid: 0a94015927ff29247a6c3d3ba5132277
+  - enabled: 1
+    path: Assets/Scenes/Bosses/The player of games.unity
+    guid: 3fbaf04d4f8b4464094be824ddbf8757
   m_configObjects: {}

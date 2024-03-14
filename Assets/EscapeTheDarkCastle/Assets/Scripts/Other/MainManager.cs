@@ -49,9 +49,39 @@ public class MainManager : MonoBehaviour
 
     public void addPlayers(List<PlayerBase> players)
     {
-        for (int i = 0; i < players.Count; i++)
+        int playerTotal = players.Count;
+
+        for (int i = 0; i < playerTotal; i++)
         {
             Players.Add(players[i]);
+        }
+
+        switch (playerTotal)
+        {
+            case 1 or 2:
+                setPlayersHealthTotal(18);
+                break;
+
+            case 3:
+                setPlayersHealthTotal(14);
+                break;
+
+            case 4:
+                setPlayersHealthTotal(12);
+                break;
+
+            default:
+                setPlayersHealthTotal(18);
+                break;
+        }
+
+    }
+
+    private void setPlayersHealthTotal(int startHealth)
+    {
+        foreach(var player in MainManager.Instance.Players)
+        {
+            player.currentHealth = startHealth;
         }
     }
 

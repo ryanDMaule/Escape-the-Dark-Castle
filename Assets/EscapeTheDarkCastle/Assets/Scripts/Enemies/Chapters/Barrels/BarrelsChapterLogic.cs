@@ -31,6 +31,7 @@ public class BarrelsChapterLogic : ChapterLogicBase
     {
         MainManager.Instance.drawCards = 2;
 
+        combatOptions.gameObject.SetActive(false);
         descriptionSection.gameObject.SetActive(false);
         winSection.gameObject.SetActive(true);
 

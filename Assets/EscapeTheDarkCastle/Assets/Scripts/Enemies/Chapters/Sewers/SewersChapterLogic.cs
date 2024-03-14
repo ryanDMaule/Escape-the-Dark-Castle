@@ -158,14 +158,7 @@ public class SewersChapterLogic : ChapterLogicBase
 
         //ROLL BUTTON
         playerTurnRoll.onClick.RemoveAllListeners();
-        if (player.inventoryContainsCard("Cracked axe"))
-        {
-            playerTurnRoll.onClick.AddListener(() => player.CrackedAxeRollSimplified(playerTurnRoll));
-        }
-        else
-        {
-            playerTurnRoll.onClick.AddListener(() => player.standardTurnSimplified(playerTurnRoll));
-        }
+        playerTurnRoll.onClick.AddListener(() => player.standardTurnSimplified(playerTurnRoll));
 
         //END TURN BUTTON
         playerTurnEndTurn.onClick.RemoveAllListeners();

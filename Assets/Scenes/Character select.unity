@@ -469,6 +469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   YOU: 0
+  nominatedPlayer: 0
   YOUHudIcon: {fileID: 0}
   YOUSelectorItem: {fileID: 0}
   hud: {fileID: 1139763875233492027, guid: 452bef3ab3f05dd4c920e3b48d8929e6, type: 3}
@@ -1835,6 +1836,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   YOU: 0
+  nominatedPlayer: 0
   YOUHudIcon: {fileID: 0}
   YOUSelectorItem: {fileID: 0}
   hud: {fileID: 1768632710775314378, guid: 264d8a9de7b521043b75b27846a41822, type: 3}
@@ -2071,6 +2073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   YOU: 0
+  nominatedPlayer: 0
   YOUHudIcon: {fileID: 0}
   YOUSelectorItem: {fileID: 0}
   hud: {fileID: 9158057336077593613, guid: 5f158763a69e9ce49ab7c3c0cb21c7e1, type: 3}
@@ -2919,8 +2922,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625de4dccf2fc5a4a97856babb90a14f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHealth: 9
+  currentHealth: 18
   YOU: 0
+  nominatedPlayer: 0
   YOUHudIcon: {fileID: 0}
   YOUSelectorItem: {fileID: 0}
   hud: {fileID: 5358500774035940945, guid: e5ee78c3b9eb9074fb152ae8a0771649, type: 3}
@@ -3189,6 +3193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   YOU: 0
+  nominatedPlayer: 0
   YOUHudIcon: {fileID: 0}
   YOUSelectorItem: {fileID: 0}
   hud: {fileID: 7269512455417262215, guid: 7b993a1691bf02a48bc6ed3736610b69, type: 3}
@@ -3448,6 +3453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 18
   YOU: 0
+  nominatedPlayer: 0
   YOUHudIcon: {fileID: 0}
   YOUSelectorItem: {fileID: 0}
   hud: {fileID: 1408029724453074794, guid: 4cfe4afcb46abde4da404ee04deb46a3, type: 3}

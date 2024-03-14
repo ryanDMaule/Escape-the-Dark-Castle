@@ -227,8 +227,8 @@ public class itemsPhaseHandler : MonoBehaviour
 
     private void loadNextChapter()
     {
-        print("loadNextChapter");
-        //YouContinueButton.onClick.AddListener(() => MainManager.Instance.LoadNextChapter());
+        print("POOPSIES loadNextChapter");
+        YouContinueButton.onClick.AddListener(() => MainManager.Instance.LoadNextChapter());
     }
 
 }
