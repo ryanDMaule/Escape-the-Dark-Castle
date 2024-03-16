@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum GameState { CHARACTER_SELECT, PRE_GAME, CHAPTER, ITEMS_PHASE }
 
@@ -20,6 +21,7 @@ public class MainManager : MonoBehaviour
 
     [Header("Other")]
     public int drawCards = 1;
+    public Text RoundTextHUD;
 
     [Header("Events")]
     public GameEvent GameStateUpdate;
@@ -181,12 +183,31 @@ public class MainManager : MonoBehaviour
         }
     }
 
+    int currentRound = 0;
     public void LoadNextChapter()
     {
         print("LoadNextChapter: " + gameChapters[0]);
 
         Loader.Load(gameChapters[0]);
+        SetChapterRoundHUD(currentRound);
+
         gameChapters.RemoveAt(0);
+        currentRound++;
+    }
+
+    private void SetChapterRoundHUD(int round)
+    {
+       if(round == 0)
+       {
+           RoundTextHUD.text = "START ROOM";
+       } else if (round == 15)
+       {
+           RoundTextHUD.text = "FINAL CHAPTER";
+       }
+       else
+       {
+           RoundTextHUD.text = "CHAPTER " + round;
+       }
     }
 
 }

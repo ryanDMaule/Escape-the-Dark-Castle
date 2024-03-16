@@ -19,6 +19,7 @@ public class FormatHud : MonoBehaviour
     [Header("Other")]
     [SerializeField] public InventoryHandler ih;   
     [SerializeField] public GameObject dieCollection;
+    [SerializeField] public Text ChapterCounterHUD;
 
     [SerializeField] public Button image;
     [SerializeField] public Button background;
@@ -26,6 +27,7 @@ public class FormatHud : MonoBehaviour
     public void Start()
     {
         ih.dl = MainManager.Instance.dl;
+        MainManager.Instance.RoundTextHUD = ChapterCounterHUD;
         ih.deleteUnusedTradeButtons();
 
         formatHud();

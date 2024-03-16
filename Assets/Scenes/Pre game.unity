@@ -3223,7 +3223,7 @@ GameObject:
   - component: {fileID: 757943026}
   m_Layer: 5
   m_Name: Chapter banner text
-  m_TagString: Untagged
+  m_TagString: HUD-title
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7728,6 +7728,7 @@ MonoBehaviour:
   player4_inventory: {fileID: 1256645046}
   ih: {fileID: 1316991962}
   dieCollection: {fileID: 906524359}
+  ChapterCounterHUD: {fileID: 757943026}
   image: {fileID: 1937972763}
   background: {fileID: 1586953769}
 --- !u!4 &1919166541

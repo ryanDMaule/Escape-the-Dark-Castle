@@ -33,6 +33,7 @@ TagManager:
   - Destroy
   - SoundFX
   - YOU
+  - HUD-title
   layers:
   - Default
   - TransparentFX
