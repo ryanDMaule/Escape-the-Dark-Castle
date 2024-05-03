@@ -716,6 +716,8 @@ public abstract class PlayerBase : MonoBehaviour
 
     public Sprite GetCharacterDieFace(string rollValue)
     {
+        print("roll value:" + rollValue);
+
         return rollValue switch
         {
             "0" => side_0,
