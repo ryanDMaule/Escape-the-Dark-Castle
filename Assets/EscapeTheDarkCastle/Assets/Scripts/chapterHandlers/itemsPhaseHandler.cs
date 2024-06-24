@@ -27,6 +27,8 @@ public class itemsPhaseHandler : MonoBehaviour
     [SerializeField] public GameObject YouSelection;
     [SerializeField] public Button YouContinueButton;
 
+    [SerializeField] public Scenes scenes;
+
     private int drawTotal;
 
     void Start()
@@ -227,8 +229,14 @@ public class itemsPhaseHandler : MonoBehaviour
 
     private void loadNextChapter()
     {
-        print("POOPSIES loadNextChapter");
+        print("loadNextChapter");
+
+        //STANDARD LOGIC
         YouContinueButton.onClick.AddListener(() => MainManager.Instance.LoadNextChapter());
+
+        //LOAD WHATEVER CHAPTER
+        //YouContinueButton.onClick.AddListener(() => scenes.loadVictory());
+        //YouContinueButton.onClick.AddListener(() => scenes.loadTest());
     }
 
 }

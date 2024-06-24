@@ -193,6 +193,9 @@ public class MainManager : MonoBehaviour
 
         gameChapters.RemoveAt(0);
         currentRound++;
+
+        //scenes.loadTest();
+
     }
 
     private void SetChapterRoundHUD(int round)

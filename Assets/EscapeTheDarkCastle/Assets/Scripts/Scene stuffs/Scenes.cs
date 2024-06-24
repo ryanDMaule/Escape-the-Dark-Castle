@@ -128,6 +128,11 @@ public class Scenes : MonoBehaviour
         return "Victory screen";
     }
 
+    public void loadTest()
+    {
+        Loader.Load(thePlayerOfGames);
+    }
+
     public void loadVictory()
     {
         Loader.Load(victory);
